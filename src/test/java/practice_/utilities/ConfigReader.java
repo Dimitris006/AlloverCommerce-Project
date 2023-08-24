@@ -5,18 +5,18 @@ import java.util.Properties;
 
 public class ConfigReader {
 
-    //This class reads the configuration.properties file
+    //This class reads the config.properties file
     //Create Properties instance
     private static Properties properties;
 
     static {
 
         //path of the configuration file
-        String path="configuration.properties";
+        String path="config.properties";
 
         try {
 
-            //Opening configuration.properties file using FileInputStream
+            //Opening config.properties file using FileInputStream
             FileInputStream fileInputStream = new FileInputStream(path);
             properties = new Properties();
             properties.load(fileInputStream);

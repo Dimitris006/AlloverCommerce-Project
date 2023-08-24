@@ -5,9 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import practice_.utilities.Driver;
 
-public class VendorRegister_Page {
+public class VendorRegistration_Page {
 
-    public VendorRegister_Page() {
+    public VendorRegistration_Page() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

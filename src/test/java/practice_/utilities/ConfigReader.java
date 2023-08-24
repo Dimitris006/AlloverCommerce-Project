@@ -12,7 +12,7 @@ public class ConfigReader {
     static {
 
         //path of the configuration file
-        String path="configuration.properties";
+        String path="config.properties";
 
         try {
 

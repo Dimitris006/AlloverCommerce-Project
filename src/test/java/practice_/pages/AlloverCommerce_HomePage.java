@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import practice_.utilities.Driver;
 
-public class AC_HomePage {
+public class AlloverCommerce_HomePage {
 
     public AlloverCommerce_HomePage() {
         PageFactory.initElements(Driver.getDriver(), this);

@@ -16,28 +16,34 @@ public class AlloverCommerce_AddressesPage {
     public WebElement shippingAddressAdd;
 
     @FindBy (xpath = "//*[@name='shipping_first_name']")
-    public WebElement FirstNameField;
+    public WebElement firstNameField;
 
     @FindBy (xpath = "//*[@name='shipping_last_name']")
-    public WebElement LastNameField;
+    public WebElement lastNameField;
 
     @FindBy (xpath = "//*[@name='shipping_company']")
-    public WebElement CompanyName;
+    public WebElement companyName;
 
     @FindBy (xpath = "//*[@id='select2-shipping_country-container']")
-    public WebElement CountryDropdwn;
+    public WebElement countryDropdwn;
 
     @FindBy (xpath = "//*[@name='shipping_address_1']")
-    public WebElement StreetAddress;
+    public WebElement streetAddress;
 
     @FindBy (xpath = "//*[@name='shipping_city']")
-    public WebElement CityAddress;
+    public WebElement cityName;
 
     @FindBy (xpath = "//*[@id='select2-shipping_state-container']")
-    public WebElement StateDropdown;
+    public WebElement stateDropdown;
+
+    @FindBy (xpath = "//*[@name='shipping_postcode']")
+    public WebElement zipCode;
 
     @FindBy (xpath = "//*[@name='save_address']")
-    public WebElement SaveAddressButton;
+    public WebElement saveAddressButton;
+
+    @FindBy (xpath = "//*[@class = 'fas fa-check']")
+    public WebElement succesfullAdd;
 
 
 

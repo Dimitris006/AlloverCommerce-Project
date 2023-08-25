@@ -48,4 +48,7 @@ public class AlloverCommerce_MyAccount_Page {
 
     @FindBy(xpath = "//*[@class='icon-box-icon icon-addresses']")
     public WebElement addressesLinkIcon;
+
+    @FindBy (xpath = "//p[.='Logout']")
+    public WebElement logoutButton;
 }

@@ -20,8 +20,8 @@ public class US07_TC01 {
         Driver.getDriver().get("https://allovercommerce.com/");
 
         //click on register link
-        alloverCommerceHomePage.register_Link.click();
-
+        //alloverCommerceHomePage.register_Link.click();
+          alloverCommerceHomePage.register_Link.click();
         //wait util will wait until the WebElement is visible
         //The wait will be for 15s
         Assert.assertTrue(
@@ -47,8 +47,8 @@ public class US07_TC01 {
         alloverCommerceHomePage.signUp_Button.click();
 
         //check sign out shows
+       // WebElement signOut = Driver.getDriver().findElement(By.cssSelector("a[href=\"https://allovercommerce.com/my-account-2/customer-logout/\"]"));
         WebElement signOut = Driver.getDriver().findElement(By.cssSelector("a[href=\"https://allovercommerce.com/my-account-2/customer-logout/\"]"));
-
         //check if sign out link is there
         Assert.assertTrue(
                 WaitUtils.waitForVisibility(signOut, 15).isDisplayed()

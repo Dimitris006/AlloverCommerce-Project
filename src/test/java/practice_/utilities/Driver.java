@@ -30,7 +30,7 @@ public class Driver {
         return driverThreadLocal.get();
     }
 
-    //    Creating and instantiating the WebDriver instance
+    //   Creating and instantiating the WebDriver instance
 
     private static void initializeDriver() {
         switch (ConfigReader.getProperty("browser")) {
@@ -63,7 +63,7 @@ public class Driver {
 
         //driver -> getDriver()
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        getDriver().manage().window().maximize();
+        //getDriver().manage().window().maximize();
 
     }
 

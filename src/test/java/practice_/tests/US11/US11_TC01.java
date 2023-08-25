@@ -20,8 +20,6 @@ public class US11_TC01 {
         //Go to Homepage
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
 
-        //Verify My Account is displayed
-
         //Create allovercommerce homepage and vendor registration object
         alloverCommerceHomePage = new AlloverCommerce_HomePage();
         vendorRegistrationPage = new VendorRegistration_Page();

@@ -43,7 +43,7 @@ public class JSUtils {
 
      */
 
-    public static void scrollAllTheWayUpJS(){
+    public static void scrollAllTheWayUpJS(WebElement addressesLinkIcon){
 
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 

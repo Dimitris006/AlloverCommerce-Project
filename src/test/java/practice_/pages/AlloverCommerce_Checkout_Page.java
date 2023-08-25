@@ -5,8 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import practice_.utilities.Driver;
 
-public class Checkout_Page {
-    public Checkout_Page() {
+public class AlloverCommerce_Checkout_Page {
+    public AlloverCommerce_Checkout_Page() {
         PageFactory.initElements(Driver.getDriver(), this);}
 
     @FindBy (xpath = "//div[@id='customer_details'] //input[@name='billing_first_name']")

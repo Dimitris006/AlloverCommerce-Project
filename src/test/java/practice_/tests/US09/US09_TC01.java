@@ -7,7 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_HomePage;
-import practice_.pages.VendorRegistration_Page;
+import practice_.pages.AlloverCommerce_VendorRegistration_Page;
+
 import practice_.utilities.ConfigReader;
 import practice_.utilities.Driver;
 import practice_.utilities.WaitUtils;
@@ -17,7 +18,7 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class US09_TC01 {
    AlloverCommerce_HomePage alloverCommerceHomePage;
-   VendorRegistration_Page vendorRegistrationPage;
+   AlloverCommerce_VendorRegistration_Page alloverCommerceVendorRegistrationPage;
    @Test
     public void vendorSignUp(){
        // Go to home page
@@ -25,7 +26,7 @@ public class US09_TC01 {
 
        // Creating page Object
        AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
-       VendorRegistration_Page vendorRegistrationPage = new VendorRegistration_Page();
+       AlloverCommerce_VendorRegistration_Page vendorRegistrationPage = new AlloverCommerce_VendorRegistration_Page();
 
 
        //Click on Register link

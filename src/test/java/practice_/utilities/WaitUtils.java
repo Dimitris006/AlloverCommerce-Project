@@ -123,6 +123,9 @@ public class WaitUtils {
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
 
     }
+
+    public static void waitForClickablility(WebElement addressesLinkIcon) {
+    }
 }
 
 

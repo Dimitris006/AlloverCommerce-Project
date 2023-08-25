@@ -5,6 +5,9 @@ import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
 import practice_.pages.AlloverCommerce_VendorRegistration_Page;
 import practice_.utilities.*;
+import practice_.utilities.ConfigReader;
+import practice_.utilities.Driver;
+import practice_.utilities.WaitUtils;
 
 import static org.testng.AssertJUnit.assertTrue;
 

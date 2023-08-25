@@ -24,6 +24,20 @@ public class AlloverCommerce_AddressesPage {
     @FindBy (xpath = "//*[@name='shipping_company']")
     public WebElement CompanyName;
 
+    @FindBy (xpath = "//*[@id='select2-shipping_country-container']")
+    public WebElement CountryDropdwn;
+
+    @FindBy (xpath = "//*[@name='shipping_address_1']")
+    public WebElement StreetAddress;
+
+    @FindBy (xpath = "//*[@name='shipping_city']")
+    public WebElement CityAddress;
+
+    @FindBy (xpath = "//*[@id='select2-shipping_state-container']")
+    public WebElement StateDropdown;
+
+    @FindBy (xpath = "//*[@name='save_address']")
+    public WebElement SaveAddressButton;
 
 
 

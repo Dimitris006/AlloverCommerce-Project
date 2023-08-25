@@ -1,10 +1,9 @@
 package practice_.tests.US04;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_AddressesPage;
 import practice_.pages.AlloverCommerce_HomePage;
-import practice_.pages.MyAccount_Page;
+import practice_.pages.AlloverCommerce_MyAccount_Page;
 import practice_.utilities.ConfigReader;
 import practice_.utilities.Driver;
 import practice_.utilities.JSUtils;
@@ -13,7 +12,7 @@ import practice_.utilities.WaitUtils;
 public class US04_TC01 {
 
     AlloverCommerce_HomePage alloverCommerceHomePage;
-    MyAccount_Page myAccountPage;
+    AlloverCommerce_MyAccount_Page myAccountPage;
     AlloverCommerce_AddressesPage alloverCommerceAddressesPage;
 
     @Test
@@ -40,7 +39,7 @@ public class US04_TC01 {
         alloverCommerceHomePage.SignOut_Link.click();
 
         //Click on Addresses Link
-        myAccountPage = new MyAccount_Page();
+        myAccountPage = new AlloverCommerce_MyAccount_Page();
         JSUtils.scrollIntoViewJS(myAccountPage.addressesLinkIcon);
         WaitUtils.waitForClickablility(myAccountPage.addressesLinkIcon);
         myAccountPage.addressesLinkIcon.click();

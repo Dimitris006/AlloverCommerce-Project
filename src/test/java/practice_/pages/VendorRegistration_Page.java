@@ -38,4 +38,7 @@ public class VendorRegistration_Page {
 
     @FindBy(xpath = "(//a[.='My Account'])[1]")
     public WebElement myAccountLink;
+
+    @FindBy(xpath = "//div[@id=\"wcfm_membership_registration_form_expander\"]")
+    public WebElement verificationCodeMessage;
 }

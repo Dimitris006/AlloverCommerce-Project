@@ -5,9 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import practice_.utilities.Driver;
 
-public class MyAccount_Page {
+public class AlloverCommerce_MyAccount_Page {
 
-    public MyAccount_Page() {
+    public AlloverCommerce_MyAccount_Page() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -42,6 +42,7 @@ public class MyAccount_Page {
     @FindBy(xpath = "//a[.='Followings']")
     public WebElement followingsLink;
 
+    //Sign Out Link
     @FindBy(xpath = "//a[.='Logout']")
     public WebElement logoutLink;
 }

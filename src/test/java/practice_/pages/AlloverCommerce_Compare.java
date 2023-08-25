@@ -21,7 +21,7 @@ public class AlloverCommerce_Compare {
     public WebElement productComparePopup;
 
     //Use the <main> element to click on -> closes the popup
-    @FindBy(css = "#main")
+    @FindBy(css = ".compare-popup-overlay")
     public WebElement hideComparePopup;
 
     @FindBy(css = "div.compare-popup a[href*='compare']")
@@ -30,34 +30,35 @@ public class AlloverCommerce_Compare {
     @FindBy(css = "a.remove_from_compare")
     public WebElement removeFromComparePage;
 
-    @FindBy(css = "[data-id='5cf38cb']")
+    @FindBy(css = "h3 > a[href='/product-category/kitchen-2']")
     public WebElement kitchenImagesSection;
 
     @FindBy(css = "[data-id='37af579c']")
     public WebElement popularDepartmentImages;
 
-    //Returns a list of images for the Kitchen section
-    public List<WebElement> hoverKitchenImages = Driver.getDriver().findElements(By.cssSelector(
-            "div[data-id='5cf38cb'] img:nth-of-type(1)"
-    )) ;
+    @FindBy(css = "div[data-id='5cf38cb'] img:nth-of-type(1)")
+    List<WebElement> hoverKitchenImages;
 
-    //Returns a list of compare icons for the Kitchen section
-    public List<WebElement> kitchenCompareIcons = Driver.getDriver().findElements(By.cssSelector(
-            "[data-id='5cf38cb'] a[title='Compare']"
-    ));
 
-    //Remove items from the compare popup
-    public List<WebElement> removeFromComparePopup = Driver.getDriver().findElements(By.cssSelector(
-            "div.compare-popup a.remove_from_compare"
-    ));
+    //Lists can cause stale errors in Page Object Model
 
-    //A list with all the images found in the Department section
-    public List<WebElement> departmentImages = Driver.getDriver().findElements(By.cssSelector(
-            "[data-id='16e6c7'] img:nth-of-type(1)"
-    ));
+//    //Returns a list of images for the Kitchen section
 
-    //Returns a list of compare icons for the Department section
-    public List<WebElement> departmentCompareIcons = Driver.getDriver().findElements(By.cssSelector(
-            "[data-id='16e6c7'] a[title='Compare']"
-    ));
+
+
+//
+//    //Remove items from the compare popup
+//    public static List<WebElement> removeFromComparePopup = Driver.getDriver().findElements(By.cssSelector(
+//            "div.compare-popup a.remove_from_compare"
+//    ));
+//
+//    //A list with all the images found in the Department section
+//    public static List<WebElement> departmentImages = Driver.getDriver().findElements(By.cssSelector(
+//            "[data-id='16e6c7'] img:nth-of-type(1)"
+//    ));
+//
+//    //Returns a list of compare icons for the Department section
+//    public static List<WebElement> departmentCompareIcons = Driver.getDriver().findElements(By.cssSelector(
+//            "[data-id='16e6c7'] a[title='Compare']"
+//    ));
 }

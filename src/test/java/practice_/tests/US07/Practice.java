@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_HomePage;
+import practice_.utilities.ConfigReader;
 import practice_.utilities.Driver;
 import practice_.utilities.WaitUtils;
 
@@ -18,7 +19,7 @@ public class Practice {
         AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
 
         //navigate to URL
-        Driver.getDriver().get("https://allovercommerce.com/");
+        Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
 
         //click on register link
         alloverCommerceHomePage.register_Link.click();

@@ -1,57 +1,82 @@
 package practice_.tests.US07;
 
-
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_Compare;
 import practice_.pages.AlloverCommerce_HomePage;
-import practice_.utilities.ActionsUtils;
-import practice_.utilities.ConfigReader;
-import practice_.utilities.Driver;
-import practice_.utilities.WaitUtils;
+import practice_.utilities.*;
 
-import javax.swing.*;
+import java.util.List;
 
 public class US07_TC {
+
     @Test
-    public void tc01() {
-        AlloverCommerce_Compare alloverCommerce_compare = new AlloverCommerce_Compare();
-        AlloverCommerce_HomePage alloverCommerce_HomePage = new AlloverCommerce_HomePage();
+    public void test01() {
+        //create object for pages
+        AlloverCommerce_Compare alloverCommerceCompare = new AlloverCommerce_Compare();
+        AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
+
+
+        //navigate to URL
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
 
-        //click on sign in link to show sign in popup
-        alloverCommerce_HomePage.signIn_Link.click();
+        //click sign in link
+        alloverCommerceHomePage.signIn_Link.click();
 
-        //verify that sign in tab shows + fill in all credentials
-        try{
-            //wait for popup to show
-            WaitUtils.waitForVisibility(alloverCommerce_HomePage.signIn_Tab, 5);
+        //wait for popup to show with sign in tab displayed
+        WaitUtils.waitForVisibility(alloverCommerceHomePage.signIn_Tab, 3);
+        Assert.assertTrue(alloverCommerceHomePage.signIn_Tab.isDisplayed());
 
-            //Then verify signIn tab shows
-            Assert.assertTrue(alloverCommerce_HomePage.signIn_Tab.isDisplayed());
+        //fill in customer logIn credentials
+        alloverCommerceHomePage.signIn_Username.sendKeys(
+                ConfigReader.getProperty("customer_email")
+        );
+        alloverCommerceHomePage.signIn_Password.sendKeys(
+                ConfigReader.getProperty("customer_password")
+        );
 
-            //then fill in credentials
-            alloverCommerce_HomePage.signIn_Username.sendKeys(ConfigReader.getProperty("customer_email"));
-            alloverCommerce_HomePage.signIn_Password.sendKeys(ConfigReader.getProperty("customer_password"));
+        //signIn user
+        alloverCommerceHomePage.signIn_Button.click();
 
-            //sign in
-            alloverCommerce_HomePage.signIn_Button.click();
+        //verify signIn is successful
+        Assert.assertTrue(alloverCommerceHomePage.signOut_NavLink.isDisplayed());
 
+//        Scroll down to kitchen products
+        JSUtils.scrollIntoViewJS(alloverCommerceCompare.kitchenImagesSection);
+        WaitUtils.waitFor(3);
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        //Locate all images in Kitchen section
+         List<WebElement> hoverKitchenImages = Driver.getDriver().findElements(By.cssSelector(
+                "div[data-id='5cf38cb'] img:nth-of-type(1)"
+        )) ;
 
-        //Scroll down to Kitchen products
-        ActionsUtils.scrollToElement(alloverCommerce_compare.kitchenImagesSection);
+        //    //Returns a list of compare icons for the Kitchen section
+        List<WebElement> kitchenCompareIcons = Driver.getDriver().findElements(By.cssSelector(
+                "[data-id='5cf38cb'] a[title='Compare']"
+        ));
 
-        for (int i = 0; i <= 4; i++) {
+         //loop and hover each element + click on each compare icon for first 4 images
+        for (int i = 0; i <= 3; i++) {
             ActionsUtils.hoverOverOnElementActions(
-                    alloverCommerce_compare.hoverKitchenImages.get(i)
+                    hoverKitchenImages.get(i)
             );
+            WaitUtils.waitFor(2);
+            kitchenCompareIcons.get(i).click();
 
-            alloverCommerce_compare.kitchenCompareIcons.get(i).click();
+            WaitUtils.waitFor(2);
+            alloverCommerceCompare.hideComparePopup.click();
         }
+    }
+
+    @Test
+    public void test02() {
+        //create object for pages
+        AlloverCommerce_Compare alloverCommerceCompare = new AlloverCommerce_Compare();
+        AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
+
+
     }
 }

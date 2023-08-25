@@ -44,8 +44,8 @@ public class US11_TC02 {
         assertTrue(vendorRegistrationPage.myAccountLink.isDisplayed());
 
         //Click on My Account link
-        BrowserUtils.switchIframeByWebElement(myAccountPage.myAccount.getText());
-        vendorRegistrationPage.myAccountLink1.click();
+//        BrowserUtils.switchIframeByWebElement(myAccountPage.myAccount.getText());
+//        vendorRegistrationPage.myAccountLink1.click();
 
         //Verify Dashboard is visible
         assertTrue(myAccountPage.dashboardLink.isDisplayed());

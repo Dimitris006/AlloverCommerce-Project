@@ -30,6 +30,12 @@ public class AlloverCommerce_Compare {
     @FindBy(css = "a.remove_from_compare")
     public WebElement removeFromComparePage;
 
+    @FindBy(css = "[data-id='5cf38cb']")
+    public WebElement kitchenImagesSection;
+
+    @FindBy(css = "[data-id='37af579c']")
+    public WebElement popularDepartmentImages;
+
     //Returns a list of images for the Kitchen section
     public List<WebElement> hoverKitchenImages = Driver.getDriver().findElements(By.cssSelector(
             "div[data-id='5cf38cb'] img:nth-of-type(1)"

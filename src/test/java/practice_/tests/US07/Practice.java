@@ -11,7 +11,7 @@ import practice_.utilities.WaitUtils;
 
 public class Practice {
 
-    @Test @Ignore
+    @Test
     public void practice() {
 
         //create object for pages

@@ -4,10 +4,7 @@ import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.MyAccount_Page;
 import practice_.pages.VendorRegistration_Page;
-import practice_.utilities.BrowserUtils;
-import practice_.utilities.ConfigReader;
-import practice_.utilities.Driver;
-import practice_.utilities.WaitUtils;
+import practice_.utilities.*;
 
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -44,8 +41,8 @@ public class US11_TC02 {
         assertTrue(vendorRegistrationPage.myAccountLink.isDisplayed());
 
         //Click on My Account link
-        //BrowserUtils.switchIframeByWebElement(myAccountPage.myAccount.getText());
-//        vendorRegistrationPage.myAccountLink1.click();
+        JSUtils.scrollIntoViewJS(vendorRegistrationPage.myAccountLink);
+        WaitUtils.waitForClickablility(vendorRegistrationPage.myAccountLink, 2).click();
 
         //Verify Dashboard is visible
         assertTrue(myAccountPage.dashboardLink.isDisplayed());

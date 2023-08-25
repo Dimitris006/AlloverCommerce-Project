@@ -36,9 +36,6 @@ public class VendorRegistration_Page {
     @FindBy(xpath = "//a[.='Let's go!'])")
     public WebElement letsGoButton;
 
-    @FindBy(xpath = "(//a[.='My Account'])[1]")
-    public WebElement myAccountLink;
-
     @FindBy(linkText = "My Account")
-    public WebElement myAccountLink1;
+    public WebElement myAccountLink;
 }

@@ -36,7 +36,7 @@ public class US04_TC01 {
 
         //Click on Sign Out Link
         WaitUtils.waitFor(5);
-        alloverCommerceHomePage.signOut_Link.click();
+        alloverCommerceHomePage.SignOut_Link.click();
 
         //Click on Addresses Link
         myAccountPage = new AlloverCommerce_MyAccount_Page();

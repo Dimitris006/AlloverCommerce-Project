@@ -38,4 +38,7 @@ public class VendorRegistration_Page {
 
     @FindBy(xpath = "(//a[.='My Account'])[1]")
     public WebElement myAccountLink;
+
+    @FindBy(linkText = "My Account")
+    public WebElement myAccountLink1;
 }

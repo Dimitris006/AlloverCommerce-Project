@@ -48,6 +48,9 @@ public class US04_TC01 {
         alloverCommerceAddressesPage =new AlloverCommerce_AddressesPage();
         alloverCommerceAddressesPage.shippingAddressAdd.click();
 
+        //Insertion of Details
+        alloverCommerceAddressesPage.FirstNameField.sendKeys();
+
 
 
 

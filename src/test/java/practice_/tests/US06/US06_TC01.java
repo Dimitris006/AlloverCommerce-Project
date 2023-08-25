@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import practice_.pages.AlloverCommerce_Checkout_Page;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_SearchPage;
 import practice_.utilities.Driver;
@@ -14,6 +15,7 @@ public class US06_TC01 {
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_SearchPage alloverCommerceSearchPage;
    // AlloverCommerce_Checkout_Page alloverCommerce_checkout_page;
+    AlloverCommerce_Checkout_Page alloverCommerce_checkout_page;
 
     @Test
     public void practice() {

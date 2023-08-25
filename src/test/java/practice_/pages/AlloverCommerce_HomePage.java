@@ -64,10 +64,15 @@ public class AlloverCommerce_HomePage {
     @FindBy(xpath = "//div[@id='customer_login']//a[.='Become a Vendor']")
     public WebElement signUp_BecomeVendorLink;
 
-   @FindBy(name = "s")
+
+    //Sign Out Link
+    @FindBy(xpath = "//span[.='Sign Out']")
+    public WebElement signOut_Link;
+
+    @FindBy(name = "s")
     public WebElement searchBox;
 
-   @FindBy( xpath = "//*[@id=\"header\"]/div/div/div/div/div/div[3]/div/div/form/button")
-    public  WebElement searchButton;
+    @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div/div/div[3]/div/div/form/button")
+    public WebElement searchButton;
 }
 

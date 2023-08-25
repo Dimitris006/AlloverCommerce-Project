@@ -1,7 +1,5 @@
 package practice_.tests.US06;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_Checkout_Page;
@@ -11,19 +9,22 @@ import practice_.utilities.Driver;
 import practice_.utilities.JSUtils;
 import practice_.utilities.WaitUtils;
 
+import static org.testng.AssertJUnit.assertTrue;
+
 public class US06_TC01 {
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_SearchPage alloverCommerceSearchPage;
-   // AlloverCommerce_Checkout_Page alloverCommerce_checkout_page;
-    AlloverCommerce_Checkout_Page alloverCommerce_checkout_page;
+    AlloverCommerce_Checkout_Page alloverCommerceCheckoutPage;
+
 
     @Test
     public void practice() {
 
-        //create object for pages
+        //create objects for pages
         AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
         AlloverCommerce_SearchPage alloverCommerceSearchPage = new AlloverCommerce_SearchPage();
-
+        //AlloverCommerce_Checkout_Page alloverCommerceCheckoutPage = new AlloverCommerce_Checkout_Page();
+        AlloverCommerce_Checkout_Page alloverCommerceCheckoutPage = new AlloverCommerce_Checkout_Page();
         //navigate to URL
         Driver.getDriver().get("https://allovercommerce.com/");
 
@@ -36,14 +37,13 @@ public class US06_TC01 {
         );
 
         //enter the product name in the search box
-//        String product name = "Iphone";
+        //String product name = "Iphone";
         alloverCommerceHomePage.searchBox.sendKeys("Iphone");
 
         //click on the search button on the right side
-
         alloverCommerceHomePage.searchButton.click();
+
         // the page was changed
-         //AlloverCommerce_SearchPage alloverCommerceSearchPage = new AlloverCommerce_SearchPage();
 
         JSUtils.scrollIntoViewJS(alloverCommerceSearchPage.lovely_Iphone);
         WaitUtils.waitFor(3);
@@ -83,70 +83,34 @@ public class US06_TC01 {
 
         //User should be able to see the billing address in order to purchase the products
 
-        JSUtils.scrollIntoViewJS(alloverCommerceSearchPage.lovely_Iphone);
-        WaitUtils.waitFor(3);
+        WaitUtils.waitFor(5);
 
-        alloverCommerceSearchPage.PROCEED_TO_CHECKOUT_button.click();
-//
+       alloverCommerceSearchPage.PROCEED_TO_CHECKOUT_button.click();
+
 //        User should be able to see and choose payment options
 
-//        //password
-//        alloverCommerceHomePage.signUp_Password.sendKeys(password);
-//
-//        //checkbox
-//        alloverCommerceHomePage.signUp_PrivacyPolicyCheckbox.click();
-//
-//        //sign up
-//        alloverCommerceHomePage.signUp_Button.click();
-//
-//        //check sign out shows
-//        WebElement signOut = Driver.getDriver().findElement(By.cssSelector("a[href=\"https://allovercommerce.com/my-account-2/customer-logout/\"]"));
-//
-//        //check if sign out link is there
-//        Assert.assertTrue(
-//                WaitUtils.waitForVisibility(signOut, 15).isDisplayed()
-//        );
-//
-//        //sign out account here
-//        signOut.click();
-//
-//        //locate sign out link again on page
-//        WebElement signOutLink = Driver.getDriver().findElement(By.xpath("//a[.='Log out']"));
-//
-//        //sign out confirmation done here
-//        signOutLink.click();
-//
-//        //use wait. Check if sign in button is showing
-//        Assert.assertTrue(
-//                WaitUtils.waitForVisibility(alloverCommerceHomePage.signIn_Link, 15).isDisplayed()
-//        );
-//
-//        //click sign in link
-//        alloverCommerceHomePage.signIn_Link.click();
-//
-//        //verify that pop up is showing by locating sign in
-//        Assert.assertTrue(
-//                WaitUtils.waitForVisibility(alloverCommerceHomePage.signIn_Button, 15).isDisplayed()
-//        );
-//
-//        //fill in username
-//        alloverCommerceHomePage.signIn_Username.sendKeys(username);
-//
-//        //fill in password
-//        alloverCommerceHomePage.signIn_Password.sendKeys(password);
-//
-//        //click signIn button
-//        alloverCommerceHomePage.signIn_Button.click();
-//
-//        //wait for sign in + verify that 'My Account' isDisplayed
-//        WebElement myAccountText = Driver.getDriver().findElement(By.xpath("//h2[.='My Account']"));
-//        Assert.assertTrue(
-//                WaitUtils.waitForVisibility(myAccountText, 15).isDisplayed()
-//        );
-//
-//        //Complete Test
-//
-//        Driver.closeDriver();
+       JSUtils.scrollIntoViewJS(alloverCommerceCheckoutPage.Pay_at_the_door);
+        WaitUtils.waitFor(5);
+
+
+       alloverCommerceCheckoutPage.Pay_at_the_door.click();;
+        Assert.assertTrue(WaitUtils.waitForVisibility(alloverCommerceCheckoutPage.Pay_at_the_door, 15).isDisplayed());
+        WaitUtils.waitFor(5);
+        alloverCommerceCheckoutPage.Wire_transfer_EFT.click();
+
+        // User should be able to complete shopping process
+        //Click on the PLACE ORDER button
+
+        JSUtils.scrollIntoViewJS(alloverCommerceCheckoutPage.checkout_Place_Order_Button);
+        WaitUtils.waitFor(5);
+          // the page was changed
+        alloverCommerceCheckoutPage.checkout_Place_Order_Button.click();
+       // alloverCommerceCheckoutPage2.Wire_transfer_EFT.click();
+
+
+        //Complete Test
+
+        Driver.closeDriver();
     }
 
 }

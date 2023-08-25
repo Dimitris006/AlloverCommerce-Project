@@ -36,35 +36,10 @@ public class AlloverCommerce_SearchPage {
 
     @FindBy(xpath = "//*[@id=\"main\"]/div/div/div/div/div/div[2]/div[1]/form/table/tbody/tr[2]/td/div[1]/button[2]")
     public WebElement UPDATE_CART;
-    //*[@id="main"]/div/div/div/div/div/div[2]/div[2]/div/div/div/div/a
+
     @FindBy(xpath = "//*[@id=\"main\"]/div/div/div/div/div/div[2]/div[2]/div/div/div/div/a")
       public WebElement PROCEED_TO_CHECKOUT_button;
-//
-//    //SIGN UP
-//    @FindBy(xpath = "//div[@id='customer_login']//a[.='Sign Up']")
-//    public WebElement signUp_Tab;
-//
-//    @FindBy(xpath = "//div[@id='customer_login']//input[@id='reg_username']")
-//    public WebElement signUp_Username;
-//
-//    @FindBy(xpath = "//div[@id='customer_login']//input[@id='reg_email']")
-//    public WebElement signUp_Email;
-//
-//    @FindBy(xpath = "//div[@id='customer_login']//input[@id='reg_password']")
-//    public WebElement signUp_Password;
-//
-//    @FindBy(xpath = "//div[@id='customer_login']//a[.='Signup as a vendor?']")
-//    public WebElement signUp_AsVendorLink;
-//
-//    @FindBy(xpath = "//div[@id='customer_login']//input[@id='register-policy']")
-//    public WebElement signUp_PrivacyPolicyCheckbox;
-//
-//    @FindBy(xpath = "//div[@id='customer_login']//button[@value='Sign Up']")
-//    public WebElement signUp_Button;
-//
-//    @FindBy(xpath = "//div[@id='customer_login']//a[.='Become a Vendor']")
-//    public WebElement signUp_BecomeVendorLink;
-//
-//   @FindBy(name = "s")
-//    public WebElement searchBox;
+
+
+
 }

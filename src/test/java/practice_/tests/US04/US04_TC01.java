@@ -4,17 +4,16 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_AddressesPage;
 import practice_.pages.AlloverCommerce_HomePage;
-import practice_.pages.AlloverCommerce_MainPage;
-import practice_.pages.AlloverCommerce_MyAccountPage;
+import practice_.pages.MyAccount_Page;
 import practice_.utilities.ConfigReader;
 import practice_.utilities.Driver;
+import practice_.utilities.JSUtils;
 import practice_.utilities.WaitUtils;
 
 public class US04_TC01 {
 
     AlloverCommerce_HomePage alloverCommerceHomePage;
-    AlloverCommerce_MainPage alloverCommerceMainPage;
-    AlloverCommerce_MyAccountPage alloverCommerceMyAccountPage;
+    MyAccount_Page myAccountPage;
     AlloverCommerce_AddressesPage alloverCommerceAddressesPage;
 
     @Test
@@ -38,13 +37,21 @@ public class US04_TC01 {
 
         //Click on Sign Out Link
         WaitUtils.waitFor(5);
-        alloverCommerceMainPage.signOut_Link.click();
+        alloverCommerceHomePage.SignOut_Link.click();
 
         //Click on Addresses Link
-        alloverCommerceMyAccountPage.addresses.click();
+        myAccountPage = new MyAccount_Page();
+        JSUtils.scrollIntoViewJS(myAccountPage.addressesLinkIcon);
+        WaitUtils.waitForClickablility(myAccountPage.addressesLinkIcon);
+        myAccountPage.addressesLinkIcon.click();
 
         //Click on Add Link at Shipping Address
+        alloverCommerceAddressesPage =new AlloverCommerce_AddressesPage();
         alloverCommerceAddressesPage.shippingAddressAdd.click();
+
+
+
+
 
 
 

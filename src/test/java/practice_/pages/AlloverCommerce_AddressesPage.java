@@ -14,4 +14,18 @@ public class AlloverCommerce_AddressesPage {
     //Sign Out Link
     @FindBy (xpath = "//*[@href='https://allovercommerce.com/my-account-2/edit-address/shipping/']")
     public WebElement shippingAddressAdd;
+
+    @FindBy (xpath = "//*[@name='shipping_first_name']")
+    public WebElement FirstNameField;
+
+    @FindBy (xpath = "//*[@name='shipping_last_name']")
+    public WebElement LastNameField;
+
+    @FindBy (xpath = "//*[@name='shipping_company']")
+    public WebElement CompanyName;
+
+
+
+
+
 }

@@ -65,14 +65,23 @@ public class AlloverCommerce_HomePage {
     public WebElement signUp_BecomeVendorLink;
 
 
+    @FindBy(linkText = "My Account")
+    public WebElement myAccountLink;
+
+
     //Sign Out Link
     @FindBy(xpath = "//span[.='Sign Out']")
     public WebElement signOut_Link;
+
 
     @FindBy(name = "s")
     public WebElement searchBox;
 
     @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div/div/div[3]/div/div/form/button")
     public WebElement searchButton;
+
+    @FindBy (css = "a.logout")
+    public WebElement signOut_NavLink;
+
 }
 

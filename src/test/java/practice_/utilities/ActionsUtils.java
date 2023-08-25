@@ -19,6 +19,10 @@ public class ActionsUtils {
         //        Actions actions = new Actions(driver);
         new Actions(Driver.getDriver()).moveToElement(element).perform();
     }
+    // Scrolls page to the given element
+    public static void scrollToElement(WebElement element) {
+        new Actions(Driver.getDriver()).scrollToElement(element).perform();
+    }
     //    ACTIONS_SCROLL_DOWN
     public static void scrollDownActions() {
         //        Actions actions = new Actions(driver);

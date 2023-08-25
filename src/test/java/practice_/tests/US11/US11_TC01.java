@@ -2,7 +2,7 @@ package practice_.tests.US11;
 
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_HomePage;
-import practice_.pages.VendorRegistration_Page;
+import practice_.pages.AlloverCommerce_VendorRegistration_Page;
 import practice_.utilities.ConfigReader;
 import practice_.utilities.Driver;
 import practice_.utilities.WaitUtils;
@@ -12,7 +12,7 @@ import static org.testng.AssertJUnit.assertTrue;
 public class US11_TC01 {
 
     AlloverCommerce_HomePage alloverCommerceHomePage;
-    VendorRegistration_Page vendorRegistrationPage;
+    AlloverCommerce_VendorRegistration_Page vendorRegistrationPage;
 
     @Test
     public void vendorSignIn(){
@@ -20,11 +20,9 @@ public class US11_TC01 {
         //Go to Homepage
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
 
-        //Verify My Account is displayed
-
         //Create allovercommerce homepage and vendor registration object
         alloverCommerceHomePage = new AlloverCommerce_HomePage();
-        vendorRegistrationPage = new VendorRegistration_Page();
+        vendorRegistrationPage = new AlloverCommerce_VendorRegistration_Page();
 
         //Click on Sign In Link
         alloverCommerceHomePage.signIn_Link.click();

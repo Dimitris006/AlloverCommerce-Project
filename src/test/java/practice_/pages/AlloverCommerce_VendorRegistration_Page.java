@@ -5,9 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import practice_.utilities.Driver;
 
-public class VendorRegistration_Page {
+public class AlloverCommerce_VendorRegistration_Page {
 
-    public VendorRegistration_Page() {
+    public AlloverCommerce_VendorRegistration_Page() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -36,6 +36,6 @@ public class VendorRegistration_Page {
     @FindBy(xpath = "//a[.='Let's go!'])")
     public WebElement letsGoButton;
 
-    @FindBy(xpath = "(//a[.='My Account'])[1]")
+    @FindBy(linkText = "My Account")
     public WebElement myAccountLink;
 }

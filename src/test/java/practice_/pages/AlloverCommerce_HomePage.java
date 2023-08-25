@@ -70,4 +70,6 @@ public class AlloverCommerce_HomePage {
     @FindBy (xpath = "//span[.='Sign Out']")
     public WebElement signOut_Link;
 
+    @FindBy (css = "a.logout")
+    public WebElement signOut_NavLink;
 }

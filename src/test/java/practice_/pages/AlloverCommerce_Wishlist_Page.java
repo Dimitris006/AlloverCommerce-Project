@@ -5,8 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import practice_.utilities.Driver;
 
-public class Wishlist_Page {
-    public Wishlist_Page() {PageFactory.initElements(Driver.getDriver(), this);}
+public class AlloverCommerce_Wishlist_Page {
+    public AlloverCommerce_Wishlist_Page() {PageFactory.initElements(Driver.getDriver(), this);}
 
     @FindBy(xpath = "//div[@class='product-details']//a[.='Automatic Crusher']")
     public WebElement homepage_Automatic_Crusher_Item;

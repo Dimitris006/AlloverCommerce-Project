@@ -2,9 +2,8 @@ package practice_.tests.US11;
 
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_HomePage;
-import practice_.pages.MyAccount_Page;
-import practice_.pages.VendorRegistration_Page;
-import practice_.utilities.BrowserUtils;
+import practice_.pages.AlloverCommerce_MyAccount_Page;
+import practice_.pages.AlloverCommerce_VendorRegistration_Page;
 import practice_.utilities.ConfigReader;
 import practice_.utilities.Driver;
 import practice_.utilities.WaitUtils;
@@ -16,16 +15,16 @@ public class US11_TC02 {
     @Test
     public void elementsVisibilityOnMyAccount(){
         AlloverCommerce_HomePage alloverCommerceHomePage;
-        VendorRegistration_Page vendorRegistrationPage;
-        MyAccount_Page myAccountPage;
+        AlloverCommerce_VendorRegistration_Page vendorRegistrationPage;
+        AlloverCommerce_MyAccount_Page myAccountPage;
 
         //Go to Homepage
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
 
         //Create allover commerce, vendor registration and my account objects
         alloverCommerceHomePage = new AlloverCommerce_HomePage();
-        vendorRegistrationPage = new VendorRegistration_Page();
-        myAccountPage = new MyAccount_Page();
+        vendorRegistrationPage = new AlloverCommerce_VendorRegistration_Page();
+        myAccountPage = new AlloverCommerce_MyAccount_Page();
 
         //Click on Sign In Link
         alloverCommerceHomePage.signIn_Link.click();

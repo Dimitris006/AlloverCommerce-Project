@@ -63,4 +63,5 @@ public class AlloverCommerce_HomePage {
 
     @FindBy(xpath = "//div[@id='customer_login']//a[.='Become a Vendor']")
     public WebElement signUp_BecomeVendorLink;
+
 }

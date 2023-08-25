@@ -7,7 +7,6 @@ import practice_.utilities.*;
 
 public class US01_TC01 {
         AlloverCommerce_HomePage alloverCommerceHomePage;
-        MyAccount_Page myAccountPage;
 
         @Test
         public void appLoginTest() {

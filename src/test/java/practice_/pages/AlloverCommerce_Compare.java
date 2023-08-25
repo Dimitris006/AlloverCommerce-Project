@@ -39,26 +39,4 @@ public class AlloverCommerce_Compare {
     @FindBy(css = "div[data-id='5cf38cb'] img:nth-of-type(1)")
     List<WebElement> hoverKitchenImages;
 
-
-    //Lists can cause stale errors in Page Object Model
-
-//    //Returns a list of images for the Kitchen section
-
-
-
-//
-//    //Remove items from the compare popup
-//    public static List<WebElement> removeFromComparePopup = Driver.getDriver().findElements(By.cssSelector(
-//            "div.compare-popup a.remove_from_compare"
-//    ));
-//
-//    //A list with all the images found in the Department section
-//    public static List<WebElement> departmentImages = Driver.getDriver().findElements(By.cssSelector(
-//            "[data-id='16e6c7'] img:nth-of-type(1)"
-//    ));
-//
-//    //Returns a list of compare icons for the Department section
-//    public static List<WebElement> departmentCompareIcons = Driver.getDriver().findElements(By.cssSelector(
-//            "[data-id='16e6c7'] a[title='Compare']"
-//    ));
 }

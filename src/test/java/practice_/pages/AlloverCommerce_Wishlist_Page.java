@@ -44,4 +44,16 @@ public class AlloverCommerce_Wishlist_Page {
     @FindBy(xpath = "//a[.='Checkout'] ")
     public WebElement wishlist_Page_Checkout_Button;
 
+    @FindBy (xpath = "//a[@data-product-id='13206']")
+    public WebElement menClothingWishlist_Button;
+
+    @FindBy (xpath = "//a[@data-title='Browse wishlist...']")
+    public WebElement menClothingWishlistButton_Clicked;
+
+    @FindBy (xpath = "//*[@class='attachment-woocommerce_thumbnail size-woocommerce_thumbnail']")
+    public WebElement menClothing_Image;
+
+    @FindBy (xpath = "//*[@class='list-type-check']")
+    public WebElement productsProperties;
+
 }

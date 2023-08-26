@@ -72,4 +72,6 @@ public class AlloverCommerce_HomePage {
 
     @FindBy (css = "a.logout")
     public WebElement signOut_NavLink;
+
+
 }

@@ -124,8 +124,7 @@ public class WaitUtils {
 
     }
 
-    public static void waitForClickablility(WebElement addressesLinkIcon) {
-    }
+
 }
 
 

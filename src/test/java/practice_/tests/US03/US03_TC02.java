@@ -1,6 +1,5 @@
 package practice_.tests.US03;
 
-
 import com.github.javafaker.Faker;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_HomePage;
@@ -11,7 +10,7 @@ import practice_.utilities.*;
 import java.io.IOException;
 
 
-public class US03_TC01 {
+public class US03_TC02 {
 
     @Test
     public void AddBillingAddress() throws IOException {
@@ -53,6 +52,21 @@ public class US03_TC01 {
         AlloverCommerce_MyAccountCustomerPage.AddressesCustomer.click();
         //Click on Add button for billing adress
         AlloverCommerce_MyAccountCustomerPage.add_link.click();
-        MediaUtils.takeScreenshotOfTheEntirePage();
-    }
-}
+
+
+        AlloverCommerce_MyAccountCustomerPage.billingFirstName.sendKeys(faker.name().username());
+        AlloverCommerce_MyAccountCustomerPage.billingLastName.sendKeys(faker.name().username());
+        WaitUtils.waitFor(2);
+
+        BrowserUtils.selectByValue(AlloverCommerce_MyAccountCustomerPage.billingCountryName, "TR");
+
+        AlloverCommerce_MyAccountCustomerPage.billingAddress1.sendKeys(faker.address().streetName());
+        AlloverCommerce_MyAccountCustomerPage.billingCity.sendKeys(faker.address().city());
+        AlloverCommerce_MyAccountCustomerPage.billingPostcode.sendKeys(faker.address().zipCode());
+        WaitUtils.waitFor(2);
+        BrowserUtils.selectByValue(AlloverCommerce_MyAccountCustomerPage.billingState, "TR07");
+        WaitUtils.waitFor(2);
+        AlloverCommerce_MyAccountCustomerPage.billingPhone.sendKeys(faker.phoneNumber().cellPhone());
+        AlloverCommerce_MyAccountCustomerPage.saveAddressButton.click();
+
+    }}

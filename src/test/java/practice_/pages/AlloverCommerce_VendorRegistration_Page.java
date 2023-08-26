@@ -41,4 +41,7 @@ public class AlloverCommerce_VendorRegistration_Page {
 
     @FindBy(xpath = "//div[@id=\"wcfm_membership_registration_form_expander\"]")
     public WebElement verificationCodeMessage;
+
+    @FindBy(xpath = "//*[@id='wcfm_membership_register_button']" )
+    public WebElement registerButton1;
 }

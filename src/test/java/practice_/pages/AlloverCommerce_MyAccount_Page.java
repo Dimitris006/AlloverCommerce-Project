@@ -42,9 +42,13 @@ public class AlloverCommerce_MyAccount_Page {
     @FindBy(xpath = "//a[.='Followings']")
     public WebElement followingsLink;
 
+    //Sign Out Link
     @FindBy(xpath = "//a[.='Logout']")
     public WebElement logoutLink;
 
     @FindBy(xpath = "//*[@class='icon-box-icon icon-addresses']")
     public WebElement addressesLinkIcon;
+
+    @FindBy (xpath = "//p[.='Logout']")
+    public WebElement logoutButton;
 }

@@ -11,12 +11,16 @@ public class AlloverCommerce_AddressesPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    //Sign Out Link
-    @FindBy (xpath = "//*[@href='https://allovercommerce.com/my-account-2/edit-address/shipping/']")
-    public WebElement shippingAddressAdd;
+    //Addresses Page Locators
+    @FindBy (xpath = "//h4[.='Addresses']")
+    public WebElement addressesHeader;
 
     @FindBy (xpath = "//*[@name='shipping_first_name']")
     public WebElement firstNameField;
+
+    @FindBy (xpath = "//*[@href='https://allovercommerce.com/my-account-2/edit-address/shipping/']")
+    public WebElement shippingAddressAdd;
+
 
     @FindBy (xpath = "//*[@name='shipping_last_name']")
     public WebElement lastNameField;

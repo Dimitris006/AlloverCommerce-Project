@@ -1,26 +1,27 @@
 package practice_.tests.US04;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_AddressesPage;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
-import practice_.utilities.*;
+import practice_.utilities.ConfigReader;
+import practice_.utilities.Driver;
+import practice_.utilities.WaitUtils;
 
+import static org.testng.AssertJUnit.assertTrue;
 import static practice_.utilities.JSUtils.clickWithTimeoutByJS;
 
 
-public class US04_TC01 {
+public class US04_TC02 {
     WebDriver driver;
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_MyAccount_Page myAccountPage;
     AlloverCommerce_AddressesPage alloverCommerceAddressesPage;
 
     @Test
-    public void shippingAddress01(){
+    public void shippingAddress02(){
 
         //Go to homepage
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
@@ -60,11 +61,10 @@ public class US04_TC01 {
 //        BrowserUtils.selectDropdownByValue;
         alloverCommerceAddressesPage.zipCode.sendKeys("33111");
 
-
-//      Test Case 02
+        //Visibility of Save Address Button
+        assertTrue(alloverCommerceAddressesPage.saveAddressButton.isDisplayed());
         clickWithTimeoutByJS(alloverCommerceAddressesPage.saveAddressButton);
 
-//      Test Case 03
-        Assert.assertTrue((alloverCommerceAddressesPage.succesfullAdd).isDisplayed());
+
     }
 }

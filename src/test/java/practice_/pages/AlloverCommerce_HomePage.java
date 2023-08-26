@@ -7,8 +7,7 @@ import practice_.utilities.Driver;
 
 public class AlloverCommerce_HomePage {
 
-    public AlloverCommerce_HomePage() {
-        PageFactory.initElements(Driver.getDriver(), this);
+    public AlloverCommerce_HomePage(){PageFactory.initElements(Driver.getDriver(), this);
     }
 
     //SIGN IN / REGISTER LINKS
@@ -64,8 +63,15 @@ public class AlloverCommerce_HomePage {
     @FindBy(xpath = "//div[@id='customer_login']//a[.='Become a Vendor']")
     public WebElement signUp_BecomeVendorLink;
 
+    @FindBy(linkText = "My Account")
+    public WebElement myAccountLink;
+
     //Sign Out Link
     @FindBy (xpath = "//span[.='Sign Out']")
-    public WebElement SignOut_Link;
+    public WebElement signOut_Link;
+
+    @FindBy (css = "a.logout")
+    public WebElement signOut_NavLink;
+
 
 }

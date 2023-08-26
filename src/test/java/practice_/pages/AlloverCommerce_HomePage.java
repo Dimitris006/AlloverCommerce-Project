@@ -67,4 +67,10 @@ public class AlloverCommerce_HomePage {
     @FindBy (xpath = "//span[.='Sign Out']")
     public WebElement signOut_Link;
 
+    @FindBy (xpath = "//*[@id=\"signup\"]/form/p[6]")
+    public WebElement alreadyRegisteredAcount;
+
+    @FindBy (xpath = "//*[@id=\"header\"]/div/section/div/div[1]/div/div/div/p")
+    public WebElement welcomeToAllovercommerce;
+
 }

@@ -19,7 +19,7 @@ public class US04_TC01 {
     public void shippingAddress(){
 
         //Go to homepage
-        Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
+        Driver.getDriver().get(ConfigReader.getProperty("allover-commerce_url"));
 
         //Click on Sign In Link
         alloverCommerceHomePage = new AlloverCommerce_HomePage();
@@ -36,7 +36,7 @@ public class US04_TC01 {
 
         //Click on Sign Out Link
         WaitUtils.waitFor(5);
-        alloverCommerceHomePage.SignOut_Link.click();
+   //     alloverCommerceHomePage.SignOut_Link.click();
 
         //Click on Addresses Link
         myAccountPage = new AlloverCommerce_MyAccount_Page();

@@ -10,6 +10,11 @@ public class ActionsUtils {
     public static void rightClickOnElementActions(WebElement element) {
         new Actions(Driver.getDriver()).contextClick(element).perform();
     }
+
+    //    ACTIONS_CLICK
+    public static void clickOnElementActions(WebElement element) {
+        new Actions(Driver.getDriver()).click(element).perform();
+    }
     //ACTIONS_DOUBLE CLICK
     public static void doubleClick(WebElement element) {
         new Actions(Driver.getDriver()).doubleClick(element).build().perform();
@@ -18,6 +23,10 @@ public class ActionsUtils {
     public static void hoverOverOnElementActions(WebElement element) {
         //        Actions actions = new Actions(driver);
         new Actions(Driver.getDriver()).moveToElement(element).perform();
+    }
+    // Scrolls page to the given element
+    public static void scrollToElement(WebElement element) {
+        new Actions(Driver.getDriver()).scrollToElement(element).perform();
     }
     //    ACTIONS_SCROLL_DOWN
     public static void scrollDownActions() {

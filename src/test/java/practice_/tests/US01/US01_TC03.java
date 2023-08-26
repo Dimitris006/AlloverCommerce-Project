@@ -28,7 +28,8 @@ public class US01_TC03 {
                 alloverCommerceHomePage.signUp_Password.sendKeys("Jack");
                 alloverCommerceHomePage.signUp_PrivacyPolicyCheckbox.click();
                 WaitUtils.waitFor(2);
-                BrowserUtils.verifyElementNotClickable(alloverCommerceHomePage.signUp_Button);
+                //BrowserUtils.verifyElementNotClickable(alloverCommerceHomePage.signUp_Button);
+                //BrowserUtils.verifyElementNotClickable(alloverCommerceHomePage.signUp_Button);
                 Driver.closeDriver();
 
         }

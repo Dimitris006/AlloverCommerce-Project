@@ -63,9 +63,15 @@ public class AlloverCommerce_HomePage {
     @FindBy(xpath = "//div[@id='customer_login']//a[.='Become a Vendor']")
     public WebElement signUp_BecomeVendorLink;
 
+    @FindBy(linkText = "My Account")
+    public WebElement myAccountLink;
+
     //Sign Out Link
     @FindBy (xpath = "//span[.='Sign Out']")
     public WebElement signOut_Link;
+
+    @FindBy (css = "a.logout")
+    public WebElement signOut_NavLink;
 
     @FindBy (xpath = "//*[contains(text(), 'a valid email')]")
     public WebElement signUp_invalidEmailMessage;
@@ -78,5 +84,4 @@ public class AlloverCommerce_HomePage {
 
     @FindBy (xpath = "(//div[(text() = 'Strong')])[1]")
     public WebElement signUp_StrongPasswordMessage;
-
 }

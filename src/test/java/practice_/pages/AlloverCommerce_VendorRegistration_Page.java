@@ -11,6 +11,10 @@ public class AlloverCommerce_VendorRegistration_Page {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    //BreadCrumb
+    @FindBy(css=".breadcrumb li:nth-child(3)")
+    public WebElement breadCrumb;
+
     //VENDOR REGISTRATION
     @FindBy(id="user_email")
     public WebElement vendorRegister_Email;
@@ -24,8 +28,13 @@ public class AlloverCommerce_VendorRegistration_Page {
     @FindBy(id = "passoword")
     public WebElement vendorPassword;
 
+
     @FindBy(id = "confirm_pwd")
     public WebElement vendorConfirmPassword;
+
+    //password strength
+    @FindBy(id = "password_strength")
+    public WebElement vendorPasswordStrength;
 
     @FindBy(name = "save-data")
     public WebElement registerButton;

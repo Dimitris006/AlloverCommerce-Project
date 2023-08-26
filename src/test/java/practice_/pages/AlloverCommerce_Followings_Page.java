@@ -5,14 +5,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import practice_.utilities.Driver;
 
-public class AlloverCommerce_SupportTicket_Page {
+public class AlloverCommerce_Followings_Page {
 
-    public AlloverCommerce_SupportTicket_Page() {
+    public AlloverCommerce_Followings_Page() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    //Support Ticket Page Locators
-    @FindBy(xpath = "//*[contains(text(), 'You do not have any support')]")
-    public WebElement supportTicketText;
+    //Followings Page Locators
+    @FindBy(xpath = "//*[contains(text(), 'You are not following')]")
+    public WebElement followingsText;
 
 }

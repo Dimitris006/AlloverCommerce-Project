@@ -1,11 +1,8 @@
 package practice_.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
-import practice_.utilities.ActionsUtils;
 import practice_.utilities.Driver;
 
 import java.util.List;
@@ -34,7 +31,7 @@ public class AlloverCommerce_Compare {
     public WebElement kitchenImagesSection;
 
     @FindBy(css = "[data-id='37af579c']")
-    public WebElement popularDepartmentImages;
+    public WebElement popularDepartmentImagesSection;
 
     @FindBy(css = "div[data-id='5cf38cb'] img:nth-of-type(1)")
     List<WebElement> hoverKitchenImages;

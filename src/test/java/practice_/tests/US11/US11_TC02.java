@@ -66,7 +66,7 @@ public class US11_TC02 {
         assertTrue(myAccountPage.accountDetailslink.isDisplayed());
 
         //Verify Wishlist is visible
-        assertTrue(myAccountPage.wishlistLinks.isDisplayed());
+        assertTrue(myAccountPage.wishlistLink.isDisplayed());
 
         //Verify Support Tickets is visible
         assertTrue(myAccountPage.supportTicketsLink.isDisplayed());

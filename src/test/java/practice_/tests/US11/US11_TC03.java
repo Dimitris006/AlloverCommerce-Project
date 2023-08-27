@@ -1,11 +1,9 @@
 package practice_.tests.US11;
 
+import com.google.common.base.Verify;
 import org.testng.annotations.Test;
 import practice_.pages.*;
-import practice_.utilities.ConfigReader;
-import practice_.utilities.Driver;
-import practice_.utilities.JSUtils;
-import practice_.utilities.WaitUtils;
+import practice_.utilities.*;
 
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -22,6 +20,8 @@ public class US11_TC03 {
         AlloverCommerce_AddressesPage alloverCommerceAddressesPage;
         AlloverCommerce_AccountDetails_Page alloverCommerceAccountDetailsPage;
         AlloverCommerce_Wishlist_Page alloverCommerceWishlistPage;
+        AlloverCommerce_SupportTicket_Page alloverCommerceSupportTicketPage;
+        AlloverCommerce_Followings_Page alloverCommerceFollowingsPage;
 
         //Go to Homepage
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
@@ -36,6 +36,8 @@ public class US11_TC03 {
         alloverCommerceAddressesPage = new AlloverCommerce_AddressesPage();
         alloverCommerceAccountDetailsPage = new AlloverCommerce_AccountDetails_Page();
         alloverCommerceWishlistPage = new AlloverCommerce_Wishlist_Page();
+        alloverCommerceSupportTicketPage = new AlloverCommerce_SupportTicket_Page();
+        alloverCommerceFollowingsPage = new AlloverCommerce_Followings_Page();
 
         //Click on Sign In Link
         alloverCommerceHomePage.signIn_Link.click();
@@ -70,63 +72,62 @@ public class US11_TC03 {
         assertTrue(alloverCommerceStoreManagerPage.storeManagerHeader.isDisplayed());
 
         //Click on My Account link
-        JSUtils.scrollIntoViewJS(alloverCommerceVendorRegistrationPage.myAccountLink);
-        WaitUtils.waitForClickablility(alloverCommerceVendorRegistrationPage.myAccountLink, 2).click();
+        JSUtils.scrollIntoViewJS(alloverCommerceHomePage.myAccountLink);
+        JSUtils.clickWithTimeoutByJS(alloverCommerceHomePage.myAccountLink);
 
         //Verify Orders is visible
         assertTrue(alloverCommerceMyAccountPage.ordersLink.isDisplayed());
         //Verify Orders is clickable
         alloverCommerceMyAccountPage.ordersLink.click();
+        WaitUtils.waitFor(2);
         assertTrue(alloverCommerceOrdersPage.ordersHeader.isDisplayed());
 
         //Verify Downloads is visible
         assertTrue(alloverCommerceMyAccountPage.downloadsLink.isDisplayed());
         //Verify Downloads is clickable
         alloverCommerceMyAccountPage.downloadsLink.click();
+        WaitUtils.waitFor(2);
         assertTrue(alloverCommerceDownloadsPage.downloadsHeader.isDisplayed());
 
         //Verify Addresses is visible
         assertTrue(alloverCommerceMyAccountPage.addressesLink.isDisplayed());
         //Verify Addresses is clickable
-        alloverCommerceMyAccountPage.addressesLink.click();
+        JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.addressesLink);
         assertTrue(alloverCommerceAddressesPage.addressesHeader.isDisplayed());
 
-        //Verify Account details is visible
+        //Verify Account Details is visible
         assertTrue(alloverCommerceMyAccountPage.accountDetailslink.isDisplayed());
         //Verify Account details is clickable
-        alloverCommerceMyAccountPage.accountDetailslink.click();
-        assertTrue(alloverCommerceAccountDetailsPage.accountDetailsHeader.isDisplayed());
+        JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.accountDetailslink);
+        assertTrue(Driver.getDriver().getCurrentUrl().contains("account"));
 
         //Verify Wishlist is visible
-        assertTrue(alloverCommerceMyAccountPage.wishlistLinks.isDisplayed());
+        assertTrue(alloverCommerceMyAccountPage.wishlistLink.isDisplayed());
         //Verify Wishlist is clickable
-        alloverCommerceMyAccountPage.wishlistLinks.click();
-        assertTrue(alloverCommerceWishlistPage.wishlistHeader.isDisplayed());
+        JSUtils.scrollIntoViewJS(alloverCommerceMyAccountPage.wishlistLink);
+        JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.wishlistLink);
+        assertTrue(alloverCommerceWishlistPage.wishlistHeaderSmall.isDisplayed());
 
-
-
+        //Click on My Account link
+        JSUtils.scrollIntoViewJS(alloverCommerceHomePage.myAccountLink);
+        JSUtils.clickWithTimeoutByJS(alloverCommerceHomePage.myAccountLink);
 
         //Verify Support Tickets is visible
         assertTrue(alloverCommerceMyAccountPage.supportTicketsLink.isDisplayed());
         //Verify Support Tickets is clickable
-        alloverCommerceMyAccountPage.supportTicketsLink.click();
-        assertTrue(alloverCommerceMyAccountPage.supportTicketsLink.isDisplayed());
-
-
-
+        JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.supportTicketsLink);
+        assertTrue(alloverCommerceSupportTicketPage.supportTicketText.isDisplayed());
 
         //Verify Followings is visible
         assertTrue(alloverCommerceMyAccountPage.followingsLink.isDisplayed());
         //Verify Followings is clickable
-        alloverCommerceMyAccountPage.followingsLink.click();
-
-
-
+        JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.followingsLink);
+        assertTrue(alloverCommerceFollowingsPage.followingsText.isDisplayed());
 
         //Verify Logout is visible
         assertTrue(alloverCommerceMyAccountPage.logoutLink.isDisplayed());
         //Verify Logout is clickable
-        alloverCommerceMyAccountPage.logoutLink.click();
+        JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.logoutLink);
         assertTrue(alloverCommerceHomePage.register_Link.isDisplayed());
 
         //Complete test and close browser

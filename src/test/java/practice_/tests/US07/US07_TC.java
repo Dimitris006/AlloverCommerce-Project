@@ -171,7 +171,7 @@ public class US07_TC {
     }
 
     @AfterSuite
-    public static void tearUp() {
+    public void tearDown() {
         Driver.closeDriver();
     }
 }

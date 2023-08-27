@@ -9,8 +9,6 @@ import practice_.pages.AlloverCommerce_VendorRegistration_Page;
 import practice_.utilities.Driver;
 import practice_.utilities.JSUtils;
 import practice_.utilities.WaitUtils;
-
-import javax.print.attribute.standard.Media;
 import java.io.IOException;
 
 public class US10_TC01 {
@@ -152,7 +150,7 @@ public class US10_TC01 {
  */
 
     @AfterSuite
-    public static void tearUp() {
+    public void tearDown() {
         Driver.closeDriver();
     }
 }

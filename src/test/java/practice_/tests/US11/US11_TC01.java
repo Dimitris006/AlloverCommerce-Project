@@ -5,9 +5,11 @@ import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_VendorRegistration_Page;
 import practice_.utilities.ConfigReader;
 import practice_.utilities.Driver;
+import practice_.utilities.ExtentReportUtils;
 import practice_.utilities.WaitUtils;
 
 import static org.testng.AssertJUnit.assertTrue;
+import static practice_.utilities.ExtentReportUtils.passAndCaptureScreenshot;
 
 public class US11_TC01 {
 
@@ -36,12 +38,14 @@ public class US11_TC01 {
         //Click on Signin button
         alloverCommerceHomePage.signIn_Button.click();
         WaitUtils.waitFor(3);
+        //ExtentReportUtils.passAndCaptureScreenshot("My Account page should be displayed...");
 
         //Verify My Account is displayed
-        assertTrue(vendorRegistrationPage.myAccountLink.isDisplayed());
+        assertTrue(Driver.getDriver().getCurrentUrl().contains("my account"));
 
         //Complete test and close browser
         WaitUtils.waitFor(2);
+        //ExtentReportUtils.flush();
         Driver.closeDriver();
     }
 }

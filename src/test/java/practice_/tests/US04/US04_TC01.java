@@ -31,10 +31,10 @@ public class US04_TC01 {
         alloverCommerceHomePage.signIn_Link.click();
 
         //Enter username or email address
-        alloverCommerceHomePage.signIn_Username.sendKeys("happypotter11@gmx.com");
+        alloverCommerceHomePage.signIn_Username.sendKeys(ConfigReader.getProperty("customer_email"));
 
         //Enter password
-        alloverCommerceHomePage.signIn_Password.sendKeys("abc123456789");
+        alloverCommerceHomePage.signIn_Password.sendKeys(ConfigReader.getProperty("customer_password"));
 
         //Click on Sign In Button
         alloverCommerceHomePage.signIn_Button.click();
@@ -66,10 +66,5 @@ public class US04_TC01 {
         alloverCommerceAddressesPage.zipCode.sendKeys("33111");
 
 
-//      Test Case 02
-        clickWithTimeoutByJS(alloverCommerceAddressesPage.saveAddressButton);
-
-//      Test Case 03
-        Assert.assertTrue((alloverCommerceAddressesPage.succesfullAdd).isDisplayed());
     }
 }

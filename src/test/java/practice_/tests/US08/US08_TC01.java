@@ -1,5 +1,10 @@
 package practice_.tests.US08;
 
+<<<<<<< HEAD
+=======
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+>>>>>>> fa43d355dc9448318082cc76b9a23f7a4c6825cd
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_Wishlist_Page;
@@ -7,6 +12,7 @@ import practice_.utilities.ConfigReader;
 import practice_.utilities.Driver;
 import practice_.utilities.WaitUtils;
 
+<<<<<<< HEAD
 import static org.testng.AssertJUnit.assertTrue;
 import static practice_.utilities.JSUtils.clickWithTimeoutByJS;
 import static practice_.utilities.JSUtils.scrollIntoViewJS;
@@ -69,6 +75,33 @@ public class US08_TC01 {
 
 
 
+=======
+public class US08_TC01 {
+    @Test
+    public void testcase01() {
+        AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
+        AlloverCommerce_Wishlist_Page alloverCommerceWishlistPage = new AlloverCommerce_Wishlist_Page();
+        //Go to homepage
+        Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
+
+        //Click on Search box write product name in Search box
+        //Click the search button
+        WaitUtils.waitFor(2);
+
+        alloverCommerceHomePage.searchBox.click();
+        alloverCommerceHomePage.searchBox.sendKeys("Automatic Crusher", Keys.ENTER);
+
+        //Click on wishlist icon
+        alloverCommerceWishlistPage.homepage_Add_Wishlist_Button.click();
+        WaitUtils.waitFor(3);
+
+        //Click the Wishlist button
+        alloverCommerceWishlistPage.wishList_Button.click();
+
+        //Verify the product is added into the wishlist
+        WaitUtils.waitFor(3);
+        alloverCommerceWishlistPage.verifyAddedProductToWishList.isDisplayed();
+>>>>>>> fa43d355dc9448318082cc76b9a23f7a4c6825cd
 
 
     }

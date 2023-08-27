@@ -20,6 +20,9 @@ public class AlloverCommerce_HomePage {
     //LOGIN POPUP (HOMEPAGE)
     //SIGN IN
 
+    @FindBy (xpath = "(//*[@class = 'form-control'])[1]")
+    public WebElement searchBox;
+
     @FindBy(xpath = "//div[@id='customer_login']//a[.='Sign In']")
     public WebElement signIn_Tab;
 
@@ -73,5 +76,16 @@ public class AlloverCommerce_HomePage {
     @FindBy (css = "a.logout")
     public WebElement signOut_NavLink;
 
+    @FindBy (xpath = "//*[contains(text(), 'a valid email')]")
+    public WebElement signUp_invalidEmailMessage;
+
+    @FindBy (xpath = "(//div[(text() = 'Weak - Please enter a stronger password.')])[1]")
+    public WebElement signUp_WeekPasswordMessage;
+
+    @FindBy (xpath = "(//div[(text() = 'Medium')])[1]")
+    public WebElement signUp_MediumPasswordMessage;
+
+    @FindBy (xpath = "(//div[(text() = 'Strong')])[1]")
+    public WebElement signUp_StrongPasswordMessage;
 
 }

@@ -33,8 +33,8 @@ public class AlloverCommerce_MyAccount_Page {
     @FindBy(xpath = "//a[.='Account details']")
     public WebElement accountDetailslink;
 
-    @FindBy(xpath = "//a[.='Account details']")
-    public WebElement wishlistLinks;
+    @FindBy(xpath = "//a[.='Wishlist']")
+    public WebElement wishlistLink;
 
     @FindBy(xpath = "//a[.='Support Tickets']")
     public WebElement supportTicketsLink;

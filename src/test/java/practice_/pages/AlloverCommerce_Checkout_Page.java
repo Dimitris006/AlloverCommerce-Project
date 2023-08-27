@@ -15,7 +15,7 @@ public class AlloverCommerce_Checkout_Page {
     @FindBy (xpath = "//div[@id='customer_details'] //input[@name='billing_last_name']")
     public WebElement checkout_Lastname;
 
-    @FindBy (xpath = "//span[@id='select2-billing_country-container']")
+    @FindBy (xpath = "(//select)[1] ")
     public WebElement checkout_Country;
 
     @FindBy (xpath = "//input[@id='billing_address_1'] ")
@@ -24,7 +24,7 @@ public class AlloverCommerce_Checkout_Page {
     @FindBy (xpath = "//input[@id='billing_city'] ")
     public WebElement checkout_City;
 
-    @FindBy (xpath = "//span[@id='select2-billing_state-container']")
+    @FindBy (xpath = "(//select)[2]")
     public WebElement checkout_State;
 
     @FindBy (xpath = "//input[@id='billing_postcode']")

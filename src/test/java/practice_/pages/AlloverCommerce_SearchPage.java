@@ -13,7 +13,7 @@ public class AlloverCommerce_SearchPage {
     }
     //product selection
    @FindBy(xpath = "//a[.='HiPhone'][1]")
-   public  WebElement lovely_Iphone;
+   public  WebElement modalName;
 
     @FindBy(xpath = "//*[@id=\"product-20954\"]/div[2]/div/form/div/div/div/div[2]/div/button[2]")
     public WebElement QuantityPlus;

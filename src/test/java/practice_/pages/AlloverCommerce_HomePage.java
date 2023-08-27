@@ -20,6 +20,9 @@ public class AlloverCommerce_HomePage {
     //LOGIN POPUP (HOMEPAGE)
     //SIGN IN
 
+    @FindBy (xpath = "(//*[@class = 'form-control'])[1]")
+    public WebElement searchBox;
+
     @FindBy(xpath = "//div[@id='customer_login']//a[.='Sign In']")
     public WebElement signIn_Tab;
 
@@ -72,4 +75,5 @@ public class AlloverCommerce_HomePage {
 
     @FindBy (css = "a.logout")
     public WebElement signOut_NavLink;
+
 }

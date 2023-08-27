@@ -11,6 +11,9 @@ public class AlloverCommerce_Wishlist_Page {
 //    @FindBy(xpath = "//h2[.='Wishlist']")
 //    public WebElement wishlistHeader;
 
+    @FindBy(xpath = "//*[@class='w-icon-heart']")
+    public WebElement wishList_Button;
+
     @FindBy(xpath = "//li[.='Wishlist']")
     public WebElement wishlistHeaderSmall;
 
@@ -43,5 +46,8 @@ public class AlloverCommerce_Wishlist_Page {
 
     @FindBy(xpath = "//a[.='Checkout'] ")
     public WebElement wishlist_Page_Checkout_Button;
+
+    @FindBy(xpath = "//tbody")
+    public WebElement verifyAddedProductToWishList;
 
 }

@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_VendorRegistration_Page;
 import practice_.utilities.Driver;
 import practice_.utilities.JSUtils;
-import practice_.utilities.MediaUtils;
 import practice_.utilities.WaitUtils;
 
 import javax.print.attribute.standard.Media;
@@ -33,7 +32,6 @@ public class US10_TC01 {
         alloverCommerceVendorRegistrationPage.vendorPassword.sendKeys("12345");
 
         checkInputField();
-        MediaUtils.takeScreenshotOfTheEntirePage();
         WaitUtils.waitFor(2);
 
         Assert.assertEquals(
@@ -52,7 +50,6 @@ public class US10_TC01 {
         //weak password [6 characters long]
         alloverCommerceVendorRegistrationPage.vendorPassword.sendKeys("12345@");
 
-        MediaUtils.takeScreenshotOfTheEntirePage();
         WaitUtils.waitFor(2);
 
         Assert.assertEquals(
@@ -72,7 +69,6 @@ public class US10_TC01 {
         //good password [8+ characters long + at least one special character]
         alloverCommerceVendorRegistrationPage.vendorPassword.sendKeys("12345@13456789876545678765456");
 
-        MediaUtils.takeScreenshotOfTheEntirePage();
         WaitUtils.waitFor(2);
 
         Assert.assertEquals(
@@ -93,7 +89,6 @@ public class US10_TC01 {
         //doesn't have to be a combination of special characters
         alloverCommerceVendorRegistrationPage.vendorPassword.sendKeys("12345@!$");
 
-        MediaUtils.takeScreenshotOfTheEntirePage();
         WaitUtils.waitFor(2);
 
         Assert.assertEquals(

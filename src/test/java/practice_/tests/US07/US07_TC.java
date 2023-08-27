@@ -2,17 +2,12 @@ package practice_.tests.US07;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_Compare;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.utilities.*;
-
-import javax.print.attribute.standard.Media;
 import java.io.IOException;
 import java.util.List;
 
@@ -26,11 +21,9 @@ public class US07_TC {
 
         //navigate to URL
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
-        MediaUtils.takeScreenshotOfTheEntirePageAsString();
 
         //click sign in link
         alloverCommerceHomePage.signIn_Link.click();
-        MediaUtils.takeScreenshotOfThisElement(alloverCommerceHomePage.signIn_Link);
 
         //wait for popup to show with sign in tab displayed
         WaitUtils.waitForVisibility(alloverCommerceHomePage.signIn_Tab, 3);
@@ -43,7 +36,7 @@ public class US07_TC {
         alloverCommerceHomePage.signIn_Password.sendKeys(
                 ConfigReader.getProperty("customer_password")
         );
-        MediaUtils.takeScreenshotOfTheEntirePageAsString();
+
         WaitUtils.waitFor(1);
 
         //signIn user
@@ -55,7 +48,6 @@ public class US07_TC {
 //        Scroll down to kitchen products
         JSUtils.scrollIntoViewJS(alloverCommerceCompare.kitchenImagesSection);
         WaitUtils.waitFor(2);
-        MediaUtils.takeScreenshotOfThisElement(alloverCommerceCompare.kitchenImagesSection);
 
         //Locate all images in Kitchen section
          List<WebElement> hoverKitchenImages = Driver.getDriver().findElements(By.cssSelector(
@@ -80,9 +72,6 @@ public class US07_TC {
                 alloverCommerceCompare.hideComparePopup.click();
             }
         }
-
-        MediaUtils.takeScreenshotOfTheEntirePageAsString();
-
     }
 
     @Test
@@ -113,7 +102,6 @@ public class US07_TC {
             }
         }
 
-        MediaUtils.takeScreenshotOfTheEntirePageAsString();
         WaitUtils.waitFor(2);
         alloverCommerceCompare.hideComparePopup.click();
 
@@ -133,8 +121,6 @@ public class US07_TC {
         List<WebElement> departmentCompareIcons = Driver.getDriver().findElements(By.cssSelector(
                 "[data-id='16e6c7'] a[title='Compare']"
         ));
-        WaitUtils.waitFor(2);
-        MediaUtils.takeScreenshotOfThisElement(alloverCommerceCompare.popularDepartmentImagesSection);
         WaitUtils.waitFor(2);
 
         //loop and hover each element + click on each compare icon for first 4 images
@@ -165,7 +151,6 @@ public class US07_TC {
 
         WaitUtils.waitForVisibility(removeFromComparePage.get(0), 3);
         Assert.assertEquals(Driver.getDriver().getCurrentUrl(), "https://allovercommerce.com/compare-2/");
-        MediaUtils.takeScreenshotOfTheEntirePageAsString();
 
         while (!removeFromComparePage.isEmpty()) {
 
@@ -181,7 +166,6 @@ public class US07_TC {
         }
 
         WaitUtils.waitFor(1);
-        MediaUtils.takeScreenshotOfTheEntirePageAsString();
 
         Assert.assertTrue(alloverCommerceCompare.goShopButton.isDisplayed());
     }

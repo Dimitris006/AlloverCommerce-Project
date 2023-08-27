@@ -10,6 +10,11 @@ public class ActionsUtils {
     public static void rightClickOnElementActions(WebElement element) {
         new Actions(Driver.getDriver()).contextClick(element).perform();
     }
+
+    //    ACTIONS_CLICK
+    public static void clickOnElementActions(WebElement element) {
+        new Actions(Driver.getDriver()).click(element).perform();
+    }
     //ACTIONS_DOUBLE CLICK
     public static void doubleClick(WebElement element) {
         new Actions(Driver.getDriver()).doubleClick(element).build().perform();

@@ -14,6 +14,7 @@ import static practice_.utilities.JSUtils.clickWithTimeoutByJS;
 
 
 public class US04_TC01 {
+
     WebDriver driver;
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_MyAccount_Page myAccountPage;

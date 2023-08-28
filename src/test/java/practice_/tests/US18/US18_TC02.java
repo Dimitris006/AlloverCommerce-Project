@@ -1,26 +1,22 @@
 package practice_.tests.US18;
 
-import com.github.javafaker.DateAndTime;
 import com.github.javafaker.Faker;
-import org.apache.commons.collections4.Put;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_Coupons_Page;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
 import practice_.pages.AlloverCommerce_VendorRegistration_Page;
-import practice_.utilities.*;
+import practice_.utilities.ConfigReader;
+import practice_.utilities.Driver;
+import practice_.utilities.JSUtils;
+import practice_.utilities.WaitUtils;
 
 import java.text.SimpleDateFormat;
-import java.text.spi.DateFormatProvider;
 import java.util.Date;
-import java.util.List;
 
-import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
-public class US18_TC01 {
+public class US18_TC02 {
 
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_VendorRegistration_Page vendorRegistrationPage;
@@ -65,16 +61,12 @@ public class US18_TC01 {
         //Click on Add New button
         couponsPage.addCouponButton.click();
 
-        //Enter code into the Code field
-        //CREATING ACCOUNT WITH JAVA FAKER
-        Faker faker = new Faker();
-        String couponCode = faker.code().ean8();
-        couponsPage.codeTextField.sendKeys(couponCode);
-
         //Enter description into Description field
         couponsPage.descriptionTextField.sendKeys("This is description text for the coupon");
 
         //Enter coupon amount
+        //CREATING ACCOUNT WITH JAVA FAKER
+        Faker faker = new Faker();
         String couponAmount = String.valueOf(faker.number().randomDigit());
         couponsPage.couponAmountTextField.sendKeys(couponAmount);
 
@@ -94,31 +86,8 @@ public class US18_TC01 {
         JSUtils.clickWithTimeoutByJS(couponsPage.couponSubmitButton);
         WaitUtils.waitFor(3);
 
-        //Click on Coupons link
-        JSUtils.clickWithTimeoutByJS(couponsPage.couponsLink);
-        WaitUtils.waitFor(3);
-
-       //Locate the list of coupon codes and put all codes into a list
-       List<WebElement> couponsList = Driver.getDriver().findElements(By.xpath("(//tbody)[1]/tr/td[1]"));
-
-        boolean couponCodeFound = false;
-
-        // Iterate through the list of coupon codes
-        for (WebElement couponCodeElement : couponsList) {
-            String createdCouponCode = couponCodeElement.getText();
-            if (createdCouponCode.equals(couponCode)) {
-                couponCodeFound = true;
-                break;
-            }
-        }
-
-        // Assert whether the coupon code was found in the list
-        if (couponCodeFound) {
-            System.out.println("Coupon code found in the list.");
-        } else {
-            System.out.println("Coupon code not found in the list.");
-        }
-
+        //Verify Please insert atleast Coupon Title before submit. message is displayed
+        assertTrue(couponsPage.missingCouponTitleErrorMessage.isDisplayed());
 
         //Complete test and close browser
         WaitUtils.waitFor(3);

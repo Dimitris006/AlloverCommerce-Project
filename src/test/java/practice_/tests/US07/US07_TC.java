@@ -16,6 +16,7 @@ public class US07_TC {
 
     ExtentReportUtils extentReportUtils = new ExtentReportUtils();
 
+
     @BeforeSuite
     public void setExtentReportConfigurations() {
 

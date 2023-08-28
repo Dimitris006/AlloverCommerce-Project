@@ -4,10 +4,8 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-
 import java.io.IOException;
 import java.util.Random;
-
 import static practice_.utilities.MediaUtils.takeScreenshotOfTheEntirePageAsString;
 
 public class ExtentReportUtils {
@@ -23,7 +21,7 @@ public class ExtentReportUtils {
      Check out US07_TC class to see example of how to us.
 
      /*****************************************************************
-     STEP 1. Setup file name
+                    STEP 1. Setup file name
      ******************************************************************
      * @REQUIREMENT: use this in @BeforeSuite                         *
      *                                                                *
@@ -61,7 +59,7 @@ public class ExtentReportUtils {
     }
 
     /******************************************************************
-     STEP 2. CUSTOM SYSTEM INFO
+                    STEP 2. CUSTOM SYSTEM INFO
      ******************************************************************
      * @REQUIREMENT: use this in @BeforeSuite                         *
      *                                                                *
@@ -91,7 +89,7 @@ public class ExtentReportUtils {
     }
 
     /******************************************************************
-     STEP 3. CREATE REPORT NAME + DOC TITLE
+                    STEP 3. CREATE REPORT NAME + DOC TITLE
      ******************************************************************
      * @REQUIREMENT: use this in @BeforeSuite                         *
      *                                                                *
@@ -112,9 +110,8 @@ public class ExtentReportUtils {
         extentSparkReporter.config().setDocumentTitle(documentTitle);
     }
 
-
     /*****************************************************************
-     STEP 4. CREATE TEST REPORT
+                    STEP 4. CREATE TEST REPORT
      ******************************************************************
      /* The createTest() method of ExtentReports is used to make new   *
      * test report entries in the HTML report output. Here's what you *
@@ -138,7 +135,7 @@ public class ExtentReportUtils {
     }
 
     /******************************************************************
-     STEP 5. ADD LOGGER METHODS
+                    STEP 5. ADD LOGGER METHODS
      ******************************************************************
      * @REQUIREMENT: use this inside @Test cases                      *
      *                                                                *
@@ -176,7 +173,7 @@ public class ExtentReportUtils {
     }
 
     /******************************************************************
-     STEP 6. (OPTIONAL) ADD A SCREENSHOT TO REPORT
+                    STEP 6. (OPTIONAL) ADD A SCREENSHOT TO REPORT
      ******************************************************************
      * @REQUIREMENT: use this inside @Test cases                      *
      *                                                                *
@@ -200,7 +197,7 @@ public class ExtentReportUtils {
     }
 
     /******************************************************************
-     SAME AS ABOVE BUT FOR FAILED TEST STEPS
+                    SAME AS ABOVE BUT FOR FAILED TEST STEPS
      ******************************************************************
      /* this is a reusable utility method to standardise logging       *
      * failed steps with screenshots in ExtentReports.                *
@@ -217,7 +214,7 @@ public class ExtentReportUtils {
     }
 
     /******************************************************************
-     STEP 7. Generate the Report
+                    STEP 7. Generate the Report
      ******************************************************************
      * @REQUIREMENT: use this in @AfterSuite                          *
      *                                                                *
@@ -230,5 +227,4 @@ public class ExtentReportUtils {
     public static void flush(){
         extentReports.flush();
     }
-
 }

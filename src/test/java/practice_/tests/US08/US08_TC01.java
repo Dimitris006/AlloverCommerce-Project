@@ -35,7 +35,5 @@ public class US08_TC01 {
         WaitUtils.waitFor(3);
         BrowserUtils.verifyElementDisplayed(alloverCommerceWishlistPage.verifyAddedProductToWishList);
         Driver.closeDriver();
-
-
     }
 }

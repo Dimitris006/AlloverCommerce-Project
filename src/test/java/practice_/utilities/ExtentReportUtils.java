@@ -111,6 +111,7 @@ public class ExtentReportUtils {
         extentSparkReporter.config().setDocumentTitle(documentTitle);
     }
 
+
    /*****************************************************************
                    STEP 4. CREATE TEST REPORT
    ******************************************************************

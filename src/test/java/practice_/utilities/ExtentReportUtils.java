@@ -15,7 +15,7 @@ public class ExtentReportUtils {
     protected static ExtentTest extentTest;
 
     /*****************************************************************
-     Still STUCK 🤔??
+                    Still STUCK 🤔??
 
      I've tried to explain the steps below with example usage.
      Check out US07_TC class to see example of how to us.

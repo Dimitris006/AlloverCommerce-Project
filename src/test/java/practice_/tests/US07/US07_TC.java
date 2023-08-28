@@ -144,6 +144,8 @@ public class US07_TC {
             }
         }
 
+        ExtentReportUtils.warning("Last item requires double-clicking to remove...");
+
         WaitUtils.waitFor(2);
         alloverCommerceCompare.hideComparePopup.click();
         ExtentReportUtils.pass("Compare popup successfully closed");
@@ -217,6 +219,9 @@ public class US07_TC {
             // Refresh list
             removeFromComparePage = Driver.getDriver().findElements(By.cssSelector("a.remove_from_compare"));
         }
+
+        ExtentReportUtils.warning("Last item requires double-clicking to remove...");
+        ExtentReportUtils.warning("Sometimes dynamically adds random products when removing last product from the compare page");
 
         WaitUtils.waitFor(1);
 

@@ -135,6 +135,7 @@ public class US10_TC01 {
                 "Strong"
         );
         ExtentReportUtils.passAndCaptureScreenshot("Password security level displays correct message: 'Strong'");
+        ExtentReportUtils.warning("Repetitive special characters can still trigger 'Strong' password");
 
         WaitUtils.waitFor(1);
         ExtentReportUtils.info("Test end...");

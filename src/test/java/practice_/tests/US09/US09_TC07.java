@@ -15,7 +15,7 @@ public class US09_TC07 {
     AlloverCommerce_VendorRegistration_Page alloverCommerceVendorRegistrationPage;
     @Test
             public void vendorCompleteRegistration
-            (){
+            () throws InterruptedException {
         // Go to home page
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
 
@@ -51,7 +51,7 @@ public class US09_TC07 {
         //Click on Register button
         clickWithTimeoutByJS(alloverCommerceVendorRegistrationPage.registerButton);
 
-        WaitUtils.waitFor(2);
+       Thread.sleep(5000);
         //Driver.closeDriver();
     }
 

@@ -28,7 +28,6 @@ public class AlloverCommerce_VendorRegistration_Page {
     @FindBy(id = "passoword")
     public WebElement vendorPassword;
 
-
     @FindBy(id = "confirm_pwd")
     public WebElement vendorConfirmPassword;
 

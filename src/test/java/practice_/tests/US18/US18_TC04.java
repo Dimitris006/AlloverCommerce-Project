@@ -1,8 +1,6 @@
 package practice_.tests.US18;
 
-import com.github.javafaker.DateAndTime;
 import com.github.javafaker.Faker;
-import org.apache.commons.collections4.Put;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -10,17 +8,16 @@ import practice_.pages.AlloverCommerce_Coupons_Page;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
 import practice_.pages.AlloverCommerce_VendorRegistration_Page;
-import practice_.utilities.*;
+import practice_.utilities.ConfigReader;
+import practice_.utilities.Driver;
+import practice_.utilities.JSUtils;
+import practice_.utilities.WaitUtils;
 
 import java.text.SimpleDateFormat;
-import java.text.spi.DateFormatProvider;
 import java.util.Date;
 import java.util.List;
 
-import static org.testng.AssertJUnit.assertEquals;
-import static org.testng.AssertJUnit.assertTrue;
-
-public class US18_TC01 {
+public class US18_TC04 {
 
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_VendorRegistration_Page vendorRegistrationPage;
@@ -73,10 +70,6 @@ public class US18_TC01 {
 
         //Enter description into Description field
         couponsPage.descriptionTextField.sendKeys("This is description text for the coupon");
-
-        //Enter coupon amount
-        String couponAmount = String.valueOf(faker.number().randomDigit());
-        couponsPage.couponAmountTextField.sendKeys(couponAmount);
 
         //Enter expiry date
         // Generate a random date within the specified range

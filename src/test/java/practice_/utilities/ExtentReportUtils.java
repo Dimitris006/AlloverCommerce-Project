@@ -169,6 +169,9 @@ public class ExtentReportUtils {
         extentTest.log(Status.FAIL,message);
     }
 
+    public static void warning(String message){
+        extentTest.log(Status.WARNING,message);
+    }
 
   /******************************************************************
                    STEP 6. (OPTIONAL) ADD A SCREENSHOT TO REPORT

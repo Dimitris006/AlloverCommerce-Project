@@ -91,3 +91,6 @@ buildNumber.properties
 
 #gitignore text file added
 gitignore.txt
+
+#ignore any ExtentReport that is generated inside of test-output directory
+test-output/

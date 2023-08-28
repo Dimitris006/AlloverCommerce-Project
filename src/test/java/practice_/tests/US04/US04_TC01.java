@@ -11,6 +11,7 @@ import practice_.utilities.WaitUtils;
 
 public class US04_TC01 {
 
+
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_MyAccount_Page myAccountPage;
     AlloverCommerce_AddressesPage alloverCommerceAddressesPage;
@@ -36,7 +37,11 @@ public class US04_TC01 {
 
         //Click on Sign Out Link
         WaitUtils.waitFor(5);
+//<<<<<<< HEAD
    //     alloverCommerceHomePage.SignOut_Link.click();
+//=======
+        alloverCommerceHomePage.signOut_Link.click();
+//>>>>>>> potter
 
         //Click on Addresses Link
         myAccountPage = new AlloverCommerce_MyAccount_Page();

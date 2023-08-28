@@ -63,14 +63,22 @@ public class AlloverCommerce_HomePage {
     @FindBy(xpath = "//div[@id='customer_login']//a[.='Become a Vendor']")
     public WebElement signUp_BecomeVendorLink;
 
+    @FindBy(linkText = "My Account")
+    public WebElement myAccountLink;
+
     //Sign Out Link
     @FindBy (xpath = "//span[.='Sign Out']")
     public WebElement signOut_Link;
 
+<<<<<<< HEAD
     @FindBy (xpath = "//*[@id=\"signup\"]/form/p[6]")
     public WebElement alreadyRegisteredAcount;
 
     @FindBy (xpath = "//*[@id=\"header\"]/div/section/div/div[1]/div/div/div/p")
     public WebElement welcomeToAllovercommerce;
 
+=======
+    @FindBy (css = "a.logout")
+    public WebElement signOut_NavLink;
+>>>>>>> potter
 }

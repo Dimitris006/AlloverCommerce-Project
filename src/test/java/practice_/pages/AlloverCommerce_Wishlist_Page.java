@@ -8,6 +8,12 @@ import practice_.utilities.Driver;
 public class AlloverCommerce_Wishlist_Page {
     public AlloverCommerce_Wishlist_Page() {PageFactory.initElements(Driver.getDriver(), this);}
 
+//    @FindBy(xpath = "//h2[.='Wishlist']")
+//    public WebElement wishlistHeader;
+
+    @FindBy(xpath = "//li[.='Wishlist']")
+    public WebElement wishlistHeaderSmall;
+
     @FindBy(xpath = "//div[@class='product-details']//a[.='Automatic Crusher']")
     public WebElement homepage_Automatic_Crusher_Item;
 

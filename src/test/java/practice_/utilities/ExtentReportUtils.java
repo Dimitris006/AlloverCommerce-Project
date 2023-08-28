@@ -63,6 +63,79 @@ public class ExtentReportUtils {
      **********CREATE EXTENT TEST THAT IS ALSO KNOWN AS LOGGER**
      * use this before any other report method to create test, otherwise you get exception
      */
+  /******************************************************************
+                   STEP 2. CUSTOM SYSTEM INFO
+   ******************************************************************
+   * @REQUIREMENT: use this in @BeforeSuite                         *
+   *                                                                *
+   * @USAGE: extentReportUtils.addCustomSystemInfo(                 *
+   *                 "Application Name",                            *
+   *                 "Allover Commerce Website"                     *
+   *         );                                                     *
+   * -------------------------------------------------------------- *
+   * -------------------------------------------------------------- *
+   * @param key   - will take the title of what you want to show    *
+   * @param value - will show the value for that title              *
+   * -------------------------------------------------------------- *
+   *              EXAMPLE USAGE                                     *
+   * -------------------------------------------------------------- *
+   * > These will appear as extra information on the report         *
+   * -------------------------------------------------------------- *
+   *              Other things you could include                    *
+   * -------------------------------------------------------------- *
+   * - Test Environment (e.g. Regression)                           *
+   * - Browser (e.g. Chrome)                                        *
+   * - Team Name (e.g. Gryffindor)                                  *
+   * - SQA (Person or team that conducted the test)                 *
+   * - Feature Number (this could be a test id or issue number)     *
+   ******************************************************************/
+    public void addCustomSystemInfo(String key, String value) {
+        extentReports.setSystemInfo(key, value);
+    }
+
+  /******************************************************************
+                   STEP 3. CREATE REPORT NAME + DOC TITLE
+   ******************************************************************
+   * @REQUIREMENT: use this in @BeforeSuite                         *
+   *                                                                *
+   * @USAGE: extentReportUtils.setReportInfo(                       *
+   *                 "Smoke Test Report",                           *
+   *                 "Smoke Extent Reports"                         *
+   *         );                                                     *
+  /******************************************************************
+   * This method allows you to set the report name and document     *
+   * title dynamically at runtime, instead of having them hardcoded *
+   * in the code. You can call this method before creating your     *
+   * reports, passing in the desired report name and document title *
+   * as arguments. This way, you can set different report names     *
+   * and document titles for different test runs.                   *
+   ******************************************************************/
+    public void setReportInfo(String reportName, String documentTitle) {
+        extentSparkReporter.config().setReportName(reportName);
+        extentSparkReporter.config().setDocumentTitle(documentTitle);
+    }
+
+
+   /*****************************************************************
+                   STEP 4. CREATE TEST REPORT
+   ******************************************************************
+  /* The createTest() method of ExtentReports is used to make new   *
+   * test report entries in the HTML report output. Here's what you *
+   * need to know:                                                  *
+   * -------------------------------------------------------------- *
+   * @REQUIREMENT: use this in @BeforeSuite                         *
+   *                                                                *
+   * @USAGE: ExtentReportUtils.createTestReport(                    *
+   *                 "Compare Product Test (US_07)",                *
+   *                 "Smoke Test"                                   *
+   *         );                                                     *
+   * -------------------------------------------------------------- *
+   * - Purpose: Makes a new test node or entry in the               *
+   *            ExtentReports HTML report                           *
+   *                                                                *
+   * - Usage: You call it on the extentReports instance, passing    *
+   *          the test name and description                         *
+   ******************************************************************/
     public static void createTestReport(String name, String description){
         extentTest=extentReports.createTest(name, description);
     }

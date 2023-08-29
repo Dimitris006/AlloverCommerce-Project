@@ -1,4 +1,3 @@
-
 package practice_.tests.US08;
 
 import org.openqa.selenium.Keys;
@@ -38,4 +37,3 @@ public class US08_TC01 {
         Driver.closeDriver();
     }
 }
-

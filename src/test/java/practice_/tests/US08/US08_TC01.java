@@ -1,5 +1,14 @@
 package practice_.tests.US08;
 
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Test;
+import practice_.pages.AlloverCommerce_HomePage;
+import practice_.pages.AlloverCommerce_Wishlist_Page;
+import practice_.utilities.BrowserUtils;
+import practice_.utilities.ConfigReader;
+import practice_.utilities.Driver;
+import practice_.utilities.WaitUtils;
+
 public class US08_TC01 {
 
     @Test
@@ -12,6 +21,7 @@ public class US08_TC01 {
         //Click on Search box write product name in Search box
         //Click the search button
         WaitUtils.waitFor(2);
+
 
         alloverCommerceHomePage.searchBox.click();
         alloverCommerceHomePage.searchBox.sendKeys("Automatic Crusher", Keys.ENTER);

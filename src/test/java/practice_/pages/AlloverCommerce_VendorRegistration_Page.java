@@ -11,6 +11,8 @@ public class AlloverCommerce_VendorRegistration_Page {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+
+
     //VENDOR REGISTRATION
     @FindBy(id="user_email")
     public WebElement vendorRegister_Email;
@@ -27,6 +29,10 @@ public class AlloverCommerce_VendorRegistration_Page {
     @FindBy(id = "confirm_pwd")
     public WebElement vendorConfirmPassword;
 
+    //password strength
+    @FindBy(id = "password_strength")
+    public WebElement vendorPasswordStrength;
+
     @FindBy(name = "save-data")
     public WebElement registerButton;
 
@@ -42,17 +48,19 @@ public class AlloverCommerce_VendorRegistration_Page {
     @FindBy(xpath = "//div[@id=\"wcfm_membership_registration_form_expander\"]")
     public WebElement verificationCodeMessage;
 
-   @FindBy(xpath = "//*[.='Email: This field is required.']")
+    @FindBy(xpath = "//*[.='Email: This field is required.']")
     public WebElement emailRequireMessage;
 
-   @FindBy(xpath = "//*[@id=\"wcfm_membership_registration_form\"]/div[3]/span")
+    @FindBy(xpath = "//*[@id=\"wcfm_membership_registration_form\"]/div[3]/span")
     public WebElement applyAsVendorMessage;
 
-   @FindBy(xpath ="//*[@id=\"wcfm_membership_registration_form_expander\"]/div[2]")
+    @FindBy(xpath ="//*[@id=\"wcfm_membership_registration_form_expander\"]/div[2]")
     public WebElement invalidVerificationCodeMessage;
 
-   @FindBy(xpath = "//*[@id=\"wcfm_membership_registration_form_expander\"]/div[2]")
+    @FindBy(xpath = "//*[@id=\"wcfm_membership_registration_form_expander\"]/div[2]")
     public WebElement fieldRequired;
 
-
+    //BreadCrumb
+    @FindBy(css=".breadcrumb li:nth-child(3)")
+    public WebElement breadCrumb;
 }

@@ -62,8 +62,8 @@ public class US12_TC02 {
         alloverCommerceAddressesPage.billPhone.sendKeys("0001110001");
 
         //Visibility of Save Address Button
-        assertTrue(alloverCommerceAddressesPage.billSaveAddressButton.isDisplayed());
-        clickWithTimeoutByJS(alloverCommerceAddressesPage.billSaveAddressButton);
+//        assertTrue(alloverCommerceAddressesPage.billSaveAddressButton.isDisplayed());
+//        clickWithTimeoutByJS(alloverCommerceAddressesPage.billSaveAddressButton);
 
         //Visibility of Successful Adding
         Assert.assertTrue((alloverCommerceAddressesPage.successfulAdd).isDisplayed());

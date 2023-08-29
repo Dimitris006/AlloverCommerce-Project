@@ -72,7 +72,5 @@ public class US12_TC02 {
 
         Driver.closeDriver();
 
-
-
     }
 }

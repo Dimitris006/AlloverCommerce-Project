@@ -15,7 +15,6 @@ import java.io.IOException;
 import static org.testng.AssertJUnit.assertTrue;
 import static practice_.utilities.JSUtils.clickWithTimeoutByJS;
 
-
 public class US04_TC03 {
     WebDriver driver;
     AlloverCommerce_HomePage alloverCommerceHomePage;

@@ -12,38 +12,39 @@ public class AlloverCommerce_AddressesPage {
     }
 
     //Addresses Page Locators
+
+    //Shipping Address Locators
     @FindBy (xpath = "//h4[.='Addresses']")
     public WebElement addressesHeader;
 
     @FindBy (xpath = "//*[@name='shipping_first_name']")
-    public WebElement FirstNameField;
+    public WebElement firstNameField;
 
     @FindBy (xpath = "//*[@href='https://allovercommerce.com/my-account-2/edit-address/shipping/']")
     public WebElement shippingAddressAdd;
 
-
     @FindBy (xpath = "//*[@name='shipping_last_name']")
-    public WebElement LastNameField;
+    public WebElement lastNameField;
 
     @FindBy (xpath = "//*[@name='shipping_company']")
-    public WebElement CompanyName;
+    public WebElement companyName;
 
-    @FindBy (xpath = "//*[@id='select2-shipping_country-container']")
-    public WebElement CountryDropdwn;
     @FindBy (id = "billing_country")
     public WebElement countryDropdown;
 
     @FindBy (xpath = "//*[@name='shipping_address_1']")
-    public WebElement StreetAddress;
+    public WebElement streetAddress;
 
     @FindBy (xpath = "//*[@name='shipping_city']")
-    public WebElement CityAddress;
+    public WebElement cityName;
 
     @FindBy (xpath = "//*[@id='select2-shipping_state-container']")
-    public WebElement StateDropdown;
+    public WebElement stateDropdown;
+
+    @FindBy (xpath = "//*[@name='shipping_postcode']")
+    public WebElement zipCode;
 
     @FindBy (xpath = "//*[@name='save_address']")
-    public WebElement SaveAddressButton;
     public WebElement saveAddressButton;
 
     @FindBy (xpath = "//*[@class = 'fas fa-check']")
@@ -130,12 +131,7 @@ public class AlloverCommerce_AddressesPage {
 
     @FindBy (xpath = "//select[@id='billing_country']")
     public WebElement billCountryDropdown;
-
-
 //    @FindBy (xpath = "//*[@class = 'fas fa-check']")
 //    public WebElement succesfullAdd;
-
-
-
 
 }

@@ -102,15 +102,16 @@ public class US11_TC03 {
         assertTrue(Driver.getDriver().getCurrentUrl().contains("account"));
 
         //Verify Wishlist is visible
-        assertTrue(alloverCommerceMyAccountPage.wishlistLink.isDisplayed());
+        assertTrue(alloverCommerceMyAccountPage.wishlistLinks.isDisplayed());
         //Verify Wishlist is clickable
-        JSUtils.scrollIntoViewJS(alloverCommerceMyAccountPage.wishlistLink);
-        JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.wishlistLink);
+        JSUtils.scrollIntoViewJS(alloverCommerceMyAccountPage.wishlistLinks);
+        JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.wishlistLinks);
+        //assertTrue(Driver.getDriver().getCurrentUrl().contains("wishlist"));
         assertTrue(alloverCommerceWishlistPage.wishlistHeaderSmall.isDisplayed());
 
         //Click on My Account link
         JSUtils.scrollIntoViewJS(alloverCommerceHomePage.myAccountLink);
-        JSUtils.clickWithTimeoutByJS(alloverCommerceHomePage.myAccountLink);
+        WaitUtils.waitForClickablility(alloverCommerceHomePage.myAccountLink, 5).click();
 
         //Verify Support Tickets is visible
         assertTrue(alloverCommerceMyAccountPage.supportTicketsLink.isDisplayed());

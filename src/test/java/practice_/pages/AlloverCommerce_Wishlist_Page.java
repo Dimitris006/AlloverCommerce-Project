@@ -8,8 +8,8 @@ import practice_.utilities.Driver;
 public class AlloverCommerce_Wishlist_Page {
     public AlloverCommerce_Wishlist_Page() {PageFactory.initElements(Driver.getDriver(), this);}
 
-//    @FindBy(xpath = "//h2[.='Wishlist']")
-//    public WebElement wishlistHeader;
+    @FindBy(xpath = "//h2[.='Wishlist']")
+    public WebElement wishlistHeader;
 
     @FindBy(xpath = "//li[.='Wishlist']")
     public WebElement wishlistHeaderSmall;
@@ -43,5 +43,11 @@ public class AlloverCommerce_Wishlist_Page {
 
     @FindBy(xpath = "//a[.='Checkout'] ")
     public WebElement wishlist_Page_Checkout_Button;
+
+    @FindBy(xpath = "//*[@class='w-icon-heart']")
+    public WebElement wishList_Button;
+
+    @FindBy(xpath = "//tbody")
+    public WebElement verifyAddedProductToWishList;
 
 }

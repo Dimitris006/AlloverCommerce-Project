@@ -74,15 +74,15 @@ public class AlloverCommerce_HomePage {
     @FindBy (xpath = "//span[.='Sign Out']")
     public WebElement signOut_Link;
 
-<<<<<<< HEAD
     @FindBy (xpath = "//*[@id=\"signup\"]/form/p[6]")
     public WebElement alreadyRegisteredAcount;
 
     @FindBy (xpath = "//*[@id=\"header\"]/div/section/div/div[1]/div/div/div/p")
     public WebElement welcomeToAllovercommerce;
 
-=======
     @FindBy (css = "a.logout")
     public WebElement signOut_NavLink;
->>>>>>> potter
+
+    @FindBy (xpath = "(//*[@class = 'form-control'])[1]")
+    public WebElement searchBox;
 }

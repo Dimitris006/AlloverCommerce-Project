@@ -1,9 +1,6 @@
 package practice_.tests.US12;
 
-
-public class US12_TC01 {
-
-    import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_AddressesPage;
 import practice_.pages.AlloverCommerce_HomePage;
@@ -15,7 +12,6 @@ import practice_.utilities.WaitUtils;
 
 import java.io.IOException;
 
-import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 import static practice_.utilities.JSUtils.clickWithTimeoutByJS;
 
@@ -54,7 +50,7 @@ public class US12_TC01 {
         clickWithTimeoutByJS(myAccountPage.addressesLinkIcon);
 
         //Click on Add Link at Shipping Address
-        alloverCommerceAddressesPage =new AlloverCommerce_AddressesPage();
+        alloverCommerceAddressesPage = new AlloverCommerce_AddressesPage();
         clickWithTimeoutByJS(alloverCommerceAddressesPage.billingAddressAdd);
 
         //Insertion of Details
@@ -84,5 +80,5 @@ public class US12_TC01 {
         Driver.closeDriver();
 
 
-
+    }
     }

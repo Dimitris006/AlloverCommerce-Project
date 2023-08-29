@@ -1,6 +1,5 @@
 package practice_.tests.US06;
 
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_HomePage;
@@ -10,12 +9,12 @@ import practice_.utilities.Driver;
 import practice_.utilities.JSUtils;
 import practice_.utilities.WaitUtils;
 
-public class US06_TC01 {
+public class US06_TC04 {
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_SearchPage alloverCommerceSearchPage;
 
     @Test
-    public void ProductSearch() {
+    public void AmountOfProduct() {
 
         //Go to Homepage
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
@@ -46,12 +45,32 @@ public class US06_TC01 {
         // Click on the desired model on the search page
         alloverCommerceSearchPage.modalName.click();
 
-        //Verify a desired product is visible
-        Assert.assertTrue(WaitUtils.waitForVisibility(alloverCommerceSearchPage.modalName, 15).isDisplayed()
+        //Click on QuantityPlus button 3 times (4 items)
+        alloverCommerceSearchPage.QuantityPlus.click();
+        alloverCommerceSearchPage.QuantityPlus.click();
+        alloverCommerceSearchPage.QuantityPlus.click();
+
+        //Click on the ADD TO CART button
+        alloverCommerceSearchPage.ADDtoCART.click();
+
+        // Click on the CART icon
+        alloverCommerceSearchPage.CARTicon.click();
+
+        //Click on the VIEW_CART
+        alloverCommerceSearchPage.VIEW_CART.click();
+
+        //Click on the QuantityMinus button(3 items)
+        alloverCommerceSearchPage.QuantityMinus.click();
+
+        //Click on the UPDATE CART button
+        alloverCommerceSearchPage.UPDATE_CART.click();
+
+        //Verify quantity was changed
+        Assert.assertTrue(WaitUtils.waitForVisibility(alloverCommerceSearchPage.QuantityMinus, 15).isDisplayed()
         );
 
         //Complete test and close browser
         WaitUtils.waitFor(2);
-      //  Driver.closeDriver();
+        Driver.closeDriver();
     }
 }

@@ -61,10 +61,10 @@ public class US06_Total {
         alloverCommerceSearchPage.CARTicon.click();
 
         //Click on  the CHECKOUT button
-        alloverCommerceSearchPage.CHECKOUT.click();
+       // alloverCommerceSearchPage.CHECKOUT.click();
 
      //Click on the CART icon
-        alloverCommerceSearchPage.CARTicon.click();
+       // alloverCommerceSearchPage.CARTicon.click();
 
         //Click on the VIEW_CART
         alloverCommerceSearchPage.VIEW_CART.click();
@@ -95,7 +95,7 @@ public class US06_Total {
 
        alloverCommerceCheckoutPage.Pay_at_the_door.click();;
         Assert.assertTrue(WaitUtils.waitForVisibility(alloverCommerceCheckoutPage.Pay_at_the_door, 15).isDisplayed());
-        WaitUtils.waitFor(5);
+        WaitUtils.waitFor(15);
         alloverCommerceCheckoutPage.Wire_transfer_EFT.click();
 
         // User should be able to complete shopping process
@@ -106,7 +106,6 @@ public class US06_Total {
           // the page was changed
         alloverCommerceCheckoutPage.checkout_Place_Order_Button.click();
        // alloverCommerceCheckoutPage2.Wire_transfer_EFT.click();
-
 
         //Complete Test
 

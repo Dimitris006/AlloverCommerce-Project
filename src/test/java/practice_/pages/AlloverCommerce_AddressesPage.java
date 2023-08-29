@@ -12,38 +12,32 @@ public class AlloverCommerce_AddressesPage {
     }
 
     //Addresses Page Locators
-
-    //Shipping Address Locators
     @FindBy (xpath = "//h4[.='Addresses']")
     public WebElement addressesHeader;
 
     @FindBy (xpath = "//*[@name='shipping_first_name']")
-    public WebElement firstNameField;
+    public WebElement FirstNameField;
 
     @FindBy (xpath = "//*[@href='https://allovercommerce.com/my-account-2/edit-address/shipping/']")
     public WebElement shippingAddressAdd;
 
 
     @FindBy (xpath = "//*[@name='shipping_last_name']")
-    public WebElement lastNameField;
+    public WebElement LastNameField;
 
     @FindBy (xpath = "//*[@name='shipping_company']")
-    public WebElement companyName;
+    public WebElement CompanyName;
 
     @FindBy (xpath = "//*[@id='select2-shipping_country-container']")
-    public WebElement countryDropdwn;
+    public WebElement CountryDropdwn;
 
     @FindBy (xpath = "//*[@name='shipping_address_1']")
-    public WebElement streetAddress;
+    public WebElement StreetAddress;
 
     @FindBy (xpath = "//*[@name='shipping_city']")
-    public WebElement cityName;
-
-    @FindBy (xpath = "//*[@id='select2-shipping_state-container']")
-    public WebElement stateDropdown;
-
-    @FindBy (xpath = "//*[@name='shipping_postcode']")
-    public WebElement zipCode;
+    public WebElement CityAddress;
+          @FindBy (xpath = "//*[@id='select2-shipping_state-container']")
+          public WebElement StateDropdown;
 
     @FindBy (xpath = "//*[@name='save_address']")
     public WebElement saveAddressButton;

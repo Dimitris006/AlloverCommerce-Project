@@ -1,16 +1,7 @@
-
 package practice_.tests.US08;
 
-import org.openqa.selenium.Keys;
-import org.testng.annotations.Test;
-import practice_.pages.AlloverCommerce_HomePage;
-import practice_.pages.AlloverCommerce_Wishlist_Page;
-import practice_.utilities.BrowserUtils;
-import practice_.utilities.ConfigReader;
-import practice_.utilities.Driver;
-import practice_.utilities.WaitUtils;
-
 public class US08_TC01 {
+<<<<<<< HEAD
     @Test
     public void testcase01() {
         AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
@@ -38,4 +29,6 @@ public class US08_TC01 {
         Driver.closeDriver();
     }
 }
-
+=======
+}
+>>>>>>> hamid

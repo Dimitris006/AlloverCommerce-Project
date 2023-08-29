@@ -8,14 +8,8 @@ import practice_.utilities.Driver;
 public class AlloverCommerce_Wishlist_Page {
     public AlloverCommerce_Wishlist_Page() {PageFactory.initElements(Driver.getDriver(), this);}
 
-    @FindBy(xpath = "//h2[.='Wishlist']")
-    public WebElement wishlistHeader;
-
-    @FindBy(xpath = "//*[.='GO SHOP']")
-    public WebElement goShopButton;
-
-    @FindBy(xpath = "//*[@class='w-icon-heart']")
-    public WebElement wishList_Button;
+//    @FindBy(xpath = "//h2[.='Wishlist']")
+//    public WebElement wishlistHeader;
 
     @FindBy(xpath = "//li[.='Wishlist']")
     public WebElement wishlistHeaderSmall;
@@ -49,21 +43,5 @@ public class AlloverCommerce_Wishlist_Page {
 
     @FindBy(xpath = "//a[.='Checkout'] ")
     public WebElement wishlist_Page_Checkout_Button;
-
-    @FindBy (xpath = "//a[@data-product-id='13206']")
-    public WebElement menClothingWishlist_Button;
-
-    @FindBy (xpath = "//a[@data-title='Browse wishlist...']")
-    public WebElement menClothingWishlistButton_Clicked;
-
-    @FindBy (xpath = "//*[@class='attachment-woocommerce_thumbnail size-woocommerce_thumbnail']")
-    public WebElement menClothing_Image;
-
-    @FindBy (xpath = "//*[@class='list-type-check']")
-    public WebElement productsProperties;
-
-    @FindBy(xpath = "//tbody")
-    public WebElement verifyAddedProductToWishList;
-
 
 }

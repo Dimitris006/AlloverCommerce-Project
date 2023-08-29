@@ -192,7 +192,7 @@ public class US07_TC {
         Driver.closeDriver();
     }
 }
-<<<<<<< HEAD
+
 
 //package practice_.tests.US07;
 //
@@ -372,5 +372,5 @@ public class US07_TC {
 //    }
 //}
 
-=======
->>>>>>> hamid
+
+

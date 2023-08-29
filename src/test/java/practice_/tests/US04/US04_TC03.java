@@ -1,14 +1,16 @@
 package practice_.tests.US04;
 
+import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_AddressesPage;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
-import practice_.utilities.ConfigReader;
-import practice_.utilities.Driver;
-import practice_.utilities.WaitUtils;
+import practice_.utilities.*;
+
+import java.io.IOException;
 
 import static org.testng.AssertJUnit.assertTrue;
 import static practice_.utilities.JSUtils.clickWithTimeoutByJS;
@@ -21,23 +23,37 @@ public class US04_TC03 {
     AlloverCommerce_AddressesPage alloverCommerceAddressesPage;
 
     @Test
-    public void shippingAddress03(){
+    public void shippingAddress03() throws IOException {
 
         //Go to homepage
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
 
-        //Click on Sign In Link
+        //Click on Register Link
         alloverCommerceHomePage = new AlloverCommerce_HomePage();
-        alloverCommerceHomePage.signIn_Link.click();
+        alloverCommerceHomePage.register_Link.click();
 
-        //Enter username or email address
-        alloverCommerceHomePage.signIn_Username.sendKeys(ConfigReader.getProperty("customer_email"));
+        //Enter username
+        Faker faker = new Faker();
+
+        String username = faker.name().username();
+        System.out.println(username);
+        alloverCommerceHomePage.signUp_Username.sendKeys(username);
+
+        //Enter email
+        String emailAddress = faker.internet().emailAddress();
+        System.out.println(emailAddress);
+        alloverCommerceHomePage.signUp_Email.sendKeys(emailAddress);
 
         //Enter password
-        alloverCommerceHomePage.signIn_Password.sendKeys(ConfigReader.getProperty("customer_password"));
+        String password = faker.internet().password();
+        System.out.println(password);
+        alloverCommerceHomePage.signUp_Password.sendKeys(password);
 
-        //Click on Sign In Button
-        alloverCommerceHomePage.signIn_Button.click();
+        //Click on Privacy Policy
+        clickWithTimeoutByJS(alloverCommerceHomePage.signUp_PrivacyPolicyCheckbox);
+
+        //Click on Sign Up Button
+        clickWithTimeoutByJS(alloverCommerceHomePage.signUp_Button);
 
         //Click on Sign Out Link
         WaitUtils.waitFor(5);
@@ -51,21 +67,21 @@ public class US04_TC03 {
         alloverCommerceAddressesPage =new AlloverCommerce_AddressesPage();
         clickWithTimeoutByJS(alloverCommerceAddressesPage.shippingAddressAdd);
 
-        //Insertion of Details
-        alloverCommerceAddressesPage.firstNameField.sendKeys("John");
-        alloverCommerceAddressesPage.lastNameField.sendKeys("Neo");
-        alloverCommerceAddressesPage.companyName.sendKeys("Pieces");
-//        BrowserUtils.selectDropdownByValue(AlloverCommerce_AddressesPage(alloverCommerceAddressesPage.countryDropdwn), String "Afghanistan");
-        alloverCommerceAddressesPage.streetAddress.sendKeys("Home 1");
-        alloverCommerceAddressesPage.cityName.sendKeys("City");
-//        BrowserUtils.selectDropdownByValue;
-        alloverCommerceAddressesPage.zipCode.sendKeys("33111");
-
-        //Visibility of Save Address Button
-        assertTrue(alloverCommerceAddressesPage.saveAddressButton.isDisplayed());
+        //Click on Save Address Button
         clickWithTimeoutByJS(alloverCommerceAddressesPage.saveAddressButton);
 
-        //Visibility of Successful Adding
-        Assert.assertTrue((alloverCommerceAddressesPage.successfulAdd).isDisplayed());
+        //Visibility of Invalid Information Messages
+        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.firstNameWrong);
+        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.lastNameWrong);
+        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.countryWrong);
+        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.addressWrong);
+        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.cityWrong);
+        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.stateWrong);
+        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.postcodeWrong);
+
+        MediaUtils.takeScreenshotOfTheEntirePage();
+
+        Driver.closeDriver();
+
     }
 }

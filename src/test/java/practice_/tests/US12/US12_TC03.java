@@ -1,25 +1,18 @@
 package practice_.tests.US12;
 
-
-public class US12_TC01 {
-
-    import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_AddressesPage;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
-import practice_.utilities.ConfigReader;
-import practice_.utilities.Driver;
-import practice_.utilities.MediaUtils;
-import practice_.utilities.WaitUtils;
+import practice_.utilities.*;
 
 import java.io.IOException;
 
-import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 import static practice_.utilities.JSUtils.clickWithTimeoutByJS;
 
-public class US12_TC01 {
+public class US12_TC03 {
 
     WebDriver driver;
     AlloverCommerce_HomePage alloverCommerceHomePage;
@@ -57,32 +50,21 @@ public class US12_TC01 {
         alloverCommerceAddressesPage =new AlloverCommerce_AddressesPage();
         clickWithTimeoutByJS(alloverCommerceAddressesPage.billingAddressAdd);
 
-        //Insertion of Details
-        System.out.println(alloverCommerceAddressesPage.billFirstNameValue.getText());
-        assertTrue(alloverCommerceAddressesPage.billFirstNameValue.getText().contains("John"));
+        //Visibility of Save Address Button
+        assertTrue(alloverCommerceAddressesPage.billSaveAddressButton.isDisplayed());
+        clickWithTimeoutByJS(alloverCommerceAddressesPage.billSaveAddressButton);
 
-//        assertEquals(alloverCommerceAddressesPage.bill.toString(), "Lenon");
-
-
-//        alloverCommerceAddressesPage.billFirstNameField.sendKeys("Jane");
-//        alloverCommerceAddressesPage.billLastNameField.sendKeys("Veo");
-//        alloverCommerceAddressesPage.billCompanyName.sendKeys("One");
-//        BrowserUtils.selectDropdownByValue(AlloverCommerce_AddressesPage(alloverCommerceAddressesPage.billCountryDropdwn), String "Afghanistan");
-//        alloverCommerceAddressesPage.billStreetAddress.sendKeys("Home 2");
-//        alloverCommerceAddressesPage.billCityName.sendKeys("Village");
-//       BrowserUtils.selectDropdownByValue;
-//        alloverCommerceAddressesPage.billZipCode.sendKeys("11333");
-//        alloverCommerceAddressesPage.billPhone.sendKeys("0001110001");
-//
-//        //Visibility of Save Address Button
-//        assertTrue(alloverCommerceAddressesPage.billSaveAddressButton.isDisplayed());
-//        clickWithTimeoutByJS(alloverCommerceAddressesPage.billSaveAddressButton);
-//        assertTrue(alloverCommerceAddressesPage.addressesHeader.isDisplayed());
+        //Visibility of Invalid Information Messages
+        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billCountryWrong);
+        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billAddressWrong);
+        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billCityWrong);
+        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billStateWrong);
+        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billPostcodeWrong);
+        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billPhoneWrong);
 
         MediaUtils.takeScreenshotOfTheEntirePage();
 
         Driver.closeDriver();
 
-
-
     }
+}

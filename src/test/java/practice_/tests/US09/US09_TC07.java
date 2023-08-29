@@ -90,12 +90,6 @@ public class US09_TC07 {
             WaitUtils.waitForClickablility(consentButton, 3);
             consentButton.click();
 
-            //sometimes other popups could come up in front
-            //if it does, it will refresh page and try again
-            while (!consentButton.isDisplayed()) {
-                Driver.getDriver().navigate().refresh();
-            }
-
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

@@ -59,7 +59,7 @@ public class US07_TC {
         MediaUtils.takeScreenshotOfThisElement(alloverCommerceCompare.kitchenImagesSection);
 
         //Locate all images in Kitchen section
-         List<WebElement> hoverKitchenImages = Driver.getDriver().findElements(By.cssSelector(
+        List<WebElement> hoverKitchenImages = Driver.getDriver().findElements(By.cssSelector(
                 "div[data-id='5cf38cb'] img:nth-of-type(1)"
         )) ;
 
@@ -68,7 +68,7 @@ public class US07_TC {
                 "[data-id='5cf38cb'] a[title='Compare']"
         ));
 
-         //loop and hover each element + click on each compare icon for first 4 images
+        //loop and hover each element + click on each compare icon for first 4 images
         for (int i = 0; i <= 3; i++) {
             ActionsUtils.hoverOverOnElementActions(
                     hoverKitchenImages.get(i)
@@ -370,4 +370,3 @@ public class US07_TC {
 //        Driver.closeDriver();
 //    }
 //}
-

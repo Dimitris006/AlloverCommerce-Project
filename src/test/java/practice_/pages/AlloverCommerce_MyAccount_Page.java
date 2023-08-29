@@ -51,4 +51,35 @@ public class AlloverCommerce_MyAccount_Page {
 
     @FindBy (xpath = "//p[.='Logout']")
     public WebElement logoutButton;
+
+    @FindBy (xpath = "//input[@autocomplete='given-name']")
+    public WebElement accountDetails_firstname;
+
+    @FindBy (xpath = "//input[@autocomplete='family-name']")
+    public WebElement accountDetails_lastname;
+
+    @FindBy (xpath = "//input[@id='account_display_name']")
+    public WebElement accountDetails_displayName;
+
+    @FindBy (xpath = "//input[@id='account_email']")
+    public WebElement accountDetails_email;
+
+    @FindBy (xpath = "//body[@id='tinymce']")
+    public WebElement accountDetails_Biography;
+
+    @FindBy (xpath = "//button[@name='save_account_details']")
+    public WebElement accountDetails_saveChanges;
+
+    @FindBy (xpath = "//div[@role='alert']")
+    public WebElement accountDetails_confirmationMessage;
+
+    @FindBy (xpath = "//li[@data-id='account_first_name']")
+    public WebElement accountDetails_ErrorFirstName;
+
+    @FindBy (xpath = "//li[@data-id='account_last_name']")
+    public WebElement accountDetails_ErrorLastName;
+
+
+
+
 }

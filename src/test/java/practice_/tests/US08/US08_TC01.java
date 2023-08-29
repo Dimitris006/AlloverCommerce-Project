@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package practice_.tests.US08;
 
 import org.openqa.selenium.Keys;

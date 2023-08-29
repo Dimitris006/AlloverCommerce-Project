@@ -1,7 +1,7 @@
 package practice_.tests.US08;
 
 public class US08_TC01 {
-<<<<<<< HEAD
+
     @Test
     public void testcase01() {
         AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
@@ -29,6 +29,4 @@ public class US08_TC01 {
         Driver.closeDriver();
     }
 }
-=======
-}
->>>>>>> hamid
+

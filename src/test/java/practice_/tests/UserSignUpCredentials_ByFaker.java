@@ -1,7 +1,7 @@
-package practice_.tests.US05;
+package practice_.tests;
 
 import com.github.javafaker.Faker;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
@@ -10,17 +10,17 @@ import practice_.utilities.Driver;
 import practice_.utilities.JSUtils;
 import practice_.utilities.WaitUtils;
 
-public class US05 {
+public class UserSignUpCredentials_ByFaker {
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_MyAccount_Page alloverCommerceMyAccountPage;
-    public static String username;
-    public static String email;
-    public static String password;
+    private static String username;
+    private static String email;
+    private static String password;
 
 
 
-    @BeforeTest
-            public void US05_signUp(){
+    @Test
+    public void SignUp_ByFaker(){
         Faker faker = new Faker();
 
         alloverCommerceHomePage = new AlloverCommerce_HomePage();
@@ -28,9 +28,9 @@ public class US05 {
 
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
         alloverCommerceHomePage.register_Link.click();
-        String username = faker.name().username();
-        String email = faker.internet().emailAddress();
-        String password = faker.internet().password(12,13,true,true,true);
+        username = faker.name().username();
+        email = faker.internet().emailAddress();
+        password = faker.internet().password(12,13,true,true,true);
         alloverCommerceHomePage.signUp_Username.sendKeys(username);
         alloverCommerceHomePage.signUp_Email.sendKeys(email);
         alloverCommerceHomePage.signUp_Password.sendKeys(password);
@@ -39,8 +39,16 @@ public class US05 {
         WaitUtils.waitFor(2);
         alloverCommerceHomePage.signOut_NavLink.click();
         JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.logoutButton);
-        Driver.closeDriver();
     }
 
+    @DataProvider
+    public Object[][] customerData2(){
+        Object[][] data = {
+                {username, password, email},
+        };
+
+        return data;
     }
+
+}
 

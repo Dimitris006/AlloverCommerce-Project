@@ -96,8 +96,8 @@ public class WaitUtils {
 
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
 
-        return wait.until(ExpectedConditions.visibilityOf(element));
-
+       // return wait.until(ExpectedConditions.visibilityOf(element));
+    return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     public static WebElement waitForVisibility(By locator, int timeout) {

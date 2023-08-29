@@ -7,7 +7,8 @@ import practice_.utilities.Driver;
 
 public class AlloverCommerce_HomePage {
 
-    public AlloverCommerce_HomePage(){PageFactory.initElements(Driver.getDriver(), this);
+    public AlloverCommerce_HomePage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     //SIGN IN / REGISTER LINKS
@@ -66,19 +67,30 @@ public class AlloverCommerce_HomePage {
     @FindBy(xpath = "//div[@id='customer_login']//a[.='Become a Vendor']")
     public WebElement signUp_BecomeVendorLink;
 
+
     @FindBy(linkText = "My Account")
     public WebElement myAccountLink;
+
 
     //My Account link in the footer
     @FindBy(css = "#menu-footer-nav-2 a[href='https://allovercommerce.com/my-account-2/']")
     public WebElement myAccountLink_Footer;
 
+
     //Sign Out Link
-    @FindBy (xpath = "//span[.='Sign Out']")
+    @FindBy(xpath = "//span[.='Sign Out']")
     public WebElement signOut_Link;
+
+
+    @FindBy(name = "s")
+    public WebElement Searhbox;
+
+    @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div/div/div[3]/div/div/form/button")
+    public WebElement searchButton;
 
     @FindBy (css = "a.logout")
     public WebElement signOut_NavLink;
+
 
     @FindBy (xpath = "//*[contains(text(), 'a valid email')]")
     public WebElement signUp_invalidEmailMessage;
@@ -91,4 +103,8 @@ public class AlloverCommerce_HomePage {
     @FindBy (xpath = "(//div[(text() = 'Strong')])[1]")
     public WebElement signUp_StrongPasswordMessage;
 
+
+
 }
+
+

@@ -14,7 +14,6 @@ import java.io.IOException;
 import static org.testng.AssertJUnit.assertTrue;
 import static practice_.utilities.JSUtils.clickWithTimeoutByJS;
 
-
 public class US04_TC02 {
     WebDriver driver;
     AlloverCommerce_HomePage alloverCommerceHomePage;
@@ -70,7 +69,13 @@ public class US04_TC02 {
         alloverCommerceAddressesPage.firstNameField.sendKeys("John");
         alloverCommerceAddressesPage.lastNameField.sendKeys("Neo");
         alloverCommerceAddressesPage.companyName.sendKeys("Pieces");
+
         // BrowserUtils.selectByValue(alloverCommerceAddressesPage.shipCountryDropdown, "GR");
+
+        WaitUtils.waitFor(5);
+        BrowserUtils.selectByValue(alloverCommerceAddressesPage.shipCountryDropdown, "GR");
+        WaitUtils.waitFor(5);
+
         alloverCommerceAddressesPage.streetAddress.sendKeys("Home 1");
         alloverCommerceAddressesPage.cityName.sendKeys("City");
 //        BrowserUtils.selectByValue(alloverCommerceAddressesPage.stateDropdown, "GR");

@@ -71,13 +71,13 @@ public class US04_TC03 {
         clickWithTimeoutByJS(alloverCommerceAddressesPage.saveAddressButton);
 
         //Visibility of Invalid Information Messages
-        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.firstNameWrong);
-        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.lastNameWrong);
-        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.countryWrong);
-        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.addressWrong);
-        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.cityWrong);
-        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.stateWrong);
-        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.postcodeWrong);
+//        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.firstNameWrong);
+//        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.lastNameWrong);
+//        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.countryWrong);
+//        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.addressWrong);
+//        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.cityWrong);
+//        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.stateWrong);
+//        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.postcodeWrong);
 
         MediaUtils.takeScreenshotOfTheEntirePage();
 

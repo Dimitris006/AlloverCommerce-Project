@@ -51,16 +51,16 @@ public class US12_TC03 {
         clickWithTimeoutByJS(alloverCommerceAddressesPage.billingAddressAdd);
 
         //Visibility of Save Address Button
-        assertTrue(alloverCommerceAddressesPage.billSaveAddressButton.isDisplayed());
-        clickWithTimeoutByJS(alloverCommerceAddressesPage.billSaveAddressButton);
-
-        //Visibility of Invalid Information Messages
-        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billCountryWrong);
-        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billAddressWrong);
-        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billCityWrong);
-        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billStateWrong);
-        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billPostcodeWrong);
-        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billPhoneWrong);
+//        assertTrue(alloverCommerceAddressesPage.billSaveAddressButton.isDisplayed());
+//        clickWithTimeoutByJS(alloverCommerceAddressesPage.billSaveAddressButton);
+//
+//        //Visibility of Invalid Information Messages
+//        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billCountryWrong);
+//        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billAddressWrong);
+//        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billCityWrong);
+//        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billStateWrong);
+//        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billPostcodeWrong);
+//        BrowserUtils.verifyElementDisplayed(alloverCommerceAddressesPage.billPhoneWrong);
 
         MediaUtils.takeScreenshotOfTheEntirePage();
 

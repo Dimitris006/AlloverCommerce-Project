@@ -2,23 +2,27 @@ package practice_.tests.US13;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import practice_.pages.AlloverCommerce_AddressesPage;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
-import practice_.utilities.ConfigReader;
-import practice_.utilities.Driver;
-import practice_.utilities.WaitUtils;
+import practice_.utilities.*;
+
 import java.io.IOException;
+
+import static org.testng.AssertJUnit.assertTrue;
 import static practice_.utilities.JSUtils.clickWithTimeoutByJS;
 
-public class US13_TC01 {
+
+public class US13_TC03 {
     WebDriver driver;
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_MyAccount_Page myAccountPage;
-
+    AlloverCommerce_AddressesPage alloverCommerceAddressesPage;
 
     @Test
-    public void vendorAccNavigation() throws IOException {
+    public void shippingAddressConfirmation() throws IOException {
 
         //Go to homepage
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
@@ -50,6 +54,10 @@ public class US13_TC01 {
         //Click on Sign Up Button
         clickWithTimeoutByJS(alloverCommerceHomePage.signUp_Button);
 
+        //Click on Sign Out Link
+        //WaitUtils.waitFor(5);
+       // alloverCommerceHomePage.signOut_Link.click();
+
         //Click on My Account Link
         WaitUtils.waitFor(5);
         clickWithTimeoutByJS(alloverCommerceHomePage.myAccountLink);
@@ -58,7 +66,44 @@ public class US13_TC01 {
         myAccountPage = new AlloverCommerce_MyAccount_Page();
         clickWithTimeoutByJS(myAccountPage.addressesLinkIcon);
 
+        //Click on Add Link at Shipping Address
+
+        alloverCommerceAddressesPage = new AlloverCommerce_AddressesPage();
+        clickWithTimeoutByJS(alloverCommerceAddressesPage.shippingAddressAdd);
+
+        // Enter First name
+        alloverCommerceAddressesPage.firstNameField.sendKeys("John");
+
+        //Enter Last name
+        alloverCommerceAddressesPage.lastNameField.sendKeys("Neo");
+
+        //Enter Company Name
+        alloverCommerceAddressesPage.companyName.sendKeys("Pieces");
+
+        //Enter a Country
+         BrowserUtils.selectByValue(alloverCommerceAddressesPage.shipCountryDropdown, "GR");
+        //Enter Street
+        alloverCommerceAddressesPage.streetAddress.sendKeys("Home 1");
+
+        //Enter City
+        alloverCommerceAddressesPage.cityName.sendKeys("City");
+
+        //Enter zipCode
+        alloverCommerceAddressesPage.zipCode.sendKeys("33111");
+
+        //Visibility of Save Address Button
+        assertTrue(alloverCommerceAddressesPage.billSaveAddressButton.isDisplayed());
+
+        //Click on Save button
+        clickWithTimeoutByJS(alloverCommerceAddressesPage.billSaveAddressButton);
+
+        //Visibility of Successful Adding
+        Assert.assertTrue((alloverCommerceAddressesPage.successfulAdd).isDisplayed());
+
+        // Taking Screenshot
+        MediaUtils.takeScreenshotOfTheEntirePage();
+
+        //Closing the driver
+        Driver.closeDriver();
     }
 }
-
-

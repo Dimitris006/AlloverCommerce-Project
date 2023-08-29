@@ -36,6 +36,16 @@ public class AlloverCommerce_Checkout_Page {
     @FindBy(xpath = "//input[@id='billing_email']")
     public WebElement checkout_email;
 
-    @FindBy(xpath = "//button[@id='place_order']")
+//    @FindBy(xpath = "//button[@id='place_order']")
+//    public WebElement checkout_Place_Order_Button;
+
+   @FindBy(xpath = "//*[@id=\"payment_method_bacs\"]")
+    public WebElement Wire_transfer_EFT;
+
+    @FindBy(xpath ="//*[@id=\"payment_method_cod\"]")
+    public WebElement Pay_at_the_door;
+
+    @FindBy(xpath = "//*[@id=\"place_order\"]")
     public WebElement checkout_Place_Order_Button;
+
 }

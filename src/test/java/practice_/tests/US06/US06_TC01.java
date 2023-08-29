@@ -1,99 +1,60 @@
 package practice_.tests.US06;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_HomePage;
+import practice_.pages.AlloverCommerce_SearchPage;
+import practice_.utilities.ConfigReader;
 import practice_.utilities.Driver;
+import practice_.utilities.JSUtils;
 import practice_.utilities.WaitUtils;
 
 public class US06_TC01 {
+    AlloverCommerce_HomePage alloverCommerceHomePage;
+    AlloverCommerce_SearchPage alloverCommerceSearchPage;
 
     @Test
-    public void practice() {
+    public void ProductSearch() {
 
-        //create object for pages
+        //Go to Homepage
+        Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
+
+        //Create objects for pages
         AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
+        AlloverCommerce_SearchPage alloverCommerceSearchPage = new AlloverCommerce_SearchPage();
 
-        //navigate to URL
-        Driver.getDriver().get("https://allovercommerce.com/");
+        //Click on the search box
+        alloverCommerceHomePage.searchBox.click();
 
-        //click on register link
-        alloverCommerceHomePage.register_Link.click();
-
-        //wait util will wait until the WebElement is visible
-        //The wait will be for 15s
-        Assert.assertTrue(
-                WaitUtils.waitForVisibility(alloverCommerceHomePage.signUp_Button, 15).isDisplayed()
+        // Wait until the WebElement is visible
+        //The wait will be 15s
+        Assert.assertTrue(WaitUtils.waitForVisibility(alloverCommerceHomePage.searchBox, 15).isDisplayed()
         );
 
-        //username
-        String username = "John.Doe11";
-        alloverCommerceHomePage.signUp_Username.sendKeys(username);
+        //Enter the product name in the search field
+        String productName = "Iphone";
+        alloverCommerceHomePage.searchBox.sendKeys(productName);
 
-        String emailAddress = "John.d11@gmail.com";
-        //email address
-        alloverCommerceHomePage.signUp_Email.sendKeys(emailAddress);
+        //Click on the search button on the right side
+        alloverCommerceHomePage.searchButton.click();
 
-        String password = "admin123";
-        //password
-        alloverCommerceHomePage.signUp_Password.sendKeys(password);
+        // the page was changed +
+        JSUtils.scrollIntoViewJS(alloverCommerceSearchPage.modalName);
+        WaitUtils.waitFor(3);
 
-        //checkbox
-        alloverCommerceHomePage.signUp_PrivacyPolicyCheckbox.click();
+        // Click on the desired model on the search page
+        alloverCommerceSearchPage.modalName.click();
 
-        //sign up
-        alloverCommerceHomePage.signUp_Button.click();
+        //Choose quantity to receive 2
+       // alloverCommerceSearchPage.QuantityPlus.click();
 
-        //check sign out shows
-        WebElement signOut = Driver.getDriver().findElement(By.cssSelector("a[href=\"https://allovercommerce.com/my-account-2/customer-logout/\"]"));
-
-        //check if sign out link is there
-        Assert.assertTrue(
-                WaitUtils.waitForVisibility(signOut, 15).isDisplayed()
+        //Verify a desired product is visible
+        Assert.assertTrue(WaitUtils.waitForVisibility(alloverCommerceSearchPage.modalName, 15).isDisplayed()
         );
 
-        //sign out account here
-        signOut.click();
-
-        //locate sign out link again on page
-        WebElement signOutLink = Driver.getDriver().findElement(By.xpath("//a[.='Log out']"));
-
-        //sign out confirmation done here
-        signOutLink.click();
-
-        //use wait. Check if sign in button is showing
-        Assert.assertTrue(
-                WaitUtils.waitForVisibility(alloverCommerceHomePage.signIn_Link, 15).isDisplayed()
-        );
-
-        //click sign in link
-        alloverCommerceHomePage.signIn_Link.click();
-
-        //verify that pop up is showing by locating sign in
-        Assert.assertTrue(
-                WaitUtils.waitForVisibility(alloverCommerceHomePage.signIn_Button, 15).isDisplayed()
-        );
-
-        //fill in username
-        alloverCommerceHomePage.signIn_Username.sendKeys(username);
-
-        //fill in password
-        alloverCommerceHomePage.signIn_Password.sendKeys(password);
-
-        //click signIn button
-        alloverCommerceHomePage.signIn_Button.click();
-
-        //wait for sign in + verify that 'My Account' isDisplayed
-        WebElement myAccountText = Driver.getDriver().findElement(By.xpath("//h2[.='My Account']"));
-        Assert.assertTrue(
-                WaitUtils.waitForVisibility(myAccountText, 15).isDisplayed()
-        );
-
-        //Complete Test
-
-        Driver.closeDriver();
+        //Complete test and close browser
+        WaitUtils.waitFor(2);
+       // Driver.closeDriver();
     }
-
 }

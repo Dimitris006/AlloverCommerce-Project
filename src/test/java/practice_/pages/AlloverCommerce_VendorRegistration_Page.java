@@ -63,4 +63,15 @@ public class AlloverCommerce_VendorRegistration_Page {
     //BreadCrumb
     @FindBy(css=".breadcrumb li:nth-child(3)")
     public WebElement breadCrumb;
+
+    @FindBy(xpath = "//*[@class='button button-large']")
+    public WebElement largeRightButton;
+
+    @FindBy(xpath = "//*[@name='account_first_name']")
+    public WebElement accountFirstName;
+
+    @FindBy(xpath = "//*[@name='account_last_name']")
+    public WebElement accountLastName;
+
+
 }

@@ -191,52 +191,26 @@ public class US12_TC01 {
         WaitUtils.waitFor(1);
         alloverCommerceVendorRegistrationPage.registerButton.click();
 
-//        //Go to homepage
-//        Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
-//
-//        //Click on Sign In Link
-//        alloverCommerceHomePage = new AlloverCommerce_HomePage();
-//        alloverCommerceHomePage.signIn_Link.click();
-//
-//        //Enter username or email address
-//        alloverCommerceHomePage.signIn_Username.sendKeys(ConfigReader.getProperty("vendor_email"));
-//
-//        //Enter password
-//        alloverCommerceHomePage.signIn_Password.sendKeys(ConfigReader.getProperty("vendor_password"));
-//
-//        //Click on Sign In Button
-//        alloverCommerceHomePage.signIn_Button.click();
+        //Click on large button
+        AlloverCommerce_VendorRegistration_Page alloverCommerce_vendorRegistration_page = new AlloverCommerce_VendorRegistration_Page();
+        alloverCommerce_vendorRegistration_page.largeRightButton.click();
 
-        //Click on Sign Out Link
+        //Click on My Account Link
         WaitUtils.waitFor(5);
-        alloverCommerceHomePage.signOut_Link.click();
+        clickWithTimeoutByJS(alloverCommerceHomePage.myAccountLink);
 
         //Click on Addresses Link
         myAccountPage = new AlloverCommerce_MyAccount_Page();
         clickWithTimeoutByJS(myAccountPage.addressesLinkIcon);
 
-        //Click on Add Link at Shipping Address
+        //Click on Add Link at Billing Address
         alloverCommerceAddressesPage = new AlloverCommerce_AddressesPage();
         clickWithTimeoutByJS(alloverCommerceAddressesPage.billingAddressAdd);
-        //Insertion of Details
-//        System.out.println(alloverCommerceAddressesPage.billFirstNameValue.getText());
-//        assertTrue(alloverCommerceAddressesPage.billFirstNameValue.getText().contains("John"));
 
-//        assertEquals(alloverCommerceAddressesPage.bill.toString(), "Lenon");
-//        alloverCommerceAddressesPage.billFirstNameField.sendKeys("Jane");
-//        alloverCommerceAddressesPage.billLastNameField.sendKeys("Veo");
-//        alloverCommerceAddressesPage.billCompanyName.sendKeys("One");
-//        BrowserUtils.selectDropdownByValue(AlloverCommerce_AddressesPage(alloverCommerceAddressesPage.billCountryDropdwn), String "Afghanistan");
-//        alloverCommerceAddressesPage.billStreetAddress.sendKeys("Home 2");
-//        alloverCommerceAddressesPage.billCityName.sendKeys("Village");
-//       BrowserUtils.selectDropdownByValue;
-//        alloverCommerceAddressesPage.billZipCode.sendKeys("11333");
-//        alloverCommerceAddressesPage.billPhone.sendKeys("0001110001");
-//
-//        //Visibility of Save Address Button
-//        assertTrue(alloverCommerceAddressesPage.billSaveAddressButton.isDisplayed());
-//        clickWithTimeoutByJS(alloverCommerceAddressesPage.billSaveAddressButton);
-//        assertTrue(alloverCommerceAddressesPage.addressesHeader.isDisplayed());
+        //Insertion of Details
+        BrowserUtils.verifyElementNotDisplayed(alloverCommerceAddressesPage.billFirstNameValue);
+        BrowserUtils.verifyElementNotDisplayed(alloverCommerceAddressesPage.billLastNameValue);
+
 
         MediaUtils.takeScreenshotOfTheEntirePage();
 

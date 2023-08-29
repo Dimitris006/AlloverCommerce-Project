@@ -78,6 +78,10 @@ public class AlloverCommerce_MyAccount_Page {
 
     @FindBy (xpath = "//li[@data-id='account_last_name']")
     public WebElement accountDetails_ErrorLastName;
+    @FindBy (xpath = "//a[.='Edit Your Shipping Address']")
+    public WebElement editVendorShippingAddress ;
+
+
 
 
 

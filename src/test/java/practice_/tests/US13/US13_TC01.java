@@ -34,28 +34,30 @@ public class US13_TC01 {
         alloverCommerceHomePage.signIn_Link.click();
 
         //Enter username or email address
-        alloverCommerceHomePage.signIn_Username.sendKeys(ConfigReader.getProperty("customer_email"));
+        alloverCommerceHomePage.signIn_Username.sendKeys(ConfigReader.getProperty("vendor_email"));
 
         //Enter password
-        alloverCommerceHomePage.signIn_Password.sendKeys(ConfigReader.getProperty("customer_password"));
+        alloverCommerceHomePage.signIn_Password.sendKeys(ConfigReader.getProperty("vendor_password"));
 
         //Click on Sign In Button
         alloverCommerceHomePage.signIn_Button.click();
 
         //Click on Sign Out Link
         WaitUtils.waitFor(5);
-        alloverCommerceHomePage.signOut_Link.click();
+       // alloverCommerceHomePage.signOut_Link.click();
 
-        //Click on Addresses Link
         myAccountPage = new AlloverCommerce_MyAccount_Page();
+        clickWithTimeoutByJS(alloverCommerceHomePage.myAccountLink);
+        WaitUtils.waitFor(5);
+
         clickWithTimeoutByJS(myAccountPage.addressesLinkIcon);
 
         //Click on Add Link at Shipping Address
-        alloverCommerceAddressesPage = new AlloverCommerce_AddressesPage();
+        alloverCommerceAddressesPage =new AlloverCommerce_AddressesPage();
         clickWithTimeoutByJS(alloverCommerceAddressesPage.shippingAddressAdd);
 
-        WaitUtils.waitFor(2);
-        Driver.closeDriver();
+       // WaitUtils.waitFor(2);
+       // Driver.closeDriver();
 
 
     }

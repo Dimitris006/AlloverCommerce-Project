@@ -82,6 +82,8 @@ public class AlloverCommerce_AddressesPage {
     @FindBy (xpath = "//*[@name='billing_phone']")
     public WebElement billPhone;
 
+    @FindBy(css = "[href='https://allovercommerce.com/my-account-2/edit-address/']")
+    public WebElement address1;
 
 //    @FindBy (xpath = "//*[@name='save_address']")
 //    public WebElement saveAddressButton;

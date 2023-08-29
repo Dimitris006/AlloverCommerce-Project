@@ -4,10 +4,15 @@ import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Test;
-import practice_.pages.AlloverCommerce_HomePage;
+import practice_.pages.AlloverCommerce_HomePage;import practice_.pages.AlloverCommerce_MyAccountCustomerPage;
 import practice_.pages.AlloverCommerce_VendorRegistration_Page;
 import practice_.utilities.*;
-import java.util.Set;
+           import java.util.Set;
+           import practice_.utilities.ConfigReader;
+         import practice_.utilities.Driver;
+         import practice_.utilities.JSUtils;
+         import practice_.utilities.WaitUtils;
+         import static practice_.utilities.JSUtils.clickWithTimeoutByJS;
 
 public class US09_TC07 {
     AlloverCommerce_HomePage alloverCommerceHomePage;
@@ -200,6 +205,8 @@ public class US09_TC07 {
         );
 
         LoggerUtils.info("End Test.");
+        Thread.sleep(5000);
+        //Driver.closeDriver();
     }
 
     @AfterSuite

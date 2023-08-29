@@ -52,6 +52,7 @@ public class US04_TC02 {
         clickWithTimeoutByJS(alloverCommerceAddressesPage.shippingAddressAdd);
 
         //Insertion of Details
+        AlloverCommerce_MyAccount_Page alloverCommerceMyAccountPage;
         alloverCommerceAddressesPage.firstNameField.sendKeys("John");
         alloverCommerceAddressesPage.lastNameField.sendKeys("Neo");
         alloverCommerceAddressesPage.companyName.sendKeys("Pieces");

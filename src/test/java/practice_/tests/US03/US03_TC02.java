@@ -69,4 +69,5 @@ public class US03_TC02 {
         AlloverCommerce_MyAccountCustomerPage.billingPhone.sendKeys(faker.phoneNumber().cellPhone());
         AlloverCommerce_MyAccountCustomerPage.saveAddressButton.click();
 
-    }}
+    }
+}

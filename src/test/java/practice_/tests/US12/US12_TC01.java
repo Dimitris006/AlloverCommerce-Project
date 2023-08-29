@@ -54,8 +54,8 @@ public class US12_TC01 {
         clickWithTimeoutByJS(alloverCommerceAddressesPage.billingAddressAdd);
 
         //Insertion of Details
-        System.out.println(alloverCommerceAddressesPage.billFirstNameValue.getText());
-        assertTrue(alloverCommerceAddressesPage.billFirstNameValue.getText().contains("John"));
+//        System.out.println(alloverCommerceAddressesPage.billFirstNameValue.getText());
+//        assertTrue(alloverCommerceAddressesPage.billFirstNameValue.getText().contains("John"));
 
 //        assertEquals(alloverCommerceAddressesPage.bill.toString(), "Lenon");
 

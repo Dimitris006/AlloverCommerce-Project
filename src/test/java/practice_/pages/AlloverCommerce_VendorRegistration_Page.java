@@ -55,4 +55,5 @@ public class AlloverCommerce_VendorRegistration_Page {
     public WebElement fieldRequired;
 
 
+
 }

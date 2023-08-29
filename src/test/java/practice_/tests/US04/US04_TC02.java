@@ -67,11 +67,10 @@ public class US04_TC02 {
         clickWithTimeoutByJS(alloverCommerceAddressesPage.shippingAddressAdd);
 
         //Insertion of Details
-        AlloverCommerce_MyAccount_Page alloverCommerceMyAccountPage;
         alloverCommerceAddressesPage.firstNameField.sendKeys("John");
         alloverCommerceAddressesPage.lastNameField.sendKeys("Neo");
         alloverCommerceAddressesPage.companyName.sendKeys("Pieces");
-        BrowserUtils.selectByValue(alloverCommerceAddressesPage.shipCountryDropdown, "GR");
+        // BrowserUtils.selectByValue(alloverCommerceAddressesPage.shipCountryDropdown, "GR");
         alloverCommerceAddressesPage.streetAddress.sendKeys("Home 1");
         alloverCommerceAddressesPage.cityName.sendKeys("City");
 //        BrowserUtils.selectByValue(alloverCommerceAddressesPage.stateDropdown, "GR");

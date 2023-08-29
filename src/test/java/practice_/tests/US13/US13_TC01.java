@@ -44,7 +44,7 @@ public class US13_TC01 {
 
         //Click on Sign Out Link
         WaitUtils.waitFor(5);
-       // alloverCommerceHomePage.signOut_Link.click();
+        // alloverCommerceHomePage.signOut_Link.click();
 
         myAccountPage = new AlloverCommerce_MyAccount_Page();
         clickWithTimeoutByJS(alloverCommerceHomePage.myAccountLink);
@@ -53,11 +53,8 @@ public class US13_TC01 {
         clickWithTimeoutByJS(myAccountPage.addressesLinkIcon);
 
         //Click on Add Link at Shipping Address
-        alloverCommerceAddressesPage =new AlloverCommerce_AddressesPage();
+        alloverCommerceAddressesPage = new AlloverCommerce_AddressesPage();
         clickWithTimeoutByJS(alloverCommerceAddressesPage.shippingAddressAdd);
-
-       // WaitUtils.waitFor(2);
-       // Driver.closeDriver();
 
 
     }

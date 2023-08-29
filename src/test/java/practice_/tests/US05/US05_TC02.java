@@ -7,13 +7,13 @@ import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
 import practice_.utilities.*;
 
-public class US05_TC01 {
+public class US05_TC02 {
 
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_MyAccount_Page alloverCommerceMyAccountPage;
 
     @Test
-    public void TC01(){
+    public void TC02(){
 
 
         Faker faker = new Faker();
@@ -29,7 +29,6 @@ public class US05_TC01 {
         alloverCommerceHomePage.signUp_Password.sendKeys(password);
         alloverCommerceHomePage.signUp_PrivacyPolicyCheckbox.click();
         alloverCommerceHomePage.signUp_Button.click();
-        WaitUtils.waitFor(2);
         alloverCommerceHomePage.signOut_NavLink.click();
         JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.logoutButton);
         Driver.getDriver().navigate().to(ConfigReader.getProperty("allovercommerce_url"));
@@ -37,7 +36,17 @@ public class US05_TC01 {
         alloverCommerceHomePage.signIn_Username.sendKeys(username);
         alloverCommerceHomePage.signIn_Password.sendKeys(password);
         alloverCommerceHomePage.signIn_Button.click();
-        //Assert.assertTrue(alloverCommerceMyAccountPage.accountDetailslink.isDisplayed());
+        JSUtils.clickWithTimeoutByJS(alloverCommerceHomePage.myAccountLink);
+        JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.accountDetailslink);
+        alloverCommerceMyAccountPage.accountDetails_firstname.sendKeys(faker.name().firstName());
+        alloverCommerceMyAccountPage.accountDetails_lastname.sendKeys(faker.name().lastName());
+        alloverCommerceMyAccountPage.accountDetails_displayName.clear();
+        alloverCommerceMyAccountPage.accountDetails_displayName.sendKeys(faker.name().username());
+        alloverCommerceMyAccountPage.accountDetails_email.clear();
+        alloverCommerceMyAccountPage.accountDetails_email.sendKeys(faker.internet().emailAddress());
+        JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.accountDetails_saveChanges);
+        JSUtils.scrollIntoViewJS(alloverCommerceMyAccountPage.accountDetails_confirmationMessage);
+        Assert.assertTrue(alloverCommerceMyAccountPage.accountDetails_confirmationMessage.isDisplayed());
         Driver.closeDriver();
     }
 }

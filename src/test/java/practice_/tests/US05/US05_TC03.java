@@ -7,13 +7,13 @@ import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
 import practice_.utilities.*;
 
-public class US05_TC01 {
+public class US05_TC03 {
 
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_MyAccount_Page alloverCommerceMyAccountPage;
 
     @Test
-    public void TC01(){
+    public void TC03(){
 
 
         Faker faker = new Faker();
@@ -37,7 +37,18 @@ public class US05_TC01 {
         alloverCommerceHomePage.signIn_Username.sendKeys(username);
         alloverCommerceHomePage.signIn_Password.sendKeys(password);
         alloverCommerceHomePage.signIn_Button.click();
-        //Assert.assertTrue(alloverCommerceMyAccountPage.accountDetailslink.isDisplayed());
+        WaitUtils.waitFor(2);
+        JSUtils.clickWithTimeoutByJS(alloverCommerceHomePage.myAccountLink);
+        JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.accountDetailslink);
+        WaitUtils.waitFor(2);
+        BrowserUtils.switchIframeByIndex(0);
+        alloverCommerceMyAccountPage.accountDetails_Biography.sendKeys(faker.lorem().paragraph());
+        Driver.getDriver().switchTo().defaultContent();
+        WaitUtils.waitFor(2);
+        JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.accountDetails_saveChanges);
+        WaitUtils.waitFor(2);
+        Assert.assertTrue(alloverCommerceMyAccountPage.accountDetails_ErrorFirstName.isDisplayed());
+        Assert.assertTrue(alloverCommerceMyAccountPage.accountDetails_ErrorLastName.isDisplayed());
         Driver.closeDriver();
     }
 }

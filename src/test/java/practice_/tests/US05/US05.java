@@ -1,25 +1,32 @@
 package practice_.tests.US05;
 
 import com.github.javafaker.Faker;
-import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
-import practice_.utilities.*;
+import practice_.utilities.ConfigReader;
+import practice_.utilities.Driver;
+import practice_.utilities.JSUtils;
+import practice_.utilities.WaitUtils;
 
-public class US05_TC01 {
-
+public class US05 {
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_MyAccount_Page alloverCommerceMyAccountPage;
+    public static String username;
+    public static String email;
+    public static String password;
 
-    @Test
-    public void TC01(){
 
 
+    @BeforeTest
+            public void US05_signUp(){
         Faker faker = new Faker();
-        Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
+
         alloverCommerceHomePage = new AlloverCommerce_HomePage();
         alloverCommerceMyAccountPage = new AlloverCommerce_MyAccount_Page();
+
+        Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
         alloverCommerceHomePage.register_Link.click();
         String username = faker.name().username();
         String email = faker.internet().emailAddress();
@@ -32,12 +39,8 @@ public class US05_TC01 {
         WaitUtils.waitFor(2);
         alloverCommerceHomePage.signOut_NavLink.click();
         JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.logoutButton);
-        Driver.getDriver().navigate().to(ConfigReader.getProperty("allovercommerce_url"));
-        alloverCommerceHomePage.signIn_Link.click();
-        alloverCommerceHomePage.signIn_Username.sendKeys(username);
-        alloverCommerceHomePage.signIn_Password.sendKeys(password);
-        alloverCommerceHomePage.signIn_Button.click();
-        //Assert.assertTrue(alloverCommerceMyAccountPage.accountDetailslink.isDisplayed());
         Driver.closeDriver();
     }
-}
+
+    }
+

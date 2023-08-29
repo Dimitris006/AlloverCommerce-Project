@@ -6,9 +6,12 @@ import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
 import practice_.tests.UserSignUpCredentials_ByFaker;
-import practice_.utilities.*;
+import practice_.utilities.BrowserUtils;
+import practice_.utilities.ConfigReader;
+import practice_.utilities.Driver;
+import practice_.utilities.JSUtils;
 
-public class US05_TC02 {
+public class US05_TC05 {
 
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_MyAccount_Page alloverCommerceMyAccountPage;
@@ -27,12 +30,14 @@ public class US05_TC02 {
         alloverCommerceHomePage.signIn_Button.click();
         JSUtils.clickWithTimeoutByJS(alloverCommerceHomePage.myAccountLink);
         JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.accountDetailslink);
-        alloverCommerceMyAccountPage.accountDetails_firstname.sendKeys(faker.name().firstName());
-        alloverCommerceMyAccountPage.accountDetails_lastname.sendKeys(faker.name().lastName());
-        alloverCommerceMyAccountPage.accountDetails_displayName.clear();
-        alloverCommerceMyAccountPage.accountDetails_displayName.sendKeys(faker.name().username());
-        alloverCommerceMyAccountPage.accountDetails_email.clear();
-        alloverCommerceMyAccountPage.accountDetails_email.sendKeys(faker.internet().emailAddress());
+        String name = faker.name().firstName();
+        alloverCommerceMyAccountPage.accountDetails_firstname.sendKeys(name);
+        String lastName= faker.name().lastName();
+        alloverCommerceMyAccountPage.accountDetails_lastname.sendKeys(lastName);
+        String newPassword = faker.internet().password(12,13,true,true,true);
+        alloverCommerceMyAccountPage.accountDetails_currentPassword.sendKeys(password);
+        alloverCommerceMyAccountPage.accountDetails_newPassword.sendKeys(newPassword);
+        alloverCommerceMyAccountPage.accountDetails_confirmNewPassword.sendKeys(newPassword);
         JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.accountDetails_saveChanges);
         JSUtils.scrollIntoViewJS(alloverCommerceMyAccountPage.accountDetails_confirmationMessage);
         Assert.assertTrue(alloverCommerceMyAccountPage.accountDetails_confirmationMessage.isDisplayed());

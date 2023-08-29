@@ -70,7 +70,7 @@ public class AlloverCommerce_MyAccount_Page {
     @FindBy (xpath = "//button[@name='save_account_details']")
     public WebElement accountDetails_saveChanges;
 
-    @FindBy (xpath = "//div[@role='alert']")
+    @FindBy (xpath = "//*[(text()='Account details changed successfully.')]")
     public WebElement accountDetails_confirmationMessage;
 
     @FindBy (xpath = "//li[@data-id='account_first_name']")
@@ -78,6 +78,17 @@ public class AlloverCommerce_MyAccount_Page {
 
     @FindBy (xpath = "//li[@data-id='account_last_name']")
     public WebElement accountDetails_ErrorLastName;
+
+    @FindBy (xpath = "//input[@id='password_current']")
+    public WebElement accountDetails_currentPassword;
+
+    @FindBy (xpath = "//input[@id='password_1']")
+    public WebElement accountDetails_newPassword;
+
+    @FindBy (xpath = "//input[@id='password_2']")
+    public WebElement accountDetails_confirmNewPassword;
+
+
 
 
 

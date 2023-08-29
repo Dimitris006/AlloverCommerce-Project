@@ -182,7 +182,7 @@ public class US09_TC07 {
         WaitUtils.waitFor(1);
         alloverCommerceVendorRegistrationPage.registerButton.click();
 
-        JSUtils.scrollIntoViewJS(alloverCommerceVendorRegistrationPage.breadCrumb);
+        //JSUtils.scrollIntoViewJS(alloverCommerceVendorRegistrationPage.breadCrumb);
 
         WebElement successMessage = Driver.getDriver().findElement(By.cssSelector(".wcfm-message.wcfm-success"));
         WaitUtils.waitForVisibility(successMessage, 10);

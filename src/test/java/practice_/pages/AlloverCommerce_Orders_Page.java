@@ -14,4 +14,7 @@ public class AlloverCommerce_Orders_Page {
     //Orders Page Locators
     @FindBy(xpath = "//h4[.='Orders']")
     public WebElement ordersHeader;
+
+    @FindBy(xpath = "//*[@class='woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received order-success']")
+    public WebElement verifyOrderMessageIsSeen;
 }

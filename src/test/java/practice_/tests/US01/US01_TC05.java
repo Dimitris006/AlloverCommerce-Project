@@ -1,5 +1,6 @@
 package practice_.tests.US01;
 
+import com.github.javafaker.Faker;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
@@ -16,13 +17,19 @@ public class US01_TC05 {
         @Test
         public void TC05() {
 
+                Faker faker = new Faker();
+                String username = faker.name().name();
+                String email = faker.internet().emailAddress();
+                System.out.println("username = " + username);
+                System.out.println("email = " + email);
+
                 alloverCommerceHomePage = new AlloverCommerce_HomePage();
                 alloverCommerceMyAccountPage = new AlloverCommerce_MyAccount_Page();
 
                 Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
                 alloverCommerceHomePage.register_Link.click();
-                alloverCommerceHomePage.signUp_Username.sendKeys("4seasons");
-                alloverCommerceHomePage.signUp_Email.sendKeys("4seasons@gfd.com");
+                alloverCommerceHomePage.signUp_Username.sendKeys(username);
+                alloverCommerceHomePage.signUp_Email.sendKeys(email);
                 alloverCommerceHomePage.signUp_Password.sendKeys("JANEDOE1234.");
                 alloverCommerceHomePage.signUp_PrivacyPolicyCheckbox.click();
                 alloverCommerceHomePage.signUp_Button.click();

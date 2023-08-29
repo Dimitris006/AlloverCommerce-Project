@@ -5,6 +5,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import practice_.pages.*;
+import practice_.utilities.BrowserUtils;
 import practice_.utilities.ConfigReader;
 import practice_.utilities.Driver;
 import practice_.utilities.WaitUtils;
@@ -90,7 +91,8 @@ public class US08_TC03 {
         alloverCommerceCheckoutPage.checkout_Place_Order_Button.click();
 
         //Verify the message "Thank you. Your order has been received." is seen
-        alloverCommerceOrdersPage.verifyOrderMessageIsSeen.isDisplayed();
+        BrowserUtils.verifyElementDisplayed(alloverCommerceOrdersPage.verifyOrderMessageIsSeen);
+        Driver.closeDriver();
 
     }
 }

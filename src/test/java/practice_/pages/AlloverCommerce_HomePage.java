@@ -72,6 +72,11 @@ public class AlloverCommerce_HomePage {
     public WebElement myAccountLink;
 
 
+    //My Account link in the footer
+    @FindBy(css = "#menu-footer-nav-2 a[href='https://allovercommerce.com/my-account-2/']")
+    public WebElement myAccountLink_Footer;
+
+
     //Sign Out Link
     @FindBy(xpath = "//span[.='Sign Out']")
     public WebElement signOut_Link;
@@ -100,5 +105,7 @@ public class AlloverCommerce_HomePage {
     public WebElement signUp_StrongPasswordMessage;
 
 
+
 }
+
 

@@ -7,8 +7,12 @@ import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
 import practice_.utilities.ConfigReader;
 import practice_.utilities.Driver;
+import practice_.utilities.MediaUtils;
 import practice_.utilities.WaitUtils;
 
+import java.io.IOException;
+
+import static org.testng.AssertJUnit.assertTrue;
 import static practice_.utilities.JSUtils.clickWithTimeoutByJS;
 
 public class US12_TC01 {
@@ -19,7 +23,7 @@ public class US12_TC01 {
     AlloverCommerce_AddressesPage alloverCommerceAddressesPage;
 
     @Test
-    public void BillingAddress01() {
+    public void BillingAddress01() throws IOException {
 
         //Go to homepage
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
@@ -46,19 +50,35 @@ public class US12_TC01 {
         clickWithTimeoutByJS(myAccountPage.addressesLinkIcon);
 
         //Click on Add Link at Shipping Address
-        alloverCommerceAddressesPage =new AlloverCommerce_AddressesPage();
+        alloverCommerceAddressesPage = new AlloverCommerce_AddressesPage();
         clickWithTimeoutByJS(alloverCommerceAddressesPage.billingAddressAdd);
 
         //Insertion of Details
-        alloverCommerceAddressesPage.billFirstNameField.sendKeys("Jane");
-        alloverCommerceAddressesPage.billLastNameField.sendKeys("Veo");
-        alloverCommerceAddressesPage.billCompanyName.sendKeys("One");
+//        System.out.println(alloverCommerceAddressesPage.billFirstNameValue.getText());
+//        assertTrue(alloverCommerceAddressesPage.billFirstNameValue.getText().contains("John"));
+
+//        assertEquals(alloverCommerceAddressesPage.bill.toString(), "Lenon");
+
+
+//        alloverCommerceAddressesPage.billFirstNameField.sendKeys("Jane");
+//        alloverCommerceAddressesPage.billLastNameField.sendKeys("Veo");
+//        alloverCommerceAddressesPage.billCompanyName.sendKeys("One");
 //        BrowserUtils.selectDropdownByValue(AlloverCommerce_AddressesPage(alloverCommerceAddressesPage.billCountryDropdwn), String "Afghanistan");
-        alloverCommerceAddressesPage.billStreetAddress.sendKeys("Home 2");
-        alloverCommerceAddressesPage.billCityName.sendKeys("Village");
-//        BrowserUtils.selectDropdownByValue;
-        alloverCommerceAddressesPage.billZipCode.sendKeys("11333");
-        alloverCommerceAddressesPage.billPhone.sendKeys("0001110001");
+//        alloverCommerceAddressesPage.billStreetAddress.sendKeys("Home 2");
+//        alloverCommerceAddressesPage.billCityName.sendKeys("Village");
+//       BrowserUtils.selectDropdownByValue;
+//        alloverCommerceAddressesPage.billZipCode.sendKeys("11333");
+//        alloverCommerceAddressesPage.billPhone.sendKeys("0001110001");
+//
+//        //Visibility of Save Address Button
+//        assertTrue(alloverCommerceAddressesPage.billSaveAddressButton.isDisplayed());
+//        clickWithTimeoutByJS(alloverCommerceAddressesPage.billSaveAddressButton);
+//        assertTrue(alloverCommerceAddressesPage.addressesHeader.isDisplayed());
+
+        MediaUtils.takeScreenshotOfTheEntirePage();
+
+        Driver.closeDriver();
+
 
     }
-}
+    }

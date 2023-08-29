@@ -5,6 +5,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_Wishlist_Page;
+import practice_.utilities.BrowserUtils;
 import practice_.utilities.ConfigReader;
 import practice_.utilities.Driver;
 import practice_.utilities.WaitUtils;
@@ -39,6 +40,7 @@ public class US08_TC02 {
         WaitUtils.waitFor(2);
 
         //Verify properties of the product is opened
-        alloverCommerceWishlistPage.wishlist_Page_Automatic_Crusher_Properties.isDisplayed();
+        BrowserUtils.verifyElementDisplayed(alloverCommerceWishlistPage.wishlist_Page_Automatic_Crusher_Properties);
+        Driver.closeDriver();
     }
 }

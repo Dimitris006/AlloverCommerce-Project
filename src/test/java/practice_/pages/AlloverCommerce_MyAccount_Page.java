@@ -33,8 +33,8 @@ public class AlloverCommerce_MyAccount_Page {
     @FindBy(xpath = "//a[.='Account details']")
     public WebElement accountDetailslink;
 
-    @FindBy(xpath = "//a[.='Wishlist']")
-    public WebElement wishlistLink;
+    @FindBy(xpath = "//a[.='Account details']")
+    public WebElement wishlistLinks;
 
     @FindBy(xpath = "//a[.='Support Tickets']")
     public WebElement supportTicketsLink;
@@ -51,4 +51,46 @@ public class AlloverCommerce_MyAccount_Page {
 
     @FindBy (xpath = "//p[.='Logout']")
     public WebElement logoutButton;
+
+    @FindBy (xpath = "//input[@autocomplete='given-name']")
+    public WebElement accountDetails_firstname;
+
+    @FindBy (xpath = "//input[@autocomplete='family-name']")
+    public WebElement accountDetails_lastname;
+
+    @FindBy (xpath = "//input[@id='account_display_name']")
+    public WebElement accountDetails_displayName;
+
+    @FindBy (xpath = "//input[@id='account_email']")
+    public WebElement accountDetails_email;
+
+    @FindBy (xpath = "//body[@id='tinymce']")
+    public WebElement accountDetails_Biography;
+
+    @FindBy (xpath = "//button[@name='save_account_details']")
+    public WebElement accountDetails_saveChanges;
+
+    @FindBy (xpath = "//*[(text()='Account details changed successfully.')]")
+    public WebElement accountDetails_confirmationMessage;
+
+    @FindBy (xpath = "//li[@data-id='account_first_name']")
+    public WebElement accountDetails_ErrorFirstName;
+
+    @FindBy (xpath = "//li[@data-id='account_last_name']")
+    public WebElement accountDetails_ErrorLastName;
+
+    @FindBy (xpath = "//input[@id='password_current']")
+    public WebElement accountDetails_currentPassword;
+
+    @FindBy (xpath = "//input[@id='password_1']")
+    public WebElement accountDetails_newPassword;
+
+    @FindBy (xpath = "//input[@id='password_2']")
+    public WebElement accountDetails_confirmNewPassword;
+
+
+
+
+
+
 }

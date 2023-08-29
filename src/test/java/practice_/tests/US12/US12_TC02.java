@@ -1,24 +1,27 @@
-package practice_.tests.US13;
+package practice_.tests.US12;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_AddressesPage;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
-import practice_.utilities.ConfigReader;
-import practice_.utilities.Driver;
-import practice_.utilities.WaitUtils;
+import practice_.utilities.*;
 
+import java.io.IOException;
+
+import static org.testng.AssertJUnit.assertTrue;
 import static practice_.utilities.JSUtils.clickWithTimeoutByJS;
 
-public class US13_TC01 {
+public class US12_TC02 {
+
     WebDriver driver;
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_MyAccount_Page myAccountPage;
     AlloverCommerce_AddressesPage alloverCommerceAddressesPage;
 
     @Test
-    public void BillingAddress01() {
+    public void BillingAddress01() throws IOException {
 
         //Go to homepage
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
@@ -43,25 +46,33 @@ public class US13_TC01 {
         //Click on Addresses Link
         myAccountPage = new AlloverCommerce_MyAccount_Page();
         clickWithTimeoutByJS(myAccountPage.addressesLinkIcon);
-        WaitUtils.waitFor(5);
 
         //Click on Add Link at Shipping Address
         alloverCommerceAddressesPage =new AlloverCommerce_AddressesPage();
-        clickWithTimeoutByJS(alloverCommerceAddressesPage.shippingAddressAdd);
-
-        WaitUtils.waitFor(5);
+        clickWithTimeoutByJS(alloverCommerceAddressesPage.billingAddressAdd);
 
         //Insertion of Details
-        alloverCommerceAddressesPage.firstNameField.sendKeys("John");
-        alloverCommerceAddressesPage.lastNameField.sendKeys("Neo");
-        alloverCommerceAddressesPage.companyName.sendKeys("Pieces");
-//        BrowserUtils.selectDropdownByValue(AlloverCommerce_AddressesPage(alloverCommerceAddressesPage.countryDropdwn), String "Afghanistan");
-        alloverCommerceAddressesPage.streetAddress.sendKeys("Home 1");
-        alloverCommerceAddressesPage.cityName.sendKeys("City");
-//        BrowserUtils.selectDropdownByValue;
-        alloverCommerceAddressesPage.zipCode.sendKeys("33111");
+
+        alloverCommerceAddressesPage.billCompanyName.sendKeys("One");
+        BrowserUtils.selectByValue(alloverCommerceAddressesPage.billCountryDropdown, "GR");
+        alloverCommerceAddressesPage.billStreetAddress.sendKeys("Home 2");
+        alloverCommerceAddressesPage.billCityName.sendKeys("Village");
+//        BrowserUtils.selectByValue(alloverCommerceAddressesPage.stateDropdown, "GR");
+        alloverCommerceAddressesPage.billZipCode.sendKeys("11333");
+        alloverCommerceAddressesPage.billPhone.sendKeys("0001110001");
+
+        //Visibility of Save Address Button
+//        assertTrue(alloverCommerceAddressesPage.billSaveAddressButton.isDisplayed());
+//        clickWithTimeoutByJS(alloverCommerceAddressesPage.billSaveAddressButton);
+
+        //Visibility of Successful Adding
+        Assert.assertTrue((alloverCommerceAddressesPage.successfulAdd).isDisplayed());
+
+        MediaUtils.takeScreenshotOfTheEntirePage();
+
+        Driver.closeDriver();
+
 
 
     }
-
 }

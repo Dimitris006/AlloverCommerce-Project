@@ -230,6 +230,10 @@ public class BrowserUtils {
         WebElement iframeElement = Driver.getDriver().findElement(By.xpath(xpath));
         Driver.getDriver().switchTo().frame(iframeElement);
     }
+
+    public static void switchToIframeByWebElement(WebElement element) {
+        Driver.getDriver().switchTo().frame(element);
+    }
     //    IFRAME
     public static void switchIframeByIndex(int index){
         Driver.getDriver().switchTo().frame(index);

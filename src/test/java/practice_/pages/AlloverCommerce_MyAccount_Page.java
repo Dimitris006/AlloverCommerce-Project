@@ -24,6 +24,12 @@ public class AlloverCommerce_MyAccount_Page {
     @FindBy(xpath = "//a[.='Orders']")
     public WebElement ordersLink;
 
+    @FindBy(xpath = "//a[.='Browse products']")
+    public WebElement browseProductLink;
+
+    @FindBy(xpath = "//a[.='Go Shop']")
+    public WebElement goShopLink;
+
     @FindBy(xpath = "//a[.='Downloads']")
     public WebElement downloadsLink;
 

@@ -17,4 +17,13 @@ public class AlloverCommerce_Orders_Page {
 
     @FindBy(xpath = "//*[@class='woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received order-success']")
     public WebElement verifyOrderMessageIsSeen;
+
+
+    @FindBy(xpath = "(//h3)[3]")
+    public WebElement macBookProLink;
+
+    @FindBy(xpath = "(//*[@type='submit'])[2]")
+    public WebElement addToCartButton;
+
 }
+

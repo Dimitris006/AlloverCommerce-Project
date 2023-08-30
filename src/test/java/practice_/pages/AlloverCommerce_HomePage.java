@@ -39,7 +39,7 @@ public class AlloverCommerce_HomePage {
     @FindBy(xpath = "//div[@id='customer_login']//a[.='Lost your password?']")
     public WebElement signIn_LostPasswordLink;
 
-    @FindBy(xpath = "//div[@id='customer_login']//button[@value='Sign In']")
+    @FindBy(xpath = "//button[@value='Sign In']")
     public WebElement signIn_Button;
 
     //SIGN UP
@@ -103,7 +103,11 @@ public class AlloverCommerce_HomePage {
     @FindBy (xpath = "(//div[(text() = 'Strong')])[1]")
     public WebElement signUp_StrongPasswordMessage;
 
+    @FindBy(xpath = "//a[.='View cart']")
+    public WebElement viewCartButton;
 
+    @FindBy(xpath = "(//tbody)[1]")
+    public WebElement verifyProductInCartIsSeen;
 
 }
 

@@ -60,4 +60,19 @@ public class AlloverCommerce_Checkout_Page {
     @FindBy (xpath = "//button[@id='place_order']")
     public WebElement placeOrder_Button;
 
+    @FindBy(xpath = "//tbody")
+    public WebElement verifyProductIsSeenAfterCheckoutButton;
+
+    @FindBy(xpath = "(//*[@class='woocommerce-Price-amount amount'])[5]")
+    public WebElement totalAmount;
+
+    @FindBy(xpath = "(//*[@type='radio'])[1]")
+    public WebElement wireEFTRadioButton;
+
+    @FindBy(xpath = "(//*[@type='radio'])[2]")
+    public WebElement payAtTheDoorRadioButton;
+
+    @FindBy(xpath = "//tbody")
+    public WebElement theDetailsOfShopping;
+
 }

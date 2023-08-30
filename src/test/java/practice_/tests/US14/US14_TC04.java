@@ -1,6 +1,7 @@
 package practice_.tests.US14;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_ProductsManage;
@@ -31,7 +32,7 @@ public class US14_TC04 {
 
     }
 
-    @AfterTest
+    @AfterClass
     public void closeDriver() {
         Driver.closeDriver();
     }

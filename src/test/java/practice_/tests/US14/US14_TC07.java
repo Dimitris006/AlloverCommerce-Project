@@ -3,6 +3,7 @@ package practice_.tests.US14;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_ProductsManage;
@@ -10,6 +11,8 @@ import practice_.utilities.Driver;
 import practice_.utilities.JSUtils;
 import practice_.utilities.LoggerUtils;
 import practice_.utilities.WaitUtils;
+
+import java.util.Random;
 
 public class US14_TC07 {
 
@@ -31,7 +34,7 @@ public class US14_TC07 {
         productsManage.addNewProduct_Trigger.click();
 
         //2. Click on input 'Product brands Name' and type in text
-        String brand = "Test Brand 1111122";
+        String brand = "Test Brand" + new Random().nextInt(100000);
         productsManage.productBrandNameTextField.sendKeys(brand);
 
         //3. Click on the 'ADD' button
@@ -65,7 +68,7 @@ public class US14_TC07 {
         Assert.assertEquals(trimmedBrandWord, brand);
     }
 
-    @AfterTest
+    @AfterClass
     public void closeDriver() {
         Driver.closeDriver();
     }

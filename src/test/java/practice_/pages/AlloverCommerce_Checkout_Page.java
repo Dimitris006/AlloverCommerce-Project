@@ -39,7 +39,7 @@ public class AlloverCommerce_Checkout_Page {
 //    @FindBy(xpath = "//button[@id='place_order']")
 //    public WebElement checkout_Place_Order_Button;
 
-   @FindBy(xpath = "//*[@id=\"payment_method_bacs\"]")
+    @FindBy(xpath = "//*[@id=\"payment_method_bacs\"]")
     public WebElement Wire_transfer_EFT;
 
     @FindBy(xpath ="//*[@id=\"payment_method_cod\"]")
@@ -74,5 +74,17 @@ public class AlloverCommerce_Checkout_Page {
 
     @FindBy(xpath = "//tbody")
     public WebElement theDetailsOfShopping;
+
+    @FindBy(xpath = "//a[.='Enter your code']")
+    public WebElement enterYourCodeLink;
+
+    @FindBy(name = "coupon_code")
+    public WebElement enterCouponCode;
+
+    @FindBy(name = "apply_coupon")
+    public WebElement applyCoupon;
+
+    @FindBy(xpath = "//ul[@class='woocommerce-error']")
+    public WebElement couponNotApplicableMessage;
 
 }

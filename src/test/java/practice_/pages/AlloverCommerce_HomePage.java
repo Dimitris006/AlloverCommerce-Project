@@ -67,20 +67,16 @@ public class AlloverCommerce_HomePage {
     @FindBy(xpath = "//div[@id='customer_login']//a[.='Become a Vendor']")
     public WebElement signUp_BecomeVendorLink;
 
-
     @FindBy(linkText = "My Account")
     public WebElement myAccountLink;
-
 
     //My Account link in the footer
     @FindBy(css = "#menu-footer-nav-2 a[href='https://allovercommerce.com/my-account-2/']")
     public WebElement myAccountLink_Footer;
 
-
     //Sign Out Link
     @FindBy(xpath = "//span[.='Sign Out']")
     public WebElement signOut_Link;
-
 
     @FindBy(name = "s")
     public WebElement Searhbox;

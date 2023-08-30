@@ -108,4 +108,6 @@ public class AlloverCommerce_MyAccount_Page {
 
     @FindBy(css = "#product_type")
     public WebElement productSelectInput;
+
+
 }

@@ -44,7 +44,7 @@ public class UserSignUpCredentials_ByFaker {
     @DataProvider
     public Object[][] customerData2(){
         Object[][] data = {
-                {username, password, email},
+                {username, password, email}
         };
 
         return data;

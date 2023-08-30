@@ -19,8 +19,8 @@ public class AlloverCommerce_SearchPage {
     public WebElement QuantityPlus;
 
 
-      @FindBy(xpath = "//*[@id=\"product-20954\"]/div[2]/div/form/div/div/div/button")
-       public WebElement ADDtoCART;
+    @FindBy(xpath = "//*[@id=\"product-20954\"]/div[2]/div/form/div/div/div/button")
+    public WebElement ADDtoCART;
 
     @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div/div/div[6]/div/div/a/i")
     public WebElement CARTicon;
@@ -38,7 +38,24 @@ public class AlloverCommerce_SearchPage {
     public WebElement UPDATE_CART;
 
     @FindBy(xpath = "//*[@id=\"main\"]/div/div/div/div/div/div[2]/div[2]/div/div/div/div/a")
-      public WebElement PROCEED_TO_CHECKOUT_button;
+    public WebElement PROCEED_TO_CHECKOUT_button;
+
+    @FindBy(xpath = "//span[(text() = '2')]")
+    public WebElement cartItem_quantity2;
+
+    @FindBy (xpath = "//button[@title='Plus']")
+    public WebElement plusQuantity_button;
+
+    @FindBy (xpath = "//a[(text()='HiPhone')]")
+    public WebElement hiPhone_productNameLink;
+
+    @FindBy (xpath = "//i[(text()='Cart updated.')]")
+    public WebElement updateConfirmationMessage;
+
+    @FindBy (xpath = "//input[@value='1']")
+    public WebElement quantityValue_1;
+
+
 
 
 

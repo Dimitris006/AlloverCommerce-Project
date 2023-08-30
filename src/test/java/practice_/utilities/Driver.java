@@ -63,7 +63,7 @@ public class Driver {
 
         //driver -> getDriver()
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        //getDriver().manage().window().maximize();
+        getDriver().manage().window().maximize();
 
     }
 

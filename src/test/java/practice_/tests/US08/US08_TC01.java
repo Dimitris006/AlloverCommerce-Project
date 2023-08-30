@@ -14,7 +14,7 @@ public class US08_TC01 {
         AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
         AlloverCommerce_Wishlist_Page alloverCommerceWishlistPage = new AlloverCommerce_Wishlist_Page();
         //Go to homepage
-        Driver.getDriver().get(ConfigReader.getProperty(“allovercommerce_url”));
+       Driver.getDriver().get(ConfigReader.getProperty(“allovercommerce_url”));
         //Click on Search box write product name in Search box
         //Click the search button
         WaitUtils.waitFor(2);

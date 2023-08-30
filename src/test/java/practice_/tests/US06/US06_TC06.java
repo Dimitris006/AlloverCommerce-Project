@@ -1,6 +1,5 @@
 package practice_.tests.US06;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_Checkout_Page;
 import practice_.pages.AlloverCommerce_HomePage;
@@ -20,14 +19,9 @@ public class US06_TC06 {
         AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
         AlloverCommerce_SearchPage alloverCommerceSearchPage = new AlloverCommerce_SearchPage();
         AlloverCommerce_Checkout_Page alloverCommerceCheckoutPage = new AlloverCommerce_Checkout_Page();
+
         //navigate to URL
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
-
-        alloverCommerceHomePage.signIn_Link.click();
-        alloverCommerceHomePage.signIn_Username.sendKeys(ConfigReader.getProperty("customer_email"));
-        alloverCommerceHomePage.signIn_Password.sendKeys(ConfigReader.getProperty("customer_password"));
-        alloverCommerceHomePage.signIn_Button.click();
-        WaitUtils.waitFor(2);
 
         //click on the search box
         alloverCommerceHomePage.searchBox.click();
@@ -65,7 +59,6 @@ public class US06_TC06 {
         BrowserUtils.verifyElementDisplayed(alloverCommerceCheckoutPage.wireTransfer_message);
 
         //Complete Test
-
         Driver.closeDriver();
     }
 

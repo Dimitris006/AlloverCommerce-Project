@@ -64,8 +64,7 @@ public class US06_TC07 {
         alloverCommerceCheckoutPage.placeOrder_Button.click();
 
         //Complete Test
-
-        //Driver.closeDriver();
+        Driver.closeDriver();
     }
 
 }

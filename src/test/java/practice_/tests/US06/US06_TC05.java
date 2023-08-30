@@ -21,12 +21,6 @@ public class US06_TC05 {
         //navigate to URL
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
 
-        alloverCommerceHomePage.signIn_Link.click();
-        alloverCommerceHomePage.signIn_Username.sendKeys(ConfigReader.getProperty("customer_email"));
-        alloverCommerceHomePage.signIn_Password.sendKeys(ConfigReader.getProperty("customer_password"));
-        alloverCommerceHomePage.signIn_Button.click();
-        WaitUtils.waitFor(2);
-
         //click on the search box
         alloverCommerceHomePage.searchBox.click();
 
@@ -55,7 +49,6 @@ public class US06_TC05 {
         BrowserUtils.verifyElementDisplayed(alloverCommerceCheckoutPage.billingAddress_field);
 
         //Complete Test
-
         Driver.closeDriver();
     }
 

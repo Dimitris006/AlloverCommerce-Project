@@ -1,9 +1,6 @@
 package practice_.tests.US06;
 
-import org.openqa.selenium.remote.Browser;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import practice_.pages.AlloverCommerce_Checkout_Page;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_SearchPage;
 import practice_.utilities.*;
@@ -11,7 +8,6 @@ import practice_.utilities.*;
 public class US06_TC04 {
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_SearchPage alloverCommerceSearchPage;
-    AlloverCommerce_Checkout_Page alloverCommerceCheckoutPage;
 
     @Test
     public void TC04() {
@@ -19,7 +15,6 @@ public class US06_TC04 {
         //create objects for pages
         AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
         AlloverCommerce_SearchPage alloverCommerceSearchPage = new AlloverCommerce_SearchPage();
-        AlloverCommerce_Checkout_Page alloverCommerceCheckoutPage = new AlloverCommerce_Checkout_Page();
         //navigate to URL
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
 
@@ -64,7 +59,7 @@ public class US06_TC04 {
 
         alloverCommerceSearchPage.QuantityMinus.click();
 
-        //        Click on the UPDATE CART button
+        //Click on the UPDATE CART button
         alloverCommerceSearchPage.UPDATE_CART.click();
 
         BrowserUtils.verifyElementDisplayed(alloverCommerceSearchPage.quantityValue_1);

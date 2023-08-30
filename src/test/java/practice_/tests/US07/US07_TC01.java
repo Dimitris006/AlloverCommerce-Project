@@ -1,98 +1,82 @@
+
 package practice_.tests.US07;
 
-//import org.testng.annotations.Test;
-//import practice_.pages.AlloverCommerce_Compare;
-//import practice_.utilities.ConfigReader;
-//import practice_.utilities.Driver;
-//
-//public class US07_TC01 {
-//
-//    @Test
-//    public void practice() {
-//
-//        //create object for pages
-//        AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
-//
-//        //navigate to URL
-//        Driver.getDriver().get("https://allovercommerce.com/");
-//
-//        //click on register link
-//        //alloverCommerceHomePage.register_Link.click();
-//          alloverCommerceHomePage.register_Link.click();
-//        //wait util will wait until the WebElement is visible
-//        //The wait will be for 15s
-//        Assert.assertTrue(
-//                WaitUtils.waitForVisibility(alloverCommerceHomePage.signUp_Button, 15).isDisplayed()
-//        );
-//
-//        //username
-//        String username = "John.Doe11";
-//        alloverCommerceHomePage.signUp_Username.sendKeys(username);
-//
-//        String emailAddress = "John.d11@gmail.com";
-//        //email address
-//        alloverCommerceHomePage.signUp_Email.sendKeys(emailAddress);
-//
-//        String password = "admin123";
-//        //password
-//        alloverCommerceHomePage.signUp_Password.sendKeys(password);
-//
-//        //checkbox
-//        alloverCommerceHomePage.signUp_PrivacyPolicyCheckbox.click();
-//
-//        //sign up
-//        alloverCommerceHomePage.signUp_Button.click();
-//
-//        //check sign out shows
-//       // WebElement signOut = Driver.getDriver().findElement(By.cssSelector("a[href=\"https://allovercommerce.com/my-account-2/customer-logout/\"]"));
-//        WebElement signOut = Driver.getDriver().findElement(By.cssSelector("a[href=\"https://allovercommerce.com/my-account-2/customer-logout/\"]"));
-//        //check if sign out link is there
-//        Assert.assertTrue(
-//                WaitUtils.waitForVisibility(signOut, 15).isDisplayed()
-//        );
-//
-//        //sign out account here
-//        signOut.click();
-//
-//        //locate sign out link again on page
-//        WebElement signOutLink = Driver.getDriver().findElement(By.xpath("//a[.='Log out']"));
-//
-//        //sign out confirmation done here
-//        signOutLink.click();
-//
-//        //use wait. Check if sign in button is showing
-//        Assert.assertTrue(
-//                WaitUtils.waitForVisibility(alloverCommerceHomePage.signIn_Link, 15).isDisplayed()
-//        );
-//
-//        //click sign in link
-//        alloverCommerceHomePage.signIn_Link.click();
-//
-//        //verify that pop up is showing by locating sign in
-//        Assert.assertTrue(
-//                WaitUtils.waitForVisibility(alloverCommerceHomePage.signIn_Button, 15).isDisplayed()
-//        );
-//
-//        //fill in username
-//        alloverCommerceHomePage.signIn_Username.sendKeys(username);
-//
-//        //fill in password
-//        alloverCommerceHomePage.signIn_Password.sendKeys(password);
-//
-//        //click signIn button
-//        alloverCommerceHomePage.signIn_Button.click();
-//
-//        //wait for sign in + verify that 'My Account' isDisplayed
-//        WebElement myAccountText = Driver.getDriver().findElement(By.xpath("//h2[.='My Account']"));
-//        Assert.assertTrue(
-//                WaitUtils.waitForVisibility(myAccountText, 15).isDisplayed()
-//        );
-//
-//        //Complete Test
-//
-//        Driver.closeDriver();
-//
-//        public void tc01()
-//        {AlloverCommerce_Compare alloverCommerceCompare = new AlloverCommerce_Compare();
-//        }
-//    }
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import practice_.pages.AlloverCommerce_Compare;
+import practice_.pages.AlloverCommerce_HomePage;
+import practice_.utilities.*;
+import java.io.IOException;
+import java.util.List;
+
+public class US07_TC01 {
+
+    @Test
+    public void test01() throws IOException {
+        //create object for pages
+        AlloverCommerce_Compare alloverCommerceCompare = new AlloverCommerce_Compare();
+        AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
+
+        //navigate to URL
+        Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
+
+        //click sign in link
+        alloverCommerceHomePage.signIn_Link.click();
+
+        //wait for popup to show with sign in tab displayed
+        WaitUtils.waitForVisibility(alloverCommerceHomePage.signIn_Tab, 3);
+        Assert.assertTrue(alloverCommerceHomePage.signIn_Tab.isDisplayed());
+
+        //fill in customer logIn credentials
+        alloverCommerceHomePage.signIn_Username.sendKeys(
+                ConfigReader.getProperty("customer_email")
+        );
+        alloverCommerceHomePage.signIn_Password.sendKeys(
+                ConfigReader.getProperty("customer_password")
+        );
+
+        WaitUtils.waitFor(1);
+
+        //signIn user
+        alloverCommerceHomePage.signIn_Button.click();
+
+        //verify signIn is successful
+        Assert.assertTrue(alloverCommerceHomePage.signOut_NavLink.isDisplayed());
+
+//        Scroll down to kitchen products
+        JSUtils.scrollIntoViewJS(alloverCommerceCompare.kitchenImagesSection);
+        WaitUtils.waitFor(2);
+
+        //Locate all images in Kitchen section
+        List<WebElement> hoverKitchenImages = Driver.getDriver().findElements(By.cssSelector(
+                "div[data-id='5cf38cb'] img:nth-of-type(1)"
+        )) ;
+
+        //    //Returns a list of compare icons for the Kitchen section
+        List<WebElement> kitchenCompareIcons = Driver.getDriver().findElements(By.cssSelector(
+                "[data-id='5cf38cb'] a[title='Compare']"
+        ));
+
+        //loop and hover each element + click on each compare icon for first 4 images
+        for (int i = 0; i <= 3; i++) {
+            ActionsUtils.hoverOverOnElementActions(
+                    hoverKitchenImages.get(i)
+            );
+            WaitUtils.waitFor(2);
+            kitchenCompareIcons.get(i).click();
+
+            if (i != 3) {
+                WaitUtils.waitFor(2);
+                alloverCommerceCompare.hideComparePopup.click();
+            }
+        }
+    }
+
+    @AfterClass
+    public void tearUp() {
+        Driver.closeDriver();
+    }
+}

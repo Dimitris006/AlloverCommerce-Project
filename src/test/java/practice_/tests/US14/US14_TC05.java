@@ -3,12 +3,15 @@ package practice_.tests.US14;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_ProductsManage;
 import practice_.utilities.Driver;
 import practice_.utilities.JSUtils;
 import practice_.utilities.WaitUtils;
+
+import java.util.Random;
 
 public class US14_TC05 {
 
@@ -29,7 +32,7 @@ public class US14_TC05 {
         Assert.assertTrue(productsManage.categoryNameField.isDisplayed());
 
         //2. Click on input 'Category Name' and type in text
-        String category = "Test Category333333";
+        String category = "Test Category" + new Random().nextInt(100000);
         productsManage.categoryNameField.sendKeys(category);
 
         //3. Click on the 'ADD' button
@@ -55,7 +58,7 @@ public class US14_TC05 {
         Assert.assertEquals(customCategory.getText(), category);
     }
 
-    @AfterTest
+    @AfterClass
     public void closeDriver() {
         Driver.closeDriver();
     }

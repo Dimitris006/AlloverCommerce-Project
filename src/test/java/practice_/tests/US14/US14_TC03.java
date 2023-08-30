@@ -2,6 +2,7 @@ package practice_.tests.US14;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_ProductsManage;
@@ -61,7 +62,7 @@ public class US14_TC03 {
     }
 
 
-    @AfterTest
+    @AfterClass
     public void closeDriver() {
         Driver.closeDriver();
     }

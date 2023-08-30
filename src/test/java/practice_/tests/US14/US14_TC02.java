@@ -1,7 +1,5 @@
 package practice_.tests.US14;
 
-
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
@@ -9,14 +7,11 @@ import practice_.pages.AlloverCommerce_ProductsManage;
 import practice_.utilities.Driver;
 import practice_.utilities.JSUtils;
 import practice_.utilities.WaitUtils;
-
 import java.awt.*;
-import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
-import java.awt.datatransfer.UnsupportedFlavorException;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -60,66 +55,38 @@ public class US14_TC02 {
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
 
             productsManage.uploadButton.click();
+
             WaitUtils.waitFor(2);
+            Robot robot = new Robot();
 
-            // Assume that filePath is a variable containing the path of the file to upload
+            // Meta key constant
+            int META_M = InputEvent.META_DOWN_MASK;
 
-// Construct the AppleScript script
-            String script = "set filePath to \"" + path + "\"\n" +
-                    "-- Bring the file upload dialog to the front\n" +
-                    "tell application \"System Events\"\n" +
-                    "    set frontmost of process \"Safari\" to true\n" +
-                    "end tell\n" +
-                    "-- Wait for the file upload dialog to appear\n" +
-                    "delay 1\n" +
-                    "-- Interact with the file upload dialog\n" +
-                    "tell application \"System Events\"\n" +
-                    "    keystroke \"g\" using {command down, shift down}\n" +
-                    "    delay 1\n" +
-                    "    keystroke filePath\n" +
-                    "    delay 1\n" +
-                    "    keystroke return\n" +
-                    "    delay 1\n" +
-                    "    keystroke return\n" +
-                    "end tell";
+            robot.delay(2000);
 
-// Execute the AppleScript script using the ProcessBuilder class
-            ProcessBuilder processBuilder = new ProcessBuilder("osascript", "-e", script);
-            processBuilder.start();
+            // Open Goto dialog
+            robot.keyPress(META_M);
+            robot.keyPress(KeyEvent.VK_SHIFT);
+            robot.keyPress(KeyEvent.VK_G);
 
+            robot.delay(3000);
 
+            robot.keyRelease(KeyEvent.VK_G);
+            robot.keyRelease(KeyEvent.VK_SHIFT);
+            robot.keyRelease(META_M);
 
-//            Robot robot = new Robot();
-//
-//// Get the OS name
-//            String os = System.getProperty("os.name");
-//
-//// Determine meta key code based on OS
-//            int metaKeyCode;
-//            if (os.contains("Mac")) {
-//                metaKeyCode = KeyEvent.VK_META;
-//            } else {
-//                metaKeyCode = KeyEvent.VK_WINDOWS;
-//            }
-//
-//            System.out.println("Begin Robot");
-//            robot.delay(4000);
-//            robot.keyPress(metaKeyCode);
-//            robot.keyPress(KeyEvent.VK_SHIFT);
-//            robot.keyPress(KeyEvent.VK_G);
-//            robot.delay(3000);
-//            robot.keyRelease(KeyEvent.VK_G);
-//            robot.keyRelease(KeyEvent.VK_SHIFT);
-//            robot.keyRelease(metaKeyCode);
-//            robot.delay(3000);
-//            robot.keyPress(metaKeyCode);
-//            robot.keyPress(KeyEvent.VK_V);
-//            robot.delay(3000);
-//            robot.keyRelease(KeyEvent.VK_V);
-//            robot.keyRelease(metaKeyCode);
-//            robot.delay(3000);
-//            robot.keyPress(KeyEvent.VK_ENTER);
-//            robot.keyRelease(KeyEvent.VK_ENTER);
+            // Paste path
+            robot.delay(3000);
+            robot.keyPress(META_M);
+            robot.keyPress(KeyEvent.VK_V);
+
+            robot.delay(3000);
+            robot.keyRelease(KeyEvent.VK_V);
+            robot.keyRelease(META_M);
+
+            // Hit enter
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
 
         } catch (Exception e) {
             e.printStackTrace();

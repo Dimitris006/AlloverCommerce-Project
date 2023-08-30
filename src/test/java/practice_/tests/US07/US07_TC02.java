@@ -1,59 +1,29 @@
-
 package practice_.tests.US07;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_Compare;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.utilities.*;
 
-import javax.print.attribute.standard.Media;
 import java.io.IOException;
 import java.util.List;
 
-public class US07_TC {
+public class US07_TC02 {
 
     @Test
-    public void test01() throws IOException {
+    public void test02() throws IOException {
         //create object for pages
         AlloverCommerce_Compare alloverCommerceCompare = new AlloverCommerce_Compare();
         AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
 
         //navigate to URL
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
-        MediaUtils.takeScreenshotOfTheEntirePageAsString();
 
-        //click sign in link
-        alloverCommerceHomePage.signIn_Link.click();
-        MediaUtils.takeScreenshotOfThisElement(alloverCommerceHomePage.signIn_Link);
-
-        //wait for popup to show with sign in tab displayed
-        WaitUtils.waitForVisibility(alloverCommerceHomePage.signIn_Tab, 3);
-        Assert.assertTrue(alloverCommerceHomePage.signIn_Tab.isDisplayed());
-
-        //fill in customer logIn credentials
-        alloverCommerceHomePage.signIn_Username.sendKeys(
-                ConfigReader.getProperty("customer_email")
-        );
-        alloverCommerceHomePage.signIn_Password.sendKeys(
-                ConfigReader.getProperty("customer_password")
-        );
-        MediaUtils.takeScreenshotOfTheEntirePageAsString();
-        WaitUtils.waitFor(1);
-
-        //signIn user
-        alloverCommerceHomePage.signIn_Button.click();
-
-        //verify signIn is successful
-        Assert.assertTrue(alloverCommerceHomePage.signOut_NavLink.isDisplayed());
-
-//        Scroll down to kitchen products
+        //        Scroll down to kitchen products
         JSUtils.scrollIntoViewJS(alloverCommerceCompare.kitchenImagesSection);
         WaitUtils.waitFor(2);
         MediaUtils.takeScreenshotOfThisElement(alloverCommerceCompare.kitchenImagesSection);
@@ -82,17 +52,7 @@ public class US07_TC {
             }
         }
 
-        MediaUtils.takeScreenshotOfTheEntirePageAsString();
-
-    }
-
-    @Test
-    public void test02() throws IOException {
         WaitUtils.waitFor(2);
-        //create object for pages
-        AlloverCommerce_Compare alloverCommerceCompare = new AlloverCommerce_Compare();
-        AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
-
         //Locate all remove icons on images that are on the compare popup
         List<WebElement> removeFromComparePopup = Driver.getDriver().findElements(By.cssSelector(
                 "div.compare-popup a.remove_from_compare"
@@ -101,7 +61,7 @@ public class US07_TC {
         //Loop and remove all images form compare popup
         int imageIndex = 0; //1/2
         while (removeFromComparePopup.get(imageIndex).isDisplayed()) {
-  //          WaitUtils.waitForClickablility(removeFromComparePopup.get(imageIndex));
+            WaitUtils.waitForClickablility(removeFromComparePopup.get(imageIndex));
             removeFromComparePopup.get(imageIndex).click();
 
             imageIndex++;
@@ -153,42 +113,8 @@ public class US07_TC {
         }
     }
 
-    @Test
-    public void test03() throws IOException {
-        AlloverCommerce_Compare alloverCommerceCompare = new AlloverCommerce_Compare();
-        WaitUtils.waitFor(2);
-
-        alloverCommerceCompare.startCompareButton.click();
-
-        List<WebElement> removeFromComparePage = Driver.getDriver().findElements(By.cssSelector(
-                "a.remove_from_compare"
-        ));
-
-        WaitUtils.waitForVisibility(removeFromComparePage.get(0), 3);
-        Assert.assertEquals(Driver.getDriver().getCurrentUrl(), "https://allovercommerce.com/compare-2/");
-        MediaUtils.takeScreenshotOfTheEntirePageAsString();
-
-        while (!removeFromComparePage.isEmpty()) {
-
-            for (WebElement remove : removeFromComparePage) {
-                //Re-find remove element
-                WebElement currentRemove = Driver.getDriver().findElement(By.cssSelector("a.remove_from_compare"));
-                currentRemove.click();
-                WaitUtils.waitFor(1);
-
-            }
-            // Refresh list
-            removeFromComparePage = Driver.getDriver().findElements(By.cssSelector("a.remove_from_compare"));
-        }
-
-        WaitUtils.waitFor(1);
-        MediaUtils.takeScreenshotOfTheEntirePageAsString();
-
-        Assert.assertTrue(alloverCommerceCompare.goShopButton.isDisplayed());
-    }
-
-    @AfterSuite
-    public static void tearUp() {
+    @AfterClass
+    public void tearUp() {
         Driver.closeDriver();
     }
 }

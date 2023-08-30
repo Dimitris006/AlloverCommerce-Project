@@ -4,10 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
 import practice_.pages.AlloverCommerce_ProductsManage;
@@ -108,7 +105,7 @@ public class US14_TC01 {
         System.out.println(selectOptions.get(0).getText());
     }
 
-    @AfterTest
+    @AfterClass
     public void tearDown() {
         Driver.closeDriver();
     }

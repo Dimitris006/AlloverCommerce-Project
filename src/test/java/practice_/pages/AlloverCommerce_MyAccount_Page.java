@@ -21,6 +21,9 @@ public class AlloverCommerce_MyAccount_Page {
     @FindBy(xpath = "//a[.='Store Manager']")
     public WebElement storeManagerLink;
 
+    @FindBy(css = ".wcfm_store_logo_icon")
+    public WebElement storeManagerLogo;
+
     @FindBy(xpath = "//a[.='Orders']")
     public WebElement ordersLink;
 
@@ -81,8 +84,6 @@ public class AlloverCommerce_MyAccount_Page {
     @FindBy (xpath = "//a[.='Edit Your Shipping Address']")
     public WebElement editVendorShippingAddress ;
 
-
-
     @FindBy (xpath = "//input[@id='password_current']")
     public WebElement accountDetails_currentPassword;
 
@@ -92,9 +93,13 @@ public class AlloverCommerce_MyAccount_Page {
     @FindBy (xpath = "//input[@id='password_2']")
     public WebElement accountDetails_confirmNewPassword;
 
+    //NEW DON'T DELETE METHODS BELOW
+    @FindBy(css = "[href='https://allovercommerce.com/store-manager/products/']")
+    public WebElement productLink;
 
+    @FindBy(css = "[href='https://allovercommerce.com/store-manager/products-manage/']")
+    public WebElement addNewProduct;
 
-
-
-
+    @FindBy(css = "#product_type")
+    public WebElement productSelectInput;
 }

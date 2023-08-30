@@ -34,5 +34,40 @@ public class AlloverCommerce_ProductsManage {
     @FindBy(css = ".attachments li")
     public WebElement mediaAttachment;
 
+    @FindBy(css = "#pro_title")
+    public WebElement productTitleInput;
+
+    @FindBy(css = "#excerpt_ifr")
+    public WebElement shortDescription_IFrame;
+
+    @FindBy(css = "#description_ifr")
+    public WebElement longDescription_IFrame;
+
+    @FindBy(css = "#product_cats_checklist")
+    public WebElement categoriesCheckList;
+
+    @FindBy(css = "#product_cats_checklist [data-item=\"344\"] > span:nth-of-type(2)")
+    public WebElement fashionCategoryInChecklist;
+
+    @FindBy(xpath = "//div[p='+Add new category']//p")
+    public WebElement createCategory;
+
+    @FindBy(css = "#wcfm_new_cat")
+    public WebElement categoryNameField;
+
+    @FindBy(xpath = "//div[p='+Add new category']//button[.='Add']")
+    public WebElement addCategory;
+
+    @FindBy(id = "product_brand")
+    public WebElement productBrands;
+
+    @FindBy(xpath = "//div[p='+Add new Product brands']//p")
+    public WebElement addNewProduct_Trigger;
+
+    @FindBy(css = "#wcfm_new_product_brand")
+    public WebElement productBrandNameTextField;
+
+    @FindBy(xpath = "//div[p='+Add new Product brands']//button[.='Add']")
+    public WebElement addBrand;
 
 }

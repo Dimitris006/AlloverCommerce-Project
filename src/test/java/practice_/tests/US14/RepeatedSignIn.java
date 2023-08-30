@@ -1,31 +1,21 @@
 package practice_.tests.US14;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_MyAccount_Page;
-import practice_.pages.AlloverCommerce_ProductsManage;
-import practice_.utilities.*;
+import practice_.utilities.ConfigReader;
+import practice_.utilities.Driver;
+import practice_.utilities.JSUtils;
+import practice_.utilities.WaitUtils;
 
-import java.util.List;
-
-public class US14_TC01 {
-
+public class RepeatedSignIn {
     AlloverCommerce_HomePage acHomepage;
     AlloverCommerce_MyAccount_Page accountPage;
-    AlloverCommerce_ProductsManage productsManage;
-
-    @Test
-    public void tc01_affiliateProductOptions() {
-        accountPage = new AlloverCommerce_MyAccount_Page();
-        productsManage = new AlloverCommerce_ProductsManage();
+    public void repeatedSignIn() {
         acHomepage = new AlloverCommerce_HomePage();
+        accountPage = new AlloverCommerce_MyAccount_Page();
         //1. go homepage
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
 
@@ -74,42 +64,5 @@ public class US14_TC01 {
         );
 
         WaitUtils.waitFor(1);
-
-        //10. Click on the 'Store Manager' link
-        JSUtils.scrollIntoViewJS(accountPage.dashboardLink);
-        JSUtils.clickWithTimeoutByJS(accountPage.storeManagerLink);
-        WaitUtils.waitForPageToLoad(15);
-        JSUtils.scrollIntoViewJS(accountPage.storeManagerLogo);
-        WaitUtils.waitFor(1);
-
-        //11. Hover over 'Products'
-        ActionsUtils.hoverOverOnElementActions(accountPage.productLink);
-
-        //12. Click on 'Add new'
-        WaitUtils.waitForVisibility(accountPage.addNewProduct, 15);
-        accountPage.addNewProduct.click();
-
-        //13. Confirm that there is a select input with the 'Simple Product' option selected
-        WaitUtils.waitForPageToLoad(15);
-        Assert.assertEquals(
-                Driver.getDriver().getCurrentUrl(),
-                "https://allovercommerce.com/store-manager/products-manage/"
-        );
-
-        //14. Click the select input at the top and confirm
-        // (Simple Product, Variable Product, Grouped Product, External - Affiliate Product)
-        // options ALL exist
-        Select select = new Select(productsManage.productSelectInput);
-        List<WebElement> selectOptions = select.getOptions();
-        Assert.assertEquals(
-                selectOptions.get(0).getText(),
-                "Simple Product"
-        );
-        System.out.println(selectOptions.get(0).getText());
-    }
-
-    @AfterTest
-    public void tearDown() {
-        Driver.closeDriver();
     }
 }

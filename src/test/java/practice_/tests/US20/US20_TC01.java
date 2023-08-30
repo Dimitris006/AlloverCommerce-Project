@@ -86,7 +86,7 @@ public class US20_TC01 {
 
         //Complete test and close browser
         WaitUtils.waitFor(3);
-        Driver.closeDriver();
+        //Driver.closeDriver();
 
     }
 }

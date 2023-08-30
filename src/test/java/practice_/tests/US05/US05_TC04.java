@@ -38,6 +38,8 @@ public class US05_TC04 {
         JSUtils.clickWithTimeoutByJS(alloverCommerceMyAccountPage.accountDetails_saveChanges);
         JSUtils.scrollIntoViewJS(alloverCommerceMyAccountPage.accountDetails_confirmationMessage);
         Assert.assertTrue(alloverCommerceMyAccountPage.accountDetails_confirmationMessage.isDisplayed());
+        String actualValue = alloverCommerceMyAccountPage.accountDetails_firstname.getAttribute("value");
+        Assert.assertEquals(actualValue,name);
 
         Driver.closeDriver();
     }

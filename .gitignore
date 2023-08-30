@@ -74,6 +74,7 @@ local.properties
 .texlipse
 # Maven stuff
 target/
+test-output/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup

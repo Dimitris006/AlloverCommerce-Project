@@ -1,20 +1,19 @@
 package practice_.tests.US06;
 
-import org.openqa.selenium.remote.Browser;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import practice_.pages.AlloverCommerce_Checkout_Page;
 import practice_.pages.AlloverCommerce_HomePage;
 import practice_.pages.AlloverCommerce_SearchPage;
 import practice_.utilities.*;
 
-public class US06_TC04 {
+public class US06_TC07 {
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_SearchPage alloverCommerceSearchPage;
     AlloverCommerce_Checkout_Page alloverCommerceCheckoutPage;
 
+
     @Test
-    public void TC04() {
+    public void TC07() {
 
         //create objects for pages
         AlloverCommerce_HomePage alloverCommerceHomePage = new AlloverCommerce_HomePage();
@@ -23,7 +22,13 @@ public class US06_TC04 {
         //navigate to URL
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
 
-       //click on the search box
+        alloverCommerceHomePage.signIn_Link.click();
+        alloverCommerceHomePage.signIn_Username.sendKeys(ConfigReader.getProperty("customer_email"));
+        alloverCommerceHomePage.signIn_Password.sendKeys(ConfigReader.getProperty("customer_password"));
+        alloverCommerceHomePage.signIn_Button.click();
+        WaitUtils.waitFor(2);
+
+        //click on the search box
         alloverCommerceHomePage.searchBox.click();
 
         //enter the product name in the search box
@@ -33,41 +38,31 @@ public class US06_TC04 {
         //click on the search button on the right side
         alloverCommerceHomePage.searchButton.click();
 
-        // the page was changed
-
-        JSUtils.scrollIntoViewJS(alloverCommerceSearchPage.modalName);
+        JSUtils.scrollIntoViewJS(alloverCommerceSearchPage.hiPhone_productNameLink);
         WaitUtils.waitFor(3);
 
-         // Click on the desired model on the search page
-        alloverCommerceSearchPage.modalName.click();
-
-        //Choose quantity to receive 2
-        alloverCommerceSearchPage.QuantityPlus.click();
-        WaitUtils.waitFor(1);
-        alloverCommerceSearchPage.QuantityPlus.click();
+        // Click on the desired model on the search page
+        alloverCommerceSearchPage.hiPhone_productNameLink.click();
 
         //Click on the ADD TO CART button
         alloverCommerceSearchPage.ADDtoCART.click();
 
-       // Click on the CART icon
+        // Click on the CART icon
         alloverCommerceSearchPage.CARTicon.click();
 
-        //Click on the VIEW_CART
-        alloverCommerceSearchPage.VIEW_CART.click();
+        //Click on  the CHECKOUT button
+        alloverCommerceSearchPage.CHECKOUT.click();
 
-        BrowserUtils.verifyElementDisplayed(alloverCommerceSearchPage.hiPhone_productNameLink);
+        //User should be able to see and choose payment options
 
-        // click on the QuantityMinus button
-        alloverCommerceSearchPage.QuantityMinus.click();
-
-        WaitUtils.waitFor(1);
-
-        alloverCommerceSearchPage.QuantityMinus.click();
-
-        //        Click on the UPDATE CART button
-        alloverCommerceSearchPage.UPDATE_CART.click();
-
-        BrowserUtils.verifyElementDisplayed(alloverCommerceSearchPage.quantityValue_1);
+        JSUtils.scrollIntoViewJS(alloverCommerceCheckoutPage.radio_payAtDoor);
+        JSUtils.clickWithTimeoutByJS(alloverCommerceCheckoutPage.radio_payAtDoor);
+        WaitUtils.waitFor(2);
+        JSUtils.scrollIntoViewJS(alloverCommerceCheckoutPage.Wire_transfer_EFT);
+        JSUtils.clickWithTimeoutByJS(alloverCommerceCheckoutPage.Wire_transfer_EFT);
+        WaitUtils.waitFor(2);
+        BrowserUtils.verifyElementDisplayed(alloverCommerceCheckoutPage.wireTransfer_message);
+        alloverCommerceCheckoutPage.placeOrder_Button.click();
 
         //Complete Test
 

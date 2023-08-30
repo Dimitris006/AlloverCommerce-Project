@@ -55,6 +55,9 @@ public class AlloverCommerce_SearchPage {
     @FindBy (xpath = "//input[@value='1']")
     public WebElement quantityValue_1;
 
+    @FindBy(linkText = "https://allovercommerce.com/urun/hiphone-25/")
+    public WebElement HiPhone_link;
+
 
 
 

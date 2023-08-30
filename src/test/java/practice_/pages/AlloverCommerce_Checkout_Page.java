@@ -48,4 +48,16 @@ public class AlloverCommerce_Checkout_Page {
     @FindBy(xpath = "//*[@id=\"place_order\"]")
     public WebElement checkout_Place_Order_Button;
 
+    @FindBy(xpath = "//div[@class='woocommerce-billing-fields']")
+    public WebElement billingAddress_field;
+
+    @FindBy(xpath ="//input[@id='payment_method_cod']")
+    public WebElement radio_payAtDoor;
+
+    @FindBy (xpath = "//*[contains(text(), 'until your payment')]")
+    public WebElement wireTransfer_message;
+
+    @FindBy (xpath = "//button[@id='place_order']")
+    public WebElement placeOrder_Button;
+
 }

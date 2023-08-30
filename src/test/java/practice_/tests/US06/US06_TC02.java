@@ -13,7 +13,6 @@ public class US06_TC02 {
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_SearchPage alloverCommerceSearchPage;
 
-
     @Test
     public void TC02() {
 

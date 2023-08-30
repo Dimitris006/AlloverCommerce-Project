@@ -101,7 +101,7 @@ public class US07_TC {
         //Loop and remove all images form compare popup
         int imageIndex = 0; //1/2
         while (removeFromComparePopup.get(imageIndex).isDisplayed()) {
-            WaitUtils.waitForClickablility(removeFromComparePopup.get(imageIndex));
+  //          WaitUtils.waitForClickablility(removeFromComparePopup.get(imageIndex));
             removeFromComparePopup.get(imageIndex).click();
 
             imageIndex++;

@@ -11,7 +11,6 @@ public class US06_TC07 {
     AlloverCommerce_SearchPage alloverCommerceSearchPage;
     AlloverCommerce_Checkout_Page alloverCommerceCheckoutPage;
 
-
     @Test
     public void TC07() {
 
@@ -66,7 +65,7 @@ public class US06_TC07 {
 
         //Complete Test
 
-        Driver.closeDriver();
+        //Driver.closeDriver();
     }
 
 }

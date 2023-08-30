@@ -23,7 +23,7 @@ public class US06_TC04 {
         //navigate to URL
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
 
-       //click on the search box
+        //click on the search box
         alloverCommerceHomePage.searchBox.click();
 
         //enter the product name in the search box
@@ -38,7 +38,7 @@ public class US06_TC04 {
         JSUtils.scrollIntoViewJS(alloverCommerceSearchPage.modalName);
         WaitUtils.waitFor(3);
 
-         // Click on the desired model on the search page
+        // Click on the desired model on the search page
         alloverCommerceSearchPage.modalName.click();
 
         //Choose quantity to receive 2
@@ -49,7 +49,7 @@ public class US06_TC04 {
         //Click on the ADD TO CART button
         alloverCommerceSearchPage.ADDtoCART.click();
 
-       // Click on the CART icon
+        // Click on the CART icon
         alloverCommerceSearchPage.CARTicon.click();
 
         //Click on the VIEW_CART

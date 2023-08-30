@@ -100,7 +100,6 @@ public class AlloverCommerce_HomePage {
 
     @FindBy (xpath = "(//div[(text() = 'Medium')])[1]")
     public WebElement signUp_MediumPasswordMessage;
-
     @FindBy (xpath = "(//div[(text() = 'Strong')])[1]")
     public WebElement signUp_StrongPasswordMessage;
 

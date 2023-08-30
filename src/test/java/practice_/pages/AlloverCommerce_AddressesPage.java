@@ -11,7 +11,7 @@ public class AlloverCommerce_AddressesPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    //Addresses Page Locators
+        //Addresses Page Locators
 
     //Shipping Address Locators
     @FindBy (xpath = "//h4[.='Addresses']")
@@ -45,6 +45,7 @@ public class AlloverCommerce_AddressesPage {
     public WebElement stateDropdown;
 
     @FindBy (xpath = "//*[@name='shipping_postcode']")
+
     public WebElement zipCode;
 
     @FindBy (xpath = "//*[@name='save_address']")
@@ -66,7 +67,11 @@ public class AlloverCommerce_AddressesPage {
     @FindBy (xpath = "//*[@name='billing_company']")
     public WebElement billCompanyName;
 
+
 //    @FindBy (xpath = "//*[@id='select2-billing_country-container']")
+
+        //    @FindBy (xpath = "//*[@id='select2-billing_country-container']")
+
 //    public WebElement billCountryDropdown;
 
     @FindBy (xpath = "//*[@name='billing_address_1']")
@@ -84,7 +89,7 @@ public class AlloverCommerce_AddressesPage {
     @FindBy (xpath = "//*[@name='billing_phone']")
     public WebElement billPhone;
 
-//    @FindBy (xpath = "//*[@name='save_address']")
+
 //    public WebElement saveAddressButton;
 //
 //    @FindBy (xpath = "//*[@class = 'fas fa-check']")
@@ -145,7 +150,21 @@ public class AlloverCommerce_AddressesPage {
     public WebElement billCountryDropdown;
 
 
-//    @FindBy (xpath = "//*[@class = 'fas fa-check']")
+
+
+        //    @FindBy (xpath = "//*[@class = 'fas fa-check']")
 //    public WebElement succesfullAdd;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+

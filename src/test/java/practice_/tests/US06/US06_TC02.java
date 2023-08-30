@@ -57,6 +57,6 @@ public class US06_TC02 {
 
         //Complete test and close browser
         WaitUtils.waitFor(2);
-        Driver.closeDriver();
+       // Driver.closeDriver();
     }
 }

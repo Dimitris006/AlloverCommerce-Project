@@ -60,4 +60,19 @@ public class AlloverCommerce_Checkout_Page {
     @FindBy (xpath = "//button[@id='place_order']")
     public WebElement placeOrder_Button;
 
+    @FindBy(xpath = "//tbody")
+    public WebElement verifyProductIsSeen;
+
+    @FindBy(xpath = "//a[.='Enter your code']")
+    public WebElement enterYourCodeLink;
+
+    @FindBy(name = "coupon_code")
+    public WebElement enterCouponCode;
+
+    @FindBy(name = "apply_coupon")
+    public WebElement applyCoupon;
+
+    @FindBy(xpath = "//ul[@class='woocommerce-error']")
+    public WebElement couponNotApplicableMessage;
+
 }

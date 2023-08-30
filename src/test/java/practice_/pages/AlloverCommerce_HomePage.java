@@ -103,6 +103,12 @@ public class AlloverCommerce_HomePage {
     @FindBy (xpath = "(//div[(text() = 'Strong')])[1]")
     public WebElement signUp_StrongPasswordMessage;
 
+    @FindBy(xpath = "//a[.='View cart']")
+    public WebElement viewCartButton;
+
+
+
+
 
 
 }

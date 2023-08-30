@@ -21,6 +21,7 @@ public class US06_TC07 {
         //navigate to URL
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
 
+        //Customer sign-in
         alloverCommerceHomePage.signIn_Link.click();
         alloverCommerceHomePage.signIn_Username.sendKeys(ConfigReader.getProperty("customer_email"));
         alloverCommerceHomePage.signIn_Password.sendKeys(ConfigReader.getProperty("customer_password"));
@@ -64,7 +65,6 @@ public class US06_TC07 {
         alloverCommerceCheckoutPage.placeOrder_Button.click();
 
         //Complete Test
-
-        //Driver.closeDriver();
+        Driver.closeDriver();
     }
 }

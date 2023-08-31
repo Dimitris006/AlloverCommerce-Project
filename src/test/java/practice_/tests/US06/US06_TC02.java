@@ -42,7 +42,8 @@ public class US06_TC02 {
 
         //Choose quantity to receive 2
         alloverCommerceSearchPage.plusQuantity_button.click();
-        WaitUtils.waitFor(2);
+        WaitUtils.waitFor(6);
+
         alloverCommerceSearchPage.ADDtoCART.click();
         Assert.assertTrue(alloverCommerceSearchPage.cartItem_quantity2.isDisplayed());
 

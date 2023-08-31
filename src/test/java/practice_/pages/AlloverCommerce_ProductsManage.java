@@ -70,4 +70,5 @@ public class AlloverCommerce_ProductsManage {
     @FindBy(xpath = "//div[p='+Add new Product brands']//button[.='Add']")
     public WebElement addBrand;
 
+
 }

@@ -48,7 +48,7 @@ public class US06_TC03 {
         BrowserUtils.verifyElementDisplayed(alloverCommerceSearchPage.hiPhone_productNameLink);
 
         //Complete Test
-        //Driver.closeDriver();
+        Driver.closeDriver();
     }
 
 }

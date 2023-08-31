@@ -1,12 +1,15 @@
 package practice_.tests.US15;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import practice_.pages.*;
 import practice_.utilities.*;
 
-import static org.testng.AssertJUnit.assertTrue;
+import java.io.IOException;
 
-public class US15_TC01 {
+public class US15_TC04 {
 
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_VendorRegistration_Page vendorRegistrationPage;
@@ -15,12 +18,13 @@ public class US15_TC01 {
     AlloverCommerce_ProductsManage productManage;
 
     @Test
-    public void ProductOptions(){
+    public void ProductOptions_shipping() {
 
         //Go to Homepage
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
 
         //Create objects for pages
+
         alloverCommerceHomePage = new AlloverCommerce_HomePage();
         vendorRegistrationPage = new AlloverCommerce_VendorRegistration_Page();
         accountPage = new AlloverCommerce_MyAccount_Page();
@@ -38,12 +42,11 @@ public class US15_TC01 {
 
         //Click on Signin button
         alloverCommerceHomePage.signIn_Button.click();
-        WaitUtils.waitFor(5);
+        WaitUtils.waitFor(10);
 
         //Click on My Account link
-       // JSUtils.scrollIntoViewJS(vendorRegistrationPage.myAccountLink);
-       // WaitUtils.waitForClickablility(vendorRegistrationPage.myAccountLink, 10).click();
         JSUtils.clickWithTimeoutByJS(alloverCommerceHomePage.myAccountLink);
+
         // Click on the 'Store Manager' link
         JSUtils.scrollIntoViewJS(accountPage.dashboardLink);
         JSUtils.clickWithTimeoutByJS(accountPage.storeManagerLink);
@@ -55,30 +58,50 @@ public class US15_TC01 {
         ActionsUtils.hoverOverOnElementActions(accountPage.productLink);
 
         // Click on 'Add new'
-        WaitUtils.waitForVisibility(accountPage.addNewProduct, 15);
+        WaitUtils.waitForVisibility(accountPage.addNewProduct, 5);
         accountPage.addNewProduct.click();
 
-        BrowserUtils.verifyElementClickable(accountPage.inventory);
-        assertTrue(accountPage.inventory.isDisplayed());
+        String productName = "Iphone";
+        productManage.productTitleInput.sendKeys(productName);
+        WaitUtils.waitFor(5);
 
-        BrowserUtils.verifyElementClickable(accountPage.shipping);
-        assertTrue(accountPage.shipping.isDisplayed());
+        //Click on shipping button
+        JSUtils.clickWithTimeoutByJS(accountPage.attributes);
+        WaitUtils.waitFor(5);
 
-        BrowserUtils.verifyElementClickable(accountPage.attributes);
-        assertTrue(accountPage.attributes.isDisplayed());
+        JSUtils.clickWithTimeoutByJS(accountPage.colorcheckbox);
+        WaitUtils.waitFor(2);
 
-        BrowserUtils.verifyElementClickable(accountPage.linked);
-        assertTrue(accountPage.linked.isDisplayed());
+        Select select = new Select(Driver.getDriver().findElement(By.xpath("(//select)[10]")));
 
-        BrowserUtils.verifyElementClickable(accountPage.seo);
-        assertTrue(accountPage.seo.isDisplayed());
+        select.selectByValue("305");
 
-        BrowserUtils.verifyElementClickable(accountPage.advanced);
-        assertTrue(accountPage.advanced.isDisplayed());
+        try {
+            MediaUtils.takeScreenshotOfThisElement(Driver.getDriver().findElement(By.xpath("(//select)[10]")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
+        WaitUtils.waitFor(10);
+        JSUtils.clickWithTimeoutByJS(accountPage.sizecheckbox);
+        WaitUtils.waitFor(2);
+
+        Select select1 = new Select(Driver.getDriver().findElement(By.xpath("(//select)[11]")));
+
+        select1.selectByValue("749");
+        WaitUtils.waitFor(10);
+        try {
+            MediaUtils.takeScreenshotOfThisElement(Driver.getDriver().findElement(By.xpath("(//select)[11]")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            MediaUtils.takeScreenshotOfTheEntirePageAsString();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         //Complete test and close browser
         WaitUtils.waitFor(3);
-        //ExtentReportUtils.flush();
-        //Driver.closeDriver();
+        Driver.closeDriver();
     }
 }

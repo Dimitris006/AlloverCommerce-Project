@@ -11,11 +11,11 @@ public class AlloverCommerce_SearchPage {
     public AlloverCommerce_SearchPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
-    //product selection
-   @FindBy(xpath = "//a[.='HiPhone'][1]")
-   public  WebElement modalName;
 
-    @FindBy(xpath = "//*[@id=\"product-20954\"]/div[2]/div/form/div/div/div/div[2]/div/button[2]")
+    @FindBy(xpath = "(//h3)[5]")
+    public WebElement modalName;
+
+    @FindBy(xpath = "//*[@id=\"product-30522\"]/div[2]/div/form/div/div/div/div[2]/div/button[2]")
     public WebElement QuantityPlus;
 
 
@@ -43,23 +43,21 @@ public class AlloverCommerce_SearchPage {
     @FindBy(xpath = "//span[(text() = '2')]")
     public WebElement cartItem_quantity2;
 
-    @FindBy (xpath = "//button[@title='Plus']")
+    @FindBy(xpath = "//button[@title='Plus']")
     public WebElement plusQuantity_button;
 
-    @FindBy (xpath = "//a[(text()='HiPhone')]")
+    @FindBy(xpath = "//a[(text()='HiPhone')]")
     public WebElement hiPhone_productNameLink;
 
-    @FindBy (xpath = "//i[(text()='Cart updated.')]")
+    @FindBy(xpath = "//i[(text()='Cart updated.')]")
     public WebElement updateConfirmationMessage;
 
-    @FindBy (xpath = "//input[@value='1']")
+    @FindBy(xpath = "//input[@value='1']")
     public WebElement quantityValue_1;
 
     @FindBy(linkText = "https://allovercommerce.com/urun/hiphone-25/")
     public WebElement HiPhone_link;
 
 
-
-
-
 }
+

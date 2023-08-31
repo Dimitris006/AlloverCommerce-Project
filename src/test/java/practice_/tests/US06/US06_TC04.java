@@ -37,8 +37,8 @@ public class US06_TC04 {
         alloverCommerceSearchPage.modalName.click();
 
         //Choose quantity to receive 2
-        alloverCommerceSearchPage.QuantityPlus.click();
-        WaitUtils.waitFor(1);
+      //  alloverCommerceSearchPage.QuantityPlus.click();
+        WaitUtils.waitFor(2);
         alloverCommerceSearchPage.QuantityPlus.click();
 
         //Click on the ADD TO CART button
@@ -50,7 +50,7 @@ public class US06_TC04 {
         //Click on the VIEW_CART
         alloverCommerceSearchPage.VIEW_CART.click();
 
-        BrowserUtils.verifyElementDisplayed(alloverCommerceSearchPage.hiPhone_productNameLink);
+        BrowserUtils.verifyElementDisplayed(alloverCommerceSearchPage.modalName);
 
         // click on the QuantityMinus button
         alloverCommerceSearchPage.QuantityMinus.click();
@@ -65,7 +65,6 @@ public class US06_TC04 {
         BrowserUtils.verifyElementDisplayed(alloverCommerceSearchPage.quantityValue_1);
 
         //Complete Test
-
         Driver.closeDriver();
     }
 

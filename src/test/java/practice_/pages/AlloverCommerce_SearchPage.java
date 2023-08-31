@@ -19,7 +19,7 @@ public class AlloverCommerce_SearchPage {
     public WebElement QuantityPlus;
 
 
-    @FindBy(xpath = "//*[@id=\"product-20954\"]/div[2]/div/form/div/div/div/button")
+    @FindBy(xpath = "//button[@name='add-to-cart']")
     public WebElement ADDtoCART;
 
     @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div/div/div[6]/div/div/a/i")

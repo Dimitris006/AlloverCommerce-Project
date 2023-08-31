@@ -27,7 +27,7 @@ public class US06_TC01 {
         alloverCommerceHomePage.searchBox.click();
 
         //Enter the product name in the search field
-        String productName = "Iphone";
+        String productName = "Hiphone";
         alloverCommerceHomePage.searchBox.sendKeys(productName);
 
         //Click on the search button on the right side

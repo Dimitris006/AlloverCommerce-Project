@@ -38,14 +38,15 @@ public class US06_TC07 {
         //click on the search button on the right side
         alloverCommerceHomePage.searchButton.click();
 
-        JSUtils.scrollIntoViewJS(alloverCommerceSearchPage.hiPhone_productNameLink);
+        JSUtils.scrollIntoViewJS(alloverCommerceSearchPage.modalName);
         WaitUtils.waitFor(3);
 
         // Click on the desired model on the search page
-        alloverCommerceSearchPage.hiPhone_productNameLink.click();
+        alloverCommerceSearchPage.modalName.click();
 
         //Click on the ADD TO CART button
-        alloverCommerceSearchPage.ADDtoCART.click();
+
+        JSUtils.clickWithTimeoutByJS(alloverCommerceSearchPage.ADDtoCART);
 
         // Click on the CART icon
         alloverCommerceSearchPage.CARTicon.click();

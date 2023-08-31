@@ -11,16 +11,16 @@ public class AlloverCommerce_SearchPage {
     public AlloverCommerce_SearchPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
-    //product selection
-   @FindBy(xpath = "//a[.='HiPhone'][1]")
+
+    @FindBy(xpath = "(//h3)[5]")
    public  WebElement modalName;
 
-    @FindBy(xpath = "//*[@id=\"product-20954\"]/div[2]/div/form/div/div/div/div[2]/div/button[2]")
+    @FindBy(xpath = "//*[@id=\"product-30522\"]/div[2]/div/form/div/div/div/div[2]/div/button[2]")
     public WebElement QuantityPlus;
 
 
-    @FindBy(xpath = "//*[@id=\"product-20954\"]/div[2]/div/form/div/div/div/button")
-    public WebElement ADDtoCART;
+ @FindBy(xpath = "//*[@id=\"product-30522\"]/div[2]/div/form/div/div/div/button")
+ public WebElement ADDtoCART;
 
     @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div/div/div[6]/div/div/a/i")
     public WebElement CARTicon;

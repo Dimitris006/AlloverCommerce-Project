@@ -102,4 +102,67 @@ public class AlloverCommerce_MyAccount_Page {
 
     @FindBy(css = "#product_type")
     public WebElement productSelectInput;
+
+
+    @FindBy(xpath = "//*[@id=\"wcfm_products_manage_form_inventory_head\"]/div")
+    public WebElement inventory;
+    @FindBy(xpath = "//*[@id=\"wcfm_products_manage_form_shipping_head\"]/div")
+    public WebElement shipping;
+    @FindBy(xpath = "//*[@id=\"wcfm_products_manage_form_attribute_head\"]/div")
+    public WebElement attributes;
+     @FindBy(xpath = "//*[@id=\"wcfm_products_manage_form_linked_head\"]")
+     public WebElement linked;
+    @FindBy(xpath = "//*[@id=\"wcfm_products_manage_form_yoast_head\"]/div")
+    public WebElement seo;
+    @FindBy(css = "#page_collapsible_content_holder")
+    public WebElement piece_type;
+    @FindBy(xpath = "//*[@id=\"wcfm_products_manage_form_advanced_head\"]/div")
+    public WebElement advanced;
+    @FindBy (xpath = "//*[@id=\"weight\"]")
+    public WebElement weight_kg;
+
+    @FindBy (xpath = "//*[@id=\"sku\"]")
+    public WebElement sku_field;
+
+   @FindBy (xpath = "//*[@id=\"manage_stock\"]")
+   public WebElement manage_stock;
+
+   @FindBy (xpath = "//*[@id=\"stock_qty\"] ")
+   public WebElement allow_backorders;
+
+    @FindBy (xpath = "//*[@id=\"sold_individually\"] ")
+    public WebElement sold_individually;
+
+    @FindBy (xpath = "//*[@id=\"stock_qty\"] ")
+    public WebElement stock_qty;
+
+    @FindBy (xpath = "//*[@id=\"length\"] ")
+    public WebElement length;
+
+    @FindBy (xpath = "//*[@id=\"width\"]")
+    public WebElement width;
+
+    @FindBy (xpath = "//*[@id=\"height\"] ")
+    public WebElement height;
+
+    @FindBy (xpath = "//*[@id=\"shipping_class\"] ")
+    public WebElement shipping_class;
+
+    @FindBy (xpath = "//*[@id=\"_wcfmmp_processing_time\"] ")
+    public WebElement processing_time;
+
+    @FindBy (id= "attributes_is_active_1")
+    public WebElement colorcheckbox;
+
+    @FindBy (id = "attributes_is_active_2")
+    public WebElement sizecheckbox;
+
+
+
+
+
+
+
+
+
 }

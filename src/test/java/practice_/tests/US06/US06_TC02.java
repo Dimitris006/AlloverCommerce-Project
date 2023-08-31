@@ -27,7 +27,7 @@ public class US06_TC02 {
 
         //enter the product name in the search box
         //String product name = "Iphone";
-        alloverCommerceHomePage.searchBox.sendKeys("Iphone");
+        alloverCommerceHomePage.searchBox.sendKeys("Hiphone");
 
         //click on the search button on the right side
         alloverCommerceHomePage.searchButton.click();
@@ -42,7 +42,8 @@ public class US06_TC02 {
 
         //Choose quantity to receive 2
         alloverCommerceSearchPage.plusQuantity_button.click();
-        WaitUtils.waitFor(2);
+        WaitUtils.waitFor(6);
+
         alloverCommerceSearchPage.ADDtoCART.click();
         Assert.assertTrue(alloverCommerceSearchPage.cartItem_quantity2.isDisplayed());
 

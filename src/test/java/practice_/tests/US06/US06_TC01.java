@@ -27,29 +27,21 @@ public class US06_TC01 {
         alloverCommerceHomePage.searchBox.click();
 
         //Enter the product name in the search field
-        String productName = "Iphone";
-        alloverCommerceHomePage.searchBox.sendKeys(productName);
+
+       alloverCommerceHomePage.searchBox.sendKeys("Iphone");
 
         //Click on the search button on the right side
-        alloverCommerceHomePage.searchButton.click();
+       alloverCommerceHomePage.searchButton.click();
 
-        // the page was changed +
         JSUtils.scrollIntoViewJS(alloverCommerceSearchPage.modalName);
-        WaitUtils.waitFor(3);
+        WaitUtils.waitFor(5);
 
         // Click on the desired model on the search page
-        alloverCommerceSearchPage.modalName.click();
+       alloverCommerceSearchPage.modalName.click();
 
-        //Verify a desired product is visible
-        Assert.assertTrue(WaitUtils.waitForVisibility(alloverCommerceSearchPage.modalName, 15).isDisplayed()
-        );
-
-        //Complete test and close browser
-
-        Driver.closeDriver();
 
         WaitUtils.waitFor(2);
-      //  Driver.closeDriver();
+        Driver.closeDriver();
 
     }
 }

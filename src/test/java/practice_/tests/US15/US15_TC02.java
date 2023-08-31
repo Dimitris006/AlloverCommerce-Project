@@ -1,12 +1,10 @@
 package practice_.tests.US15;
-
 import org.testng.annotations.Test;
 import practice_.pages.*;
 import practice_.utilities.*;
 
 import static org.testng.AssertJUnit.assertTrue;
-
-public class US15_TC01 {
+public class US15_TC02 {
 
     AlloverCommerce_HomePage alloverCommerceHomePage;
     AlloverCommerce_VendorRegistration_Page vendorRegistrationPage;
@@ -15,12 +13,13 @@ public class US15_TC01 {
     AlloverCommerce_ProductsManage productManage;
 
     @Test
-    public void ProductOptions(){
+    public void ProductOptions_inventory(){
 
         //Go to Homepage
         Driver.getDriver().get(ConfigReader.getProperty("allovercommerce_url"));
 
         //Create objects for pages
+
         alloverCommerceHomePage = new AlloverCommerce_HomePage();
         vendorRegistrationPage = new AlloverCommerce_VendorRegistration_Page();
         accountPage = new AlloverCommerce_MyAccount_Page();
@@ -38,16 +37,15 @@ public class US15_TC01 {
 
         //Click on Signin button
         alloverCommerceHomePage.signIn_Button.click();
-        WaitUtils.waitFor(5);
+        WaitUtils.waitFor(10);
 
-        //Click on My Account link
-       // JSUtils.scrollIntoViewJS(vendorRegistrationPage.myAccountLink);
-       // WaitUtils.waitForClickablility(vendorRegistrationPage.myAccountLink, 10).click();
+        //Click on My Account
         JSUtils.clickWithTimeoutByJS(alloverCommerceHomePage.myAccountLink);
+
         // Click on the 'Store Manager' link
         JSUtils.scrollIntoViewJS(accountPage.dashboardLink);
         JSUtils.clickWithTimeoutByJS(accountPage.storeManagerLink);
-        WaitUtils.waitForPageToLoad(15);
+        WaitUtils.waitForPageToLoad(5);
         JSUtils.scrollIntoViewJS(accountPage.storeManagerLogo);
         WaitUtils.waitFor(1);
 
@@ -55,30 +53,43 @@ public class US15_TC01 {
         ActionsUtils.hoverOverOnElementActions(accountPage.productLink);
 
         // Click on 'Add new'
-        WaitUtils.waitForVisibility(accountPage.addNewProduct, 15);
+        WaitUtils.waitForVisibility(accountPage.addNewProduct, 5);
         accountPage.addNewProduct.click();
 
-        BrowserUtils.verifyElementClickable(accountPage.inventory);
-        assertTrue(accountPage.inventory.isDisplayed());
+        String productName = "Iphone";
+        productManage.productTitleInput.sendKeys(productName);
+        WaitUtils.waitFor(5);
 
-        BrowserUtils.verifyElementClickable(accountPage.shipping);
-        assertTrue(accountPage.shipping.isDisplayed());
+        //Click on Inventory button
+        JSUtils.clickWithTimeoutByJS(accountPage.inventory);
+        WaitUtils.waitFor(2);
 
-        BrowserUtils.verifyElementClickable(accountPage.attributes);
-        assertTrue(accountPage.attributes.isDisplayed());
+        //Click on SKU field and enter data
+        accountPage.sku_field.sendKeys("456789");
+        WaitUtils.waitFor(2);
 
-        BrowserUtils.verifyElementClickable(accountPage.linked);
-        assertTrue(accountPage.linked.isDisplayed());
+        //Click on Manage Stock? button
+        accountPage.manage_stock.click();
+        WaitUtils.waitFor(2);
 
-        BrowserUtils.verifyElementClickable(accountPage.seo);
-        assertTrue(accountPage.seo.isDisplayed());
+        //Click on Stock Qty field
+        accountPage.stock_qty.sendKeys("55");
+        WaitUtils.waitFor(2);
 
-        BrowserUtils.verifyElementClickable(accountPage.advanced);
-        assertTrue(accountPage.advanced.isDisplayed());
+        //click on in  allow_backorders? drop-down button and select the data.
+       accountPage.allow_backorders.click();
+        WaitUtils.waitFor(2);
 
-        //Complete test and close browser
+        //Click the Sold Individually button
+        accountPage.sold_individually.click();
+        WaitUtils.waitFor(2);
+
+        //Verify the inventory is seen
+        BrowserUtils.verifyElementDisplayed(accountPage.inventory);
+
+       //Complete test and close browser
         WaitUtils.waitFor(3);
         //ExtentReportUtils.flush();
-        //Driver.closeDriver();
+        Driver.closeDriver();
     }
 }

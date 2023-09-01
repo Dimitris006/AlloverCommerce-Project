@@ -63,12 +63,14 @@ public class US18_TC02 {
 
         //Enter description into Description field
         couponsPage.descriptionTextField.sendKeys("This is description text for the coupon");
+        WaitUtils.waitFor(3);
 
         //Enter coupon amount
         //CREATING ACCOUNT WITH JAVA FAKER
         Faker faker = new Faker();
         String couponAmount = String.valueOf(faker.number().randomDigit());
         couponsPage.couponAmountTextField.sendKeys(couponAmount);
+        WaitUtils.waitFor(3);
 
         //Enter expiry date
         // Generate a random date within the specified range

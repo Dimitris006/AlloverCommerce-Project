@@ -64,13 +64,16 @@ public class US18_TC05 {
         Faker faker = new Faker();
         String couponCode = faker.code().ean8();
         couponsPage.codeTextField.sendKeys(couponCode);
+        WaitUtils.waitFor(3);
 
         //Enter description into Description field
         couponsPage.descriptionTextField.sendKeys("This is description text for the coupon");
+        WaitUtils.waitFor(3);
 
         //Enter coupon amount
         String couponAmount = String.valueOf(faker.number().randomDigit());
         couponsPage.couponAmountTextField.sendKeys(couponAmount);
+        WaitUtils.waitFor(3);
 
         //Click on SUBMIT
         JSUtils.scrollIntoViewJS(couponsPage.couponSubmitButton);
